@@ -124,7 +124,7 @@ trait HasAssets
         }
 
         if (!$css = static::getMinifiedCss()) {
-            $css = array_merge(static::$css, static::baseCss());
+            $css = array_merge(static::baseCss(), static::$css);
         }
 
         $css = array_merge($css, static::$minifyIgnoresCss); // add minified ignored files

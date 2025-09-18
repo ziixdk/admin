@@ -427,4 +427,15 @@ class Admin
 
         return '<script>var admin_lang_arr = '.$lang_array.'</script>';
     }
+    /*
+     * Disable Pjax for current Request
+     *
+     * @return void
+     */
+    public function disablePjax()
+    {
+        if (request()->pjax()) {
+            request()->headers->set('X-PJAX', false);
+        }
+    }
 }

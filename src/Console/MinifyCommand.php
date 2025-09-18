@@ -123,7 +123,7 @@ class MinifyCommand extends Command
 
     protected function minifyJS()
     {
-        $js = collect(array_merge(Admin::$js, Admin::baseJs()))
+        $js = collect(array_merge(Admin::baseJs(), Admin::$js))
             ->unique()->map(function ($js) {
                 if (url()->isValidUrl($js)) {
                     $this->assets['js'][] = $js;
