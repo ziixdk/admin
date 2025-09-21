@@ -12,14 +12,14 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": ">=8.3",
         "symfony/dom-crawler": ">=7.0",
-        "laravel/framework": "^10",
+        "laravel/framework": "^11",
+        "intervention/image": "^3.8",
         "doctrine/dbal": ">=4.0"
     },
     "require-dev": {
-        "laravel/laravel": "^10",
-        "intervention/image": ">=3.0",
+        "laravel/laravel": "^11",
         "laravel/browser-kit-testing": "^6.0"
     },
     "autoload": {
