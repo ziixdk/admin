@@ -19,7 +19,7 @@
         "doctrine/dbal": ">=4.0"
     },
     "require-dev": {
-        "laravel/laravel": "^11",
+        "laravel/laravel": ">=11",
         "laravel/browser-kit-testing": "^6.0"
     },
     "autoload": {
