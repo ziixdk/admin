@@ -120,7 +120,12 @@ class Select extends Field
             let elm = document.querySelector("{$this->getElementClassSelector()}");
             var lookupTimeout;
             elm.addEventListener('change', function(event) {
-                var query = {$this->choicesObjName()}.getValue().value;
+                var obj = {$this->choicesObjName()}.getValue();
+                if(obj instanceof Array && obj.length > 0){
+                    var query = {$this->choicesObjName()}.getValue().map((i) => { return i.value; }).join(',');    
+                }else{
+                    var query = {$this->choicesObjName()}.getValue().value;
+                }
                 var current_value = {$this->choicesObjName($field)}.getValue().value;
                 admin.ajax.post("{$url}",{query:query},function(data){
                     let found = false;
