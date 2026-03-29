@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Routing\Controller;
 use OpenAdmin\Admin\Form;
@@ -30,7 +30,7 @@ class MenuController extends Controller
                 $row->column(6, $this->treeView()->render());
 
                 $row->column(6, function (Column $column) {
-                    $form = new \OpenAdmin\Admin\Widgets\Form();
+                    $form = new \ZiiX\Admin\Widgets\Form();
                     $form->action(admin_url('auth/menu'));
 
                     $menuModel = config('admin.database.menu_model');
@@ -65,7 +65,7 @@ class MenuController extends Controller
     }
 
     /**
-     * @return \OpenAdmin\Admin\Tree
+     * @return \ZiiX\Admin\Tree
      */
     protected function treeView()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid;
+namespace ZiiX\Admin\Grid;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;

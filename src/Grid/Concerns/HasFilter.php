@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Concerns;
+namespace ZiiX\Admin\Grid\Concerns;
 
 use Closure;
 use Illuminate\Support\Collection;
@@ -11,7 +11,7 @@ trait HasFilter
     /**
      * The grid Filter.
      *
-     * @var \OpenAdmin\Admin\Grid\Filter
+     * @var \ZiiX\Admin\Grid\Filter
      */
     protected $filter;
 

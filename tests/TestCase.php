@@ -21,7 +21,7 @@ class TestCase extends BaseTestCase
 
         $app->booting(function () {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Admin', \OpenAdmin\Admin\Facades\Admin::class);
+            $loader->alias('Admin', \ZiiX\Admin\Facades\Admin::class);
         });
 
         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
@@ -66,9 +66,9 @@ class TestCase extends BaseTestCase
 
         require __DIR__.'/seeds/factory.php';
 
-//        \OpenAdmin\Admin\Admin::$css = [];
-//        \OpenAdmin\Admin\Admin::$js = [];
-//        \OpenAdmin\Admin\Admin::$script = [];
+//        \ZiiX\Admin\Admin::$css = [];
+//        \ZiiX\Admin\Admin::$js = [];
+//        \ZiiX\Admin\Admin::$script = [];
     }
 
     protected function tearDown(): void

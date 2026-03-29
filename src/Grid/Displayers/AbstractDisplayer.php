@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Displayers;
+namespace ZiiX\Admin\Grid\Displayers;
 
 use Illuminate\Database\Eloquent\Model;
 use OpenAdmin\Admin\Grid;

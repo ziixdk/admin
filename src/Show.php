@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;

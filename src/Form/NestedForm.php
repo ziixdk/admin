@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form;
+namespace ZiiX\Admin\Form;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -92,7 +92,7 @@ class NestedForm
     protected $original = [];
 
     /**
-     * @var \OpenAdmin\Admin\Form|\OpenAdmin\Admin\Widgets\Form
+     * @var \ZiiX\Admin\Form|\ZiiX\Admin\Widgets\Form
      */
     protected $form;
 
@@ -311,7 +311,7 @@ class NestedForm
                 $value = $field->prepare($value);
             }
 
-            if (($field instanceof \OpenAdmin\Admin\Form\Field\Hidden) || $value != $field->original() || ($this->save_null_values && $value == null)) {
+            if (($field instanceof \ZiiX\Admin\Form\Field\Hidden) || $value != $field->original() || ($this->save_null_values && $value == null)) {
                 if (is_array($columns)) {
                     foreach ($columns as $name => $column) {
                         Arr::set($prepared, $column, $value[$name]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Actions;
+namespace ZiiX\Admin\Actions;
 
 use Illuminate\Http\Request;
 use OpenAdmin\Admin\Grid\Column;

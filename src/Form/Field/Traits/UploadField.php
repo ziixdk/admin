@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;

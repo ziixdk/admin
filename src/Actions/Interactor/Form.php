@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Actions\Interactor;
+namespace ZiiX\Admin\Actions\Interactor;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;

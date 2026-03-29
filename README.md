@@ -37,13 +37,14 @@
 
 <p align="center">
     Forked from <a href="https://github.com/z-song/laravel-admin">Laravel-admin</a> Much thanks to Z-song for all the effort & great setup!
+    ReForked from <a href="https://open-admin.org">Open-admin</a> Much thanks to Sjors Broersen for all the effort & great setup!
 </p>
 
 
 Requirements
 ------------
- - PHP >= 7.3.0
- - Laravel >= 7.0.0
+ - PHP >= 8.3.0
+ - Laravel >= 11.0.0
  - Fileinfo PHP Extension
 
 Installation
@@ -54,13 +55,13 @@ Installation
 First, install laravel (7.0 / 8.0 or up), and make sure that the database connection settings are correct.
 
 ```
-composer require open-admin-org/open-admin
+composer require ziixdk/admin
 ```
 
 Then run these commands to publish assets and config：
 
 ```
-php artisan vendor:publish --provider="OpenAdmin\Admin\AdminServiceProvider"
+php artisan vendor:publish --provider="ZiiX\Admin\AdminServiceProvider"
 ```
 After run command you can find config file in `config/admin.php`, in this file you can change the install directory,db connection or table names.
 
@@ -73,7 +74,7 @@ Open `http://localhost/admin/` in browser,use username `admin` and password `adm
 
 Updating
 ------------
-Updating to a new version of open-admin may require updating assets you can publish them using:
+Updating to a new version of ziix-admin may require updating assets you can publish them using:
 ```
 php artisan vendor:publish --tag=open-admin-assets --force
 ```

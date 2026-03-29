@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Displayers;
+namespace ZiiX\Admin\Grid\Displayers;
 
 use OpenAdmin\Admin\Admin;
 use OpenAdmin\Admin\Form\Field\Traits\BelongsToRelation;

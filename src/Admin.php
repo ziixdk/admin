@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
@@ -76,7 +76,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \OpenAdmin\Admin\Grid
+     * @return \ZiiX\Admin\Grid
      *
      * @deprecated since v1.6.1
      */
@@ -89,7 +89,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \OpenAdmin\Admin\Form
+     * @return \ZiiX\Admin\Form
      *
      *  @deprecated since v1.6.1
      */
@@ -104,7 +104,7 @@ class Admin
      * @param $model
      * @param Closure|null $callable
      *
-     * @return \OpenAdmin\Admin\Tree
+     * @return \ZiiX\Admin\Tree
      */
     public function tree($model, Closure $callable = null)
     {
@@ -127,7 +127,7 @@ class Admin
     /**
      * @param Closure $callable
      *
-     * @return \OpenAdmin\Admin\Layout\Content
+     * @return \ZiiX\Admin\Layout\Content
      */
     public function content(Closure $callable = null)
     {
@@ -280,7 +280,7 @@ class Admin
     /**
      * Get navbar object.
      *
-     * @return \OpenAdmin\Admin\Widgets\Navbar
+     * @return \ZiiX\Admin\Widgets\Navbar
      */
     public function getNavbar()
     {
@@ -317,7 +317,7 @@ class Admin
 
         app('router')->group($attributes, function ($router) {
             /* @var \Illuminate\Support\Facades\Route $router */
-            $router->namespace('\OpenAdmin\Admin\Controllers')->group(function ($router) {
+            $router->namespace('\ZiiX\Admin\Controllers')->group(function ($router) {
                 /* @var \Illuminate\Routing\Router $router */
                 $router->resource('auth/users', 'UserController')->names('admin.auth.users');
                 $router->resource('auth/roles', 'RoleController')->names('admin.auth.roles');

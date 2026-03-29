@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\Arr;
@@ -206,7 +206,7 @@ class AdminServiceProvider extends ServiceProvider
     public function bladeDirectives()
     {
         Blade::directive('box', function ($title) {
-            return "<?php \$box = new \OpenAdmin\Admin\Widgets\Box({$title}, '";
+            return "<?php \$box = new \ZiiX\Admin\Widgets\Box({$title}, '";
         });
 
         Blade::directive('endbox', function ($expression) {

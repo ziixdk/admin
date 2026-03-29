@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Auth;
+namespace ZiiX\Admin\Auth;
 
 use OpenAdmin\Admin\Facades\Admin;
 use OpenAdmin\Admin\Middleware\Pjax;

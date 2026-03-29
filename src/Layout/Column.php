@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Layout;
+namespace ZiiX\Admin\Layout;
 
 use Illuminate\Contracts\Support\Renderable;
 use OpenAdmin\Admin\Grid;

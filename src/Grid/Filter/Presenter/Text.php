@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Filter\Presenter;
+namespace ZiiX\Admin\Grid\Filter\Presenter;
 
 use OpenAdmin\Admin\Admin;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
 use OpenAdmin\Admin\Admin;
 use OpenAdmin\Admin\Grid\Selectable;
@@ -264,7 +264,7 @@ JS;
     }
 
     /**
-     * @return \OpenAdmin\Admin\Grid
+     * @return \ZiiX\Admin\Grid
      */
     protected function makeGrid()
     {

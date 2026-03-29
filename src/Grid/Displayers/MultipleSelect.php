@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Displayers;
+namespace ZiiX\Admin\Grid\Displayers;
 
 use Illuminate\Support\Arr;
 use OpenAdmin\Admin\Admin;

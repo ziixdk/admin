@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
@@ -158,7 +158,7 @@ class HandleController extends Controller
         $class = str_replace('_', '\\', $class);
 
         if (class_exists($class)) {
-            /** @var \OpenAdmin\Admin\Grid\Selectable $selectable */
+            /** @var \ZiiX\Admin\Grid\Selectable $selectable */
             $selectable = new $class(...array_values($args));
 
             return $selectable->render();

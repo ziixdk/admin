@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Console;
+namespace ZiiX\Admin\Console;
 
 use Illuminate\Console\Command;
 use OpenAdmin\Admin\Facades\Admin;

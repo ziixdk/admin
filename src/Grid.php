@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -42,7 +42,7 @@ class Grid
     /**
      * The grid data model instance.
      *
-     * @var \OpenAdmin\Admin\Grid\Model|\Illuminate\Database\Eloquent\Builder
+     * @var \ZiiX\Admin\Grid\Model|\Illuminate\Database\Eloquent\Builder
      */
     protected $model;
 

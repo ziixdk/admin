@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;

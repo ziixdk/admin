@@ -388,7 +388,7 @@ return [
     | The global Grid action display class. (Actions::class, DropdownActions:class or ContextMenuActions::class)
     |--------------------------------------------------------------------------
     */
-    'grid_action_class' => \OpenAdmin\Admin\Grid\Displayers\Actions\Actions::class,
+    'grid_action_class' => \ZiiX\Admin\Grid\Displayers\Actions\Actions::class,
 
     /*
     |--------------------------------------------------------------------------

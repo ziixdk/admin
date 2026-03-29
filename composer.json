@@ -1,14 +1,18 @@
 {
     "name": "ziixdk/admin",
-    "description": "open-admin. Open-source Laravel Admin panel. No pro or paid package, free & open. Based on laravel-admin, with special thanks to z-song",
+    "description": "open-admin. Open-source Laravel Admin panel. No pro or paid package, free & open. Based on laravel-admin, with special thanks to z-song and open-admin to Sjors Broersen",
     "type": "library",
     "keywords": ["laravel", "admin", "grid", "form", "open-admin","open","free"],
-    "homepage": "https://github.com/open-admin-org/open-admin",
+    "homepage": "https://github.com/ziixdk/admin",
     "license": "MIT",
     "authors": [
         {
             "name": "Sjors Broersen | Open-Admin.org",
             "email": "info@open-admin.org"
+        },
+        {
+            "name": "Rasmus Hurup | ziix.dk",
+            "email": "info@ziix.dk"
         }
     ],
     "require": {
@@ -24,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenAdmin\\Admin\\": "src/"
+            "ZiiX\\Admin\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -50,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OpenAdmin\\Admin\\AdminServiceProvider"
+                "ZiiX\\Admin\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "OpenAdmin\\Admin\\Facades\\Admin"
+                "Admin": "ZiiX\\Admin\\Facades\\Admin"
             }
         }
     },

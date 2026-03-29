@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
 use Illuminate\Database\Eloquent\Relations\MorphMany;

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Column;
+namespace ZiiX\Admin\Grid\Column;
 
 use OpenAdmin\Admin\Admin;
 use OpenAdmin\Admin\Grid\Model;

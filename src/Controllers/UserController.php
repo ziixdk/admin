@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use OpenAdmin\Admin\Form;

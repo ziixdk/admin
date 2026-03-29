@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid;
+namespace ZiiX\Admin\Grid;
 
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Grid\Exporters\CsvExporter;

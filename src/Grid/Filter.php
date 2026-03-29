@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid;
+namespace ZiiX\Admin\Grid;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;

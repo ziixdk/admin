@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Tree;
+namespace ZiiX\Admin\Tree;
 
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;

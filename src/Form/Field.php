@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form;
+namespace ZiiX\Admin\Form;
 
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
@@ -1604,7 +1604,7 @@ class Field implements Renderable
     /**
      * @param \Closure $callback
      *
-     * @return \OpenAdmin\Admin\Form\Field
+     * @return \ZiiX\Admin\Form\Field
      */
     public function with(Closure $callback): self
     {

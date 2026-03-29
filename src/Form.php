@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
@@ -1379,7 +1379,7 @@ class Form implements Renderable
      *
      * @param Closure $callback
      *
-     * @return \OpenAdmin\Admin\Form\Footer
+     * @return \ZiiX\Admin\Form\Footer
      */
     public function footer(Closure $callback = null)
     {

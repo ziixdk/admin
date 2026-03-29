@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Concerns;
+namespace ZiiX\Admin\Grid\Concerns;
 
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Grid\Exporter;

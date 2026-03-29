@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Concerns;
+namespace ZiiX\Admin\Form\Concerns;
 
 use OpenAdmin\Admin\Form\Field;
 

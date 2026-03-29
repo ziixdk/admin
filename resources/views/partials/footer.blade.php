@@ -9,7 +9,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         @if(config('admin.show_version'))
-        <strong>Version</strong>&nbsp;&nbsp; {!! \OpenAdmin\Admin\Admin::VERSION !!}
+        <strong>Version</strong>&nbsp;&nbsp; {!! \ZiiX\Admin\Admin::VERSION !!}
         @endif
 
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Support\Arr;
 use OpenAdmin\Admin\Admin;

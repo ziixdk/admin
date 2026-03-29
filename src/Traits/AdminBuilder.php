@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Traits;
+namespace ZiiX\Admin\Traits;
 
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;

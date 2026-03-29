@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Tools;
+namespace ZiiX\Admin\Grid\Tools;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Arr;

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Exporters;
+namespace ZiiX\Admin\Grid\Exporters;
 
 use OpenAdmin\Admin\Grid\Column;
 

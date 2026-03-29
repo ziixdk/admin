@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Layout;
+namespace ZiiX\Admin\Layout;
 
 use Closure;
 use Illuminate\Contracts\Support\Renderable;

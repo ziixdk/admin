@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Tools;
+namespace ZiiX\Admin\Grid\Tools;
 
 use Illuminate\Contracts\Support\Renderable;
 use OpenAdmin\Admin\Grid;

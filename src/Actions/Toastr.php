@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Actions;
+namespace ZiiX\Admin\Actions;
 
 use Illuminate\Support\Arr;
 

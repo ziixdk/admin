@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;

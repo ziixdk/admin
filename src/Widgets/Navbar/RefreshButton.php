@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Widgets\Navbar;
+namespace ZiiX\Admin\Widgets\Navbar;
 
 use Illuminate\Contracts\Support\Renderable;
 use OpenAdmin\Admin\Admin;

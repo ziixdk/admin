@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Displayers\Actions;
+namespace ZiiX\Admin\Grid\Displayers\Actions;
 
 use OpenAdmin\Admin\Actions\RowAction;
 use OpenAdmin\Admin\Admin;

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Show;
+namespace ZiiX\Admin\Show;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;

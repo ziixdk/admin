@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 use  OpenAdmin\Admin\Form\Field\Traits\HasNumberModifiers;
 
