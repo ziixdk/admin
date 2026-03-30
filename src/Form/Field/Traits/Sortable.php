@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 trait Sortable
 {

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
-use OpenAdmin\Admin\Traits\DefaultDatetimeFormat;
+use ZiiX\Admin\Traits\DefaultDatetimeFormat;
 
 /**
  * Class Administrator.

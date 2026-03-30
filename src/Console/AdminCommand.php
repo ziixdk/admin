@@ -5,7 +5,7 @@ namespace ZiiX\Admin\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class AdminCommand extends Command
 {

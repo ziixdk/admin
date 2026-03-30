@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Grid\Tools;
 
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Grid;
 
 class ColumnSelector extends AbstractTool
 {

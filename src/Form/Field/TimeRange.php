@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 class TimeRange extends Field
 {

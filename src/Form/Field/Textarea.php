@@ -2,9 +2,9 @@
 
 namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\Traits\HasValuePicker;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\Traits\HasValuePicker;
 
 class Textarea extends Field
 {

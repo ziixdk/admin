@@ -4,8 +4,8 @@ namespace ZiiX\Admin\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Auth\Permission as Checker;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Auth\Permission as Checker;
+use ZiiX\Admin\Facades\Admin;
 
 class Permission
 {

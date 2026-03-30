@@ -6,7 +6,7 @@
 namespace ZiiX\Admin\Form\Layout;
 
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Form;
 
 class Layout
 {

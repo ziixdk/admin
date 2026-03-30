@@ -2,8 +2,8 @@
 
 namespace ZiiX\Admin\Grid\Concerns;
 
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Grid\Tools\Selector;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Grid\Tools\Selector;
 
 /**
  * @mixin Grid

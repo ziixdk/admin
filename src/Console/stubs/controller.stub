@@ -3,10 +3,10 @@
 namespace DummyNamespace;
 
 use DummyModelNamespace;
-use OpenAdmin\Admin\Controllers\AdminController;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Show;
+use ZiiX\Admin\Controllers\AdminController;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Show;
 
 class DummyClass extends AdminController
 {

@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Auth\Database\OperationLog;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Auth\Database\OperationLog;
+use ZiiX\Admin\Grid;
 
 class LogController extends AdminController
 {

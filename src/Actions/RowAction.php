@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Actions;
 
 use Illuminate\Http\Request;
-use OpenAdmin\Admin\Grid\Column;
+use ZiiX\Admin\Grid\Column;
 
 abstract class RowAction extends GridAction
 {

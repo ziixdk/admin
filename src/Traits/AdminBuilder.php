@@ -2,9 +2,9 @@
 
 namespace ZiiX\Admin\Traits;
 
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Tree;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Tree;
 
 /**
  * @deprecated

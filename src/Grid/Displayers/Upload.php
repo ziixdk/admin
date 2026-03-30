@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Displayers;
 
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class Upload extends AbstractDisplayer
 {

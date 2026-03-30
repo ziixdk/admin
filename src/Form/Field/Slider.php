@@ -2,8 +2,8 @@
 
 namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\Traits\HasNumberModifiers;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\Traits\HasNumberModifiers;
 
 class Slider extends Field
 {

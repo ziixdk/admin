@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Tools;
 
-use OpenAdmin\Admin\Actions\BatchAction;
+use ZiiX\Admin\Actions\BatchAction;
 
 class BatchDelete extends BatchAction
 {

@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Filter\Layout;
 
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Grid\Filter\AbstractFilter;
+use ZiiX\Admin\Grid\Filter\AbstractFilter;
 
 class Column
 {

@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Displayers;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class Select extends AbstractDisplayer
 {

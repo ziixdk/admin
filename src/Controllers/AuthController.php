@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use OpenAdmin\Admin\Facades\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Layout\Content;
+use ZiiX\Admin\Facades\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Layout\Content;
 
 class AuthController extends Controller
 {

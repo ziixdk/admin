@@ -5,7 +5,7 @@ namespace ZiiX\Admin\Grid\Tools;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Grid\Column;
+use ZiiX\Admin\Grid\Column;
 
 class TotalRow extends AbstractTool
 {

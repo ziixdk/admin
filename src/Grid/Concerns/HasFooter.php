@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Concerns;
 
 use Closure;
-use OpenAdmin\Admin\Grid\Tools\Footer;
+use ZiiX\Admin\Grid\Tools\Footer;
 
 trait HasFooter
 {

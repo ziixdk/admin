@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Filter\Presenter;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class DateTime extends Presenter
 {

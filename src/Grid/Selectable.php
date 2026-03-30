@@ -4,9 +4,9 @@ namespace ZiiX\Admin\Grid;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Grid\Selectable\Checkbox;
-use OpenAdmin\Admin\Grid\Selectable\Radio;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Grid\Selectable\Checkbox;
+use ZiiX\Admin\Grid\Selectable\Radio;
 
 /**
  * @mixin Grid

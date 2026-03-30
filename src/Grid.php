@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Relations;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
-use OpenAdmin\Admin\Exception\Handler;
-use OpenAdmin\Admin\Grid\Column;
-use OpenAdmin\Admin\Grid\Concerns;
-use OpenAdmin\Admin\Grid\Displayers;
-use OpenAdmin\Admin\Grid\Model;
-use OpenAdmin\Admin\Grid\Row;
-use OpenAdmin\Admin\Grid\Tools;
-use OpenAdmin\Admin\Traits\ShouldSnakeAttributes;
+use ZiiX\Admin\Exception\Handler;
+use ZiiX\Admin\Grid\Column;
+use ZiiX\Admin\Grid\Concerns;
+use ZiiX\Admin\Grid\Displayers;
+use ZiiX\Admin\Grid\Model;
+use ZiiX\Admin\Grid\Row;
+use ZiiX\Admin\Grid\Tools;
+use ZiiX\Admin\Traits\ShouldSnakeAttributes;
 
 class Grid
 {

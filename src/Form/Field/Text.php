@@ -2,9 +2,9 @@
 
 namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\Traits\HasValuePicker;
-use OpenAdmin\Admin\Form\Field\Traits\PlainInput;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\Traits\HasValuePicker;
+use ZiiX\Admin\Form\Field\Traits\PlainInput;
 
 class Text extends Field
 {

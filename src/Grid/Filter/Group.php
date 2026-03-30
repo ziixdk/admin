@@ -4,7 +4,7 @@ namespace ZiiX\Admin\Grid\Filter;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class Group extends AbstractFilter
 {

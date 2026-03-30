@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Form\Field\Traits;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
 
 /**
  * @property Form $form

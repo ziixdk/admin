@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Traits\DefaultDatetimeFormat;
+use ZiiX\Admin\Traits\DefaultDatetimeFormat;
 
 class Permission extends Model
 {

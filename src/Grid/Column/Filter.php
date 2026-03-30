@@ -4,8 +4,8 @@ namespace ZiiX\Admin\Grid\Column;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Grid\Column;
-use OpenAdmin\Admin\Grid\Model;
+use ZiiX\Admin\Grid\Column;
+use ZiiX\Admin\Grid\Model;
 
 class Filter implements Renderable
 {

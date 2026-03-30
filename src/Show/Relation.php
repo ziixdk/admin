@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Show;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Show;
 
 class Relation extends Field
 {

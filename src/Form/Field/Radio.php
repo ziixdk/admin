@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Form\Field;
 
 use Illuminate\Contracts\Support\Arrayable;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\Traits\CanCascadeFields;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\Traits\CanCascadeFields;
 
 class Radio extends Field
 {

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use OpenAdmin\Admin\Auth\Database\Permission;
+use ZiiX\Admin\Auth\Database\Permission;
 
 abstract class Extension
 {

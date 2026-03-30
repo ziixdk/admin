@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Grid\Tools;
 
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Actions\BatchAction;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Actions\BatchAction;
+use ZiiX\Admin\Admin;
 
 class BatchActions extends AbstractTool
 {

@@ -5,8 +5,8 @@ namespace ZiiX\Admin\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use MatthiasMullie\Minify;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Facades\Admin as AdminFacade;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Facades\Admin as AdminFacade;
 
 class MinifyCommand extends Command
 {

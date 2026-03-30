@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Displayers;
 
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 /**
  * Class Copyable.

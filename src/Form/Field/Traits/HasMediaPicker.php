@@ -2,8 +2,8 @@
 
 namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form\Field;
 
 /**
  * @mixin Field

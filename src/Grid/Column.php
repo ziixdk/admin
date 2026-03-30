@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Actions\RowAction;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Grid\Displayers\AbstractDisplayer;
+use ZiiX\Admin\Actions\RowAction;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Grid\Displayers\AbstractDisplayer;
 
 class Column
 {

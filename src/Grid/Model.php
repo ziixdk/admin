@@ -12,8 +12,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Middleware\Pjax;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Middleware\Pjax;
 
 class Model
 {

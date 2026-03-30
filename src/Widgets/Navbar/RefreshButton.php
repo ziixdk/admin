@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Widgets\Navbar;
 
 use Illuminate\Contracts\Support\Renderable;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class RefreshButton implements Renderable
 {

@@ -15,11 +15,11 @@ use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Show\Divider;
-use OpenAdmin\Admin\Show\Field;
-use OpenAdmin\Admin\Show\Panel;
-use OpenAdmin\Admin\Show\Relation;
-use OpenAdmin\Admin\Traits\ShouldSnakeAttributes;
+use ZiiX\Admin\Show\Divider;
+use ZiiX\Admin\Show\Field;
+use ZiiX\Admin\Show\Panel;
+use ZiiX\Admin\Show\Relation;
+use ZiiX\Admin\Traits\ShouldSnakeAttributes;
 
 class Show implements Renderable
 {

@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator;
-use OpenAdmin\Admin\Actions\RowAction;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form as ModalForm;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Actions\RowAction;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form as ModalForm;
+use ZiiX\Admin\Form\Field;
 use Symfony\Component\DomCrawler\Crawler;
 
 class Form extends Interactor

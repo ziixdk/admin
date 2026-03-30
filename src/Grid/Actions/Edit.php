@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Actions;
 
-use OpenAdmin\Admin\Actions\RowAction;
+use ZiiX\Admin\Actions\RowAction;
 
 class Edit extends RowAction
 {

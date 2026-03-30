@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
 use Illuminate\Validation\Validator;
-use OpenAdmin\Admin\Facades\Admin;
-use OpenAdmin\Admin\Form as BaseForm;
-use OpenAdmin\Admin\Form\Concerns\HasFormAttributes;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Layout\Content;
+use ZiiX\Admin\Facades\Admin;
+use ZiiX\Admin\Form as BaseForm;
+use ZiiX\Admin\Form\Concerns\HasFormAttributes;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Layout\Content;
 
 /**
  * Class Form.

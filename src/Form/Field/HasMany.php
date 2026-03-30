@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\Traits\Sortable;
-use OpenAdmin\Admin\Form\NestedForm;
-use OpenAdmin\Admin\Widgets\Form as WidgetForm;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\Traits\Sortable;
+use ZiiX\Admin\Form\NestedForm;
+use ZiiX\Admin\Widgets\Form as WidgetForm;
 
 /**
  * Class HasMany.

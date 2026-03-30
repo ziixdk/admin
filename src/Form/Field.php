@@ -8,9 +8,9 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Widgets\Form as WidgetForm;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Widgets\Form as WidgetForm;
 
 /**
  * Class Field.

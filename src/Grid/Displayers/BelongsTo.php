@@ -2,9 +2,9 @@
 
 namespace ZiiX\Admin\Grid\Displayers;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form\Field\Traits\BelongsToRelation;
-use OpenAdmin\Admin\Grid\Selectable;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form\Field\Traits\BelongsToRelation;
+use ZiiX\Admin\Grid\Selectable;
 
 class BelongsTo extends AbstractDisplayer
 {

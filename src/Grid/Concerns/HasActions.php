@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Concerns;
 
 use Closure;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Grid;
 
 trait HasActions
 {

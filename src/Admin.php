@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use InvalidArgumentException;
-use OpenAdmin\Admin\Auth\Database\Menu;
-use OpenAdmin\Admin\Controllers\AuthController;
-use OpenAdmin\Admin\Layout\Content;
-use OpenAdmin\Admin\Traits\HasAssets;
-use OpenAdmin\Admin\Widgets\Navbar;
+use ZiiX\Admin\Auth\Database\Menu;
+use ZiiX\Admin\Controllers\AuthController;
+use ZiiX\Admin\Layout\Content;
+use ZiiX\Admin\Traits\HasAssets;
+use ZiiX\Admin\Widgets\Navbar;
 
 /**
  * Class Admin.

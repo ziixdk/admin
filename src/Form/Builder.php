@@ -6,9 +6,9 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Form\Field\Hidden;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Form\Field\Hidden;
 
 /**
  * Class Builder.

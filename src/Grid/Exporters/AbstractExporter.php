@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Exporters;
 
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Grid;
 
 abstract class AbstractExporter implements ExporterInterface
 {

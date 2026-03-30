@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Renderable;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Grid\Simple;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Grid\Simple;
 
 class Expand extends AbstractDisplayer
 {

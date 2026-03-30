@@ -2,8 +2,8 @@
 
 namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Grid\Selectable;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Grid\Selectable;
 
 trait BelongsToRelation
 {

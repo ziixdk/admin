@@ -5,7 +5,7 @@ namespace ZiiX\Admin\Layout;
 use Closure;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Content implements Renderable
 {

@@ -5,7 +5,7 @@ namespace ZiiX\Admin\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 class Tags extends Select
 {

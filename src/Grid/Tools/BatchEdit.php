@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Tools;
 
 use Illuminate\Support\Facades\URL;
-use OpenAdmin\Admin\Actions\BatchAction;
+use ZiiX\Admin\Actions\BatchAction;
 
 class BatchEdit extends BatchAction
 {

@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Filter;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class Between extends AbstractFilter
 {

@@ -4,7 +4,7 @@ namespace ZiiX\Admin\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Storage;
-use OpenAdmin\Admin\Widgets\Carousel as CarouselWidget;
+use ZiiX\Admin\Widgets\Carousel as CarouselWidget;
 
 class Carousel extends AbstractDisplayer
 {

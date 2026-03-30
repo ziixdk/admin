@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Form;
 
 class Captcha extends Text
 {

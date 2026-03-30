@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Form;
 
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Form;
 
 class Tab
 {

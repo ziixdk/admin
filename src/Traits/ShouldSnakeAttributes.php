@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Traits;
 
-use OpenAdmin\Admin\Grid\Model as GridModel;
+use ZiiX\Admin\Grid\Model as GridModel;
 
 trait ShouldSnakeAttributes
 {

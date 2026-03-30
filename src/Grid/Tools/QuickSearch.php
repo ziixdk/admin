@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Tools;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Grid\Concerns\HasQuickSearch;
+use ZiiX\Admin\Grid\Concerns\HasQuickSearch;
 
 class QuickSearch extends AbstractTool
 {

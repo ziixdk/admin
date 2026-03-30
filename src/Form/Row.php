@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Form;
 
 use Illuminate\Contracts\Support\Renderable;
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Form;
 
 class Row implements Renderable
 {

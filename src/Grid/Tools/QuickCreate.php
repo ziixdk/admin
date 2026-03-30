@@ -5,10 +5,10 @@ namespace ZiiX\Admin\Grid\Tools;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Grid;
 
 class QuickCreate implements Renderable
 {

@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Filter\Presenter;
 
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class Text extends Presenter
 {

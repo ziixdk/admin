@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class RadioCard extends RadioButton
 {

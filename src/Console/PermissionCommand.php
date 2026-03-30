@@ -5,7 +5,7 @@ namespace ZiiX\Admin\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Auth\Database\Permission;
+use ZiiX\Admin\Auth\Database\Permission;
 
 class PermissionCommand extends Command
 {

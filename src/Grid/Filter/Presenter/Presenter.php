@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Filter\Presenter;
 
-use OpenAdmin\Admin\Grid\Filter\AbstractFilter;
+use ZiiX\Admin\Grid\Filter\AbstractFilter;
 
 abstract class Presenter
 {

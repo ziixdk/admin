@@ -2,9 +2,9 @@
 
 namespace ZiiX\Admin\Controllers;
 
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Show;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Show;
 
 class RoleController extends AdminController
 {

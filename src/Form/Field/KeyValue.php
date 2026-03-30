@@ -3,8 +3,8 @@
 namespace ZiiX\Admin\Form\Field;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\Traits\Sortable;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\Traits\Sortable;
 
 class KeyValue extends Field
 {

@@ -4,7 +4,7 @@ namespace ZiiX\Admin\Grid\Concerns;
 
 use Closure;
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Grid\Filter;
+use ZiiX\Admin\Grid\Filter;
 
 trait HasFilter
 {

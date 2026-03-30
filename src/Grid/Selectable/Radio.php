@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Selectable;
 
-use OpenAdmin\Admin\Grid\Displayers\AbstractDisplayer;
+use ZiiX\Admin\Grid\Displayers\AbstractDisplayer;
 
 class Radio extends AbstractDisplayer
 {

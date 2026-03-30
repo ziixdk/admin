@@ -4,7 +4,7 @@ namespace ZiiX\Admin\Actions;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Grid;
 
 /**
  * Class GridAction.

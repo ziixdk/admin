@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Form\Concerns;
 
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 trait HandleCascadeFields
 {

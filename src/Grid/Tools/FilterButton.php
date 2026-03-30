@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Tools;
 
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 class FilterButton extends AbstractTool
 {

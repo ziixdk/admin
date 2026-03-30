@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Middleware;
 
 use Closure;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Authenticate
 {

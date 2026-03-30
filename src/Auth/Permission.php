@@ -2,8 +2,8 @@
 
 namespace ZiiX\Admin\Auth;
 
-use OpenAdmin\Admin\Facades\Admin;
-use OpenAdmin\Admin\Middleware\Pjax;
+use ZiiX\Admin\Facades\Admin;
+use ZiiX\Admin\Middleware\Pjax;
 
 class Permission
 {

@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Form\Concerns;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 /**
  * @method Field\Text           text($column, $label = '')

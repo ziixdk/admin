@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Column;
 
-use OpenAdmin\Admin\Grid\Displayers;
+use ZiiX\Admin\Grid\Displayers;
 
 trait InlineEditing
 {

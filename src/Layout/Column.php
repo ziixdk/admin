@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Layout;
 
 use Illuminate\Contracts\Support\Renderable;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Grid;
 
 class Column implements Buildable
 {

@@ -4,9 +4,9 @@ namespace ZiiX\Admin\Grid\Column;
 
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Grid\Column;
-use OpenAdmin\Admin\Grid\Displayers;
-use OpenAdmin\Admin\Grid\Model;
+use ZiiX\Admin\Grid\Column;
+use ZiiX\Admin\Grid\Displayers;
+use ZiiX\Admin\Grid\Model;
 
 /**
  * Trait ExtendDisplay.

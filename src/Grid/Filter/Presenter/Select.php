@@ -5,7 +5,7 @@ namespace ZiiX\Admin\Grid\Filter\Presenter;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Select extends Presenter
 {

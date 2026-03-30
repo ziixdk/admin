@@ -3,7 +3,7 @@
 namespace ZiiX\Admin\Grid\Filter\Presenter;
 
 use Illuminate\Contracts\Support\Arrayable;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Radio extends Presenter
 {

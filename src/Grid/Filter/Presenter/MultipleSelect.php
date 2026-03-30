@@ -2,7 +2,7 @@
 
 namespace ZiiX\Admin\Grid\Filter\Presenter;
 
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class MultipleSelect extends Select
 {
