@@ -42,7 +42,7 @@ trait HasAssets
     /**
      * @var string
      */
-    public static $manifest = 'vendor/open-admin/minify-manifest.json';
+    public static $manifest = 'vendor/ziix-admin/minify-manifest.json';
 
     /**
      * @var array
@@ -53,8 +53,8 @@ trait HasAssets
      * @var array
      */
     public static $min = [
-        'js'  => 'vendor/open-admin/open-admin.min.js',
-        'css' => 'vendor/open-admin/open-admin.min.css',
+        'js'  => 'vendor/ziix-admin/ziix-admin.min.js',
+        'css' => 'vendor/ziix-admin/ziix-admin.min.css',
     ];
 
     /**
@@ -62,42 +62,42 @@ trait HasAssets
      */
     public static $baseCss = [
         // first libraries
-        'vendor/open-admin/nprogress/nprogress.css',
-        'vendor/open-admin/sweetalert2/sweetalert2.min.css',
-        'vendor/open-admin/toastify-js/toastify.css',
-        'vendor/open-admin/flatpickr/flatpicker-custom.css',
-        'vendor/open-admin/choicesjs/styles/choices.min.css',
-        'vendor/open-admin/sortablejs/nestable.css',
+        'vendor/ziix-admin/nprogress/nprogress.css',
+        'vendor/ziix-admin/sweetalert2/sweetalert2.min.css',
+        'vendor/ziix-admin/toastify-js/toastify.css',
+        'vendor/ziix-admin/flatpickr/flatpicker-custom.css',
+        'vendor/ziix-admin/choicesjs/styles/choices.min.css',
+        'vendor/ziix-admin/sortablejs/nestable.css',
 
         // custom open admin stuff
         // generated through sass
-        'vendor/open-admin/open-admin/css/styles.css',
+        'vendor/ziix-admin/ziix-admin/css/styles.css',
     ];
 
     /**
      * @var array
      */
     public static $baseJs = [
-        'vendor/open-admin/bootstrap5/bootstrap.bundle.min.js',
-        'vendor/open-admin/nprogress/nprogress.js',
-        'vendor/open-admin/axios/axios.min.js',
-        'vendor/open-admin/sweetalert2/sweetalert2.min.js',
-        'vendor/open-admin/toastify-js/toastify.js',
-        'vendor/open-admin/flatpickr/flatpickr.min.js',
-        'vendor/open-admin/choicesjs/scripts/choices.min.js',
-        'vendor/open-admin/sortablejs/Sortable.min.js',
+        'vendor/ziix-admin/bootstrap5/bootstrap.bundle.min.js',
+        'vendor/ziix-admin/nprogress/nprogress.js',
+        'vendor/ziix-admin/axios/axios.min.js',
+        'vendor/ziix-admin/sweetalert2/sweetalert2.min.js',
+        'vendor/ziix-admin/toastify-js/toastify.js',
+        'vendor/ziix-admin/flatpickr/flatpickr.min.js',
+        'vendor/ziix-admin/choicesjs/scripts/choices.min.js',
+        'vendor/ziix-admin/sortablejs/Sortable.min.js',
 
-        'vendor/open-admin/open-admin/js/polyfills.js',
-        'vendor/open-admin/open-admin/js/helpers.js',
-        'vendor/open-admin/open-admin/js/open-admin.js',
-        'vendor/open-admin/open-admin/js/open-admin-actions.js',
-        'vendor/open-admin/open-admin/js/open-admin-grid.js',
-        'vendor/open-admin/open-admin/js/open-admin-grid-inline-edit.js',
-        'vendor/open-admin/open-admin/js/open-admin-form.js',
-        'vendor/open-admin/open-admin/js/open-admin-toastr.js',
-        'vendor/open-admin/open-admin/js/open-admin-resource.js',
-        'vendor/open-admin/open-admin/js/open-admin-tree.js',
-        'vendor/open-admin/open-admin/js/open-admin-selectable.js',
+        'vendor/ziix-admin/ziix-admin/js/polyfills.js',
+        'vendor/ziix-admin/ziix-admin/js/helpers.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-actions.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-grid.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-grid-inline-edit.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-form.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-toastr.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-resource.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-tree.js',
+        'vendor/ziix-admin/ziix-admin/js/ziix-admin-selectable.js',
 
     ];
 
@@ -148,7 +148,7 @@ trait HasAssets
         }
 
         $skin = config('admin.skin', 'skin-blue-light');
-        //array_unshift(static::$baseCss, "vendor/open-admin/AdminLTE/dist/css/skins/{$skin}.min.css");
+        //array_unshift(static::$baseCss, "vendor/ziix-admin/AdminLTE/dist/css/skins/{$skin}.min.css");
 
         return static::$baseCss;
     }
