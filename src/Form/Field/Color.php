@@ -5,11 +5,11 @@ namespace ZiiX\Admin\Form\Field;
 class Color extends Text
 {
     protected static $css = [
-        '/vendor/open-admin/coloris/coloris.min.css',
+        '/vendor/ziix-admin/coloris/coloris.min.css',
     ];
 
     protected static $js = [
-        '/vendor/open-admin/coloris/coloris.min.js',
+        '/vendor/ziix-admin/coloris/coloris.min.js',
     ];
 
     /**

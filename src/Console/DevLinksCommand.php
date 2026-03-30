@@ -20,7 +20,7 @@ class DevLinksCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Creates a symbolic link from the open-admin/resources/assets dir to public/vendor/open-admin for ease of development';
+    protected $description = 'Creates a symbolic link from the ziix-admin/resources/assets dir to public/vendor/ziix-admin for ease of development';
 
     /**
      * Execute the console command.
@@ -60,10 +60,10 @@ class DevLinksCommand extends Command
      */
     protected function links()
     {
-        $reflector = new ReflectionClass("\ZiiX\Admin\Admin");
+        $reflector = new ReflectionClass("\ZiiX\Admin");
         $dir = str_replace('src/Admin.php', '', $reflector->getFileName()).'resources/assets/';
 
-        return [public_path('vendor/open-admin') => $dir];
+        return [public_path('vendor/ziix-admin') => $dir];
     }
 
     /**

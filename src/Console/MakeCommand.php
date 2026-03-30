@@ -125,7 +125,7 @@ class MakeCommand extends GeneratorCommand
      */
     protected function output($modelName)
     {
-        $this->alert("open-admin controller code for model [{$modelName}]");
+        $this->alert("ziix-admin controller code for model [{$modelName}]");
 
         $this->info($this->generator->generateGrid());
         $this->info($this->generator->generateShow());
