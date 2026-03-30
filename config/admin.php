@@ -4,29 +4,29 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin name
+    | ZiiX-admin name
     |--------------------------------------------------------------------------
     |
-    | This value is the name of Open-admin, This setting is displayed on the
+    | This value is the name of ZiiX-admin, This setting is displayed on the
     | login page.
     |
     */
-    'name' => 'Open Admin',
+    'name' => 'ZiiX Admin',
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin logo
+    | ZiiX-admin logo
     |--------------------------------------------------------------------------
     |
     | The logo of all admin pages. You can also set it as an image by using a
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Open</b> Admin',
+    'logo' => '<b>ZiiX</b> Admin',
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin mini logo
+    | ZiiX-admin mini logo
     |--------------------------------------------------------------------------
     |
     | The logo of all admin pages when the sidebar menu is collapsed. You can
@@ -38,17 +38,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin bootstrap setting
+    | ZiiX-admin bootstrap setting
     |--------------------------------------------------------------------------
     |
-    | This value is the path of open-admin bootstrap file.
+    | This value is the path of ZiiX-admin bootstrap file.
     |
     */
     'bootstrap' => app_path('Admin/bootstrap.php'),
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin route settings
+    | ZiiX-admin route settings
     |--------------------------------------------------------------------------
     |
     | The routing configuration of the admin page, including the path prefix,
@@ -67,7 +67,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin install directory
+    | ZiiX-admin install directory
     |--------------------------------------------------------------------------
     |
     | The installation directory of the controller and routing configuration
@@ -79,7 +79,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin html title
+    | ZiiX-admin html title
     |--------------------------------------------------------------------------
     |
     | Html title for all pages.
@@ -99,7 +99,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin auth setting
+    | ZiiX-admin auth setting
     |--------------------------------------------------------------------------
     |
     | Authentication settings for all admin pages. Include an authentication
@@ -148,7 +148,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin upload setting
+    | ZiiX-admin upload setting
     |--------------------------------------------------------------------------
     |
     | File system configuration for form upload files and images, including
@@ -169,10 +169,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Open-admin database settings
+    | ZiiX-admin database settings
     |--------------------------------------------------------------------------
     |
-    | Here are database settings for open-admin builtin model & tables.
+    | Here are database settings for ZiiX-admin builtin model & tables.
     |
     */
     'database' => [
@@ -209,7 +209,7 @@ return [
     | User operation log setting
     |--------------------------------------------------------------------------
     |
-    | By setting this option to open or close operation log in open-admin.
+    | By setting this option to open or close operation log in ZiiX-admin.
     |
     */
     'operation_log' => [
@@ -263,7 +263,7 @@ return [
     | Set a default avatar for newly created users.
     |
     */
-    'default_avatar' => '/vendor/ziix-admin/open-admin/gfx/user.svg',
+    'default_avatar' => '/vendor/ziix-admin/ZiiX-admin/gfx/user.svg',
 
     /*
     |--------------------------------------------------------------------------
@@ -314,7 +314,7 @@ return [
     | Show version at footer
     |--------------------------------------------------------------------------
     |
-    | Whether to display the version number of open-admin at the footer of
+    | Whether to display the version number of ZiiX-admin at the footer of
     | each page
     |
     */
@@ -406,7 +406,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | You can find all available extensions here
-    | https://github.com/open-admin-extensions.
+    | https://github.com/ZiiX-admin-extensions.
     |
     */
     'extensions' => [
