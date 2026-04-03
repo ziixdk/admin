@@ -18,4 +18,4 @@
  *
  */
 
-OpenAdmin\Admin\Form::forget(['editor']);
+ZiiX\Admin\Form::forget(['editor']);

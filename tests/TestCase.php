@@ -26,7 +26,7 @@ class TestCase extends BaseTestCase
 
         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
-        $app->register('OpenAdmin\Admin\AdminServiceProvider');
+        $app->register('ZiiX\Admin\AdminServiceProvider');
 
         return $app;
     }
@@ -50,7 +50,7 @@ class TestCase extends BaseTestCase
             $this->app['config']->set($key, $value);
         }
 
-        $this->artisan('vendor:publish', ['--provider' => 'OpenAdmin\Admin\AdminServiceProvider']);
+        $this->artisan('vendor:publish', ['--provider' => 'ZiiX\Admin\AdminServiceProvider']);
 
         Schema::defaultStringLength(191);
 

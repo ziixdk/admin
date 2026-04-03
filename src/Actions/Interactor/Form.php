@@ -56,7 +56,7 @@ class Form extends Interactor
      */
     public function getRow()
     {
-        if ($this->extendsFrom($this->action, 'OpenAdmin\Admin\Actions\RowAction')) {
+        if ($this->extendsFrom($this->action, 'ZiiX\Admin\Actions\RowAction')) {
             return $this->action->getRow();
         }
 
@@ -65,7 +65,7 @@ class Form extends Interactor
 
     public function getKey()
     {
-        if ($this->extendsFrom($this->action, 'OpenAdmin\Admin\Actions\RowAction')) {
+        if ($this->extendsFrom($this->action, 'ZiiX\Admin\Actions\RowAction')) {
             return $this->getRow()->getKey();
         }
 
@@ -177,7 +177,7 @@ class Form extends Interactor
         if ($this->hasTrait($field, 'UploadField')) {
             $this->multipart = true;
         }
-        if ($this->extendsFrom($field, 'OpenAdmin\Admin\Form\Field\File')) {
+        if ($this->extendsFrom($field, 'ZiiX\Admin\Form\Field\File')) {
             $this->multipart = true;
         }
     }

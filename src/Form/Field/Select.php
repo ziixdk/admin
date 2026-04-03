@@ -326,10 +326,10 @@ JS;
         $class = get_class($this);
 
         return in_array($class, [
-            'OpenAdmin\Admin\Form\Field\Select',
-            'OpenAdmin\Admin\Form\Field\Tags',
-            'OpenAdmin\Admin\Form\Field\MultipleSelect',
-            'OpenAdmin\Admin\Form\Field\Timezone',
+            'ZiiX\Admin\Form\Field\Select',
+            'ZiiX\Admin\Form\Field\Tags',
+            'ZiiX\Admin\Form\Field\MultipleSelect',
+            'ZiiX\Admin\Form\Field\Timezone',
         ]);
     }
 
