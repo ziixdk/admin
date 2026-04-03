@@ -511,7 +511,7 @@ class Field implements Renderable
      *
      * @return $this
      */
-    public function setWidth($field = 8, $label = 2): self
+    public function setWidth($field = 10, $label = 2): self
     {
         $this->width = [
             'label' => $label,

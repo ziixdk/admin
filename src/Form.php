@@ -1175,7 +1175,7 @@ class Form implements Renderable
      *
      * @return $this
      */
-    public function setWidth($fieldWidth = 8, $labelWidth = 2): self
+    public function setWidth($fieldWidth = 10, $labelWidth = 2): self
     {
         $this->fields()->each(function ($field) use ($fieldWidth, $labelWidth) {
             /* @var Field $field  */
