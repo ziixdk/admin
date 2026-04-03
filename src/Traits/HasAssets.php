@@ -72,6 +72,7 @@ trait HasAssets
         // custom open admin stuff
         // generated through sass
         'vendor/ziix-admin/ziix-admin/css/styles.css',
+        'vendor/ziix-admin/ziix-admin/css/custom.css',
     ];
 
     /**

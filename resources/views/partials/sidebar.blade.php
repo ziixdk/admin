@@ -1,5 +1,4 @@
-<aside id="sidebar" class="menu-width sidebar bg-semi-dark">
-
+<aside id="sidebar" class="menu-width sidebar bg-white text-black">
     @if(config('admin.enable_user_panel'))
     <div class="user-panel">
         <div class="pull-left image">
