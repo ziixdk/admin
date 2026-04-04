@@ -200,6 +200,10 @@ admin.ajax = {
     },
 
     init: function () {
+
+        if(window.disablePjax){
+            return false;
+        }
         // history back
         window.onpopstate = function (event) {
             preventPopState = true;

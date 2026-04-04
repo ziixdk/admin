@@ -437,5 +437,6 @@ class Admin
         if (request()->pjax()) {
             request()->headers->set('X-PJAX', false);
         }
+        Admin::script('window.disablePjax = true;');
     }
 }
