@@ -200,6 +200,15 @@ class Builder
     }
 
     /**
+     * Get ignored fields.
+     *
+     * @return mixed
+     */
+
+    public function getIgnoredFields(){
+        return $this->form->getIgnored();
+    }
+    /**
      * Set resource Id.
      *
      * @param $id

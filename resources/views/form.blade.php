@@ -42,6 +42,7 @@
         {!! $field->render() !!}
     @endforeach
 
+    <script> var ignoredFields = @json($form->getIgnoredFields())</script>
 <!-- /.box-footer -->
     {!! $form->close() !!}
 

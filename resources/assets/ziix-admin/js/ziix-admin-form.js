@@ -6,8 +6,16 @@ admin.form = {
     id: false,
     tabs_ref: false,
     beforeSaveCallbacks: [],
+    ignoredFields: [],
+
+    removeIgnoredFields: function (formData) {
+        this.ignoredFields.forEach((name) => formData.delete(name));
+        this.ignoredFields.forEach((name) => formData.delete(name+"[]"));
+        return formData;
+    },
 
     init: function () {
+        this.ignoredFields = ignoredFields;
         this.addAjaxSubmit();
         this.footer();
         this.tabs();
@@ -50,11 +58,11 @@ admin.form = {
 
         if (admin.form.validate(form)) {
             if (method === 'post' || method === 'put') {
-                obj.data = new FormData(form);
+                obj.data = this.removeIgnoredFields(new FormData(form));
                 obj.method = method;
             } else {
                 //let data = Object.fromEntries(new FormData(form).entries()); //this doesn't get arrays, not sure why used in the first place
-                let data = new FormData(form);
+                let data = this.removeIgnoredFields(new FormData(form));
                 let searchParams = new URLSearchParams(data);
                 let query_str = searchParams.toString();
                 url += '?' + query_str;

@@ -947,6 +947,17 @@ class Form implements Renderable
     }
 
     /**
+     * get Ignore fields.
+     *
+     * @param array
+     *
+     * @return $this
+     */
+    public function getIgnored(): array
+    {
+        return $this->ignored;
+    }
+    /**
      * Ignore fields to save.
      *
      * @param string|array $fields
