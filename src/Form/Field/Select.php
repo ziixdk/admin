@@ -346,9 +346,6 @@ JS;
                 'id'   => '',
                 'text' => $this->label,
             ],
-            'classNames' => [
-                'containerOuter' => 'choices '.$this->getElementClassString(),
-            ],
         ], $this->config);
         $configs = json_encode($configs);
 
