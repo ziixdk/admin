@@ -7,7 +7,7 @@ use ZiiX\Admin\Admin;
 trait CanSelectClick
 {
     /**
-     * Double-click grid row to jump to the edit page.
+     * Select-click grid row to jump to the edit page.
      *
      * @return $this
      */
