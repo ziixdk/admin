@@ -253,6 +253,9 @@ class NestedForm
      */
     public function prepare($input)
     {
+        if(!$input){
+            $input = [];
+        }
         if (!empty($input)) {
             foreach ($input as $key => $record) {
                 $this->setFieldOriginalValue($key);
