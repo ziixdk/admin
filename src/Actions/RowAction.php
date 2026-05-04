@@ -138,7 +138,7 @@ abstract class RowAction extends GridAction
         $icon = $this->getIcon();
 
         if ($href = $this->href()) {
-            return "<a href='{$href}' class='{$linkClass}' title='{$this->name()}'>{$icon}<span class='label'>{$this->name()}</span></a>";
+            return "<a href='{$href}' target='_blank' class='{$linkClass}' title='{$this->name()}'>{$icon}<span class='label'>{$this->name()}</span></a>";
         }
 
         $this->addScript();

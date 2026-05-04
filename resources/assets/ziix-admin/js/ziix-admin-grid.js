@@ -7,24 +7,6 @@
         selected : [], // array with selected items
 
         init : function(){
-
-            let trs = document.querySelectorAll(".select-table tr");
-            trs.forEach(tr => {
-                tr.addEventListener('click', function(event) {
-
-                    if (event.target.tagName == "TD"){
-                        input = event.target.closest("tr").getElementsByClassName("row-selector")[0];
-                        if (input){
-                            id = input.dataset.id;
-                            document.querySelectorAll(".row-"+id+" .row-selector").forEach( input =>{
-                                input.checked ^= 1;
-                            } );
-                            admin.grid.check_status();
-                        }
-                    }
-                }, false);
-            });
-
           // allow dropdown to extend outside responsive table
             let table = document.querySelector('.table-responsive');
             if (table){

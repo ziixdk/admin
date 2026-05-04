@@ -34,6 +34,7 @@ class Grid
         Concerns\CanFixColumns,
         Concerns\CanExportGrid,
         Concerns\CanDoubleClick,
+        Concerns\CanSelectClick,
         ShouldSnakeAttributes,
         Macroable {
             __call as macroCall;
