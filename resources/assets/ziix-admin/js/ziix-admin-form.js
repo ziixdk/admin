@@ -15,6 +15,10 @@ admin.form = {
     },
 
     init: function () {
+        if(!window.ignoredFields){
+            window.ignoredFields = [];
+        }
+
         this.ignoredFields = ignoredFields;
         this.addAjaxSubmit();
         this.footer();
