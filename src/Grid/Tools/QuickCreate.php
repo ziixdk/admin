@@ -41,7 +41,7 @@ class QuickCreate implements Renderable
      */
     protected function addField(Field $field)
     {
-        $elementClass = array_merge(['quick-create', 'form-control-sm'], $field->getElementClass());
+        $elementClass = array_merge(['quick-create'], $field->getElementClass());
 
         $field->addElementClass($elementClass);
         $field->setInline(true);

@@ -15,16 +15,14 @@ class Orderable extends AbstractDisplayer
         Admin::script($this->script());
 
         return <<<EOT
-
-<div class="btn-group">
-    <button type="button" class="btn btn-xs btn-light {$this->grid->getGridRowName()}-orderable" data-id="{$this->getKey()}" data-direction="1">
+<div class="inline-flex flex-col gap-0.5">
+    <button type="button" class="p-1 text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded {$this->grid->getGridRowName()}-orderable" data-id="{$this->getKey()}" data-direction="1">
         <i class="icon-caret-up fa-fw"></i>
     </button>
-    <button type="button" class="btn btn-xs btn-light {$this->grid->getGridRowName()}-orderable" data-id="{$this->getKey()}" data-direction="0">
+    <button type="button" class="p-1 text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded {$this->grid->getGridRowName()}-orderable" data-id="{$this->getKey()}" data-direction="0">
         <i class="icon-caret-down fa-fw"></i>
     </button>
 </div>
-
 EOT;
     }
 

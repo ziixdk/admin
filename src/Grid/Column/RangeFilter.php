@@ -96,28 +96,28 @@ SCRIPT;
         $this->addScript();
 
         $value = array_merge(['start' => '', 'end' => ''], $this->getFilterValue([]));
-        $active = empty(array_filter($value)) ? '' : 'text-yellow';
+        $activeClass = empty(array_filter($value)) ? 'text-gray-400 hover:text-gray-600' : 'text-yellow-500 hover:text-yellow-600';
 
         return <<<EOT
-<span class="dropdown">
+<span x-data="{ open: false }" class="relative inline-block">
 <form action="{$this->getFormAction()}" pjax-container method="get" style="display: inline-block;">
-    <a href="javascript:void(0);" class="dropdown-toggle {$active}" data-bs-toggle="dropdown">
+    <a href="javascript:void(0);" class="column-filter-toggle {$activeClass}" @click.prevent="open = !open">
         <i class="icon-filter"></i>
     </a>
-    <ul class="dropdown-menu" role="menu" style="min-width:13rem; padding: 10px;box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);left: -70px;border-radius: 0;">
-        <li>
-            <input type="text" class="form-control input {$this->class['start']}" name="{$this->getColumnName()}[start]" value="{$value['start']}" autocomplete="off"/>
-        </li>
-        <li style="margin: 5px;"></li>
-        <li>
-            <input type="text" class="form-control input {$this->class['start']}" name="{$this->getColumnName()}[end]"  value="{$value['end']}" autocomplete="off"/>
-        </li>
-        <li><hr class="dropdown-divider" /></li>
-        <li class="text-right">
-            <button class="btn btn-sm btn-primary btn-flat column-filter-submit pull-left" data-loading-text="{$this->trans('search')}..."><i class="icon-search"></i>&nbsp;&nbsp;{$this->trans('search')}</button>
-            <span><a href="{$this->getFormAction()}" class="btn btn-sm btn-default btn-light column-filter-all"><i class="icon-undo"></i></a></span>
-        </li>
-    </ul>
+    <div x-show="open" @click.outside="open = false" x-transition
+         class="absolute z-20 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-3 min-w-[200px]" style="left:-70px;">
+        <input type="text" class="block w-full text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 mb-2 {$this->class['start']}" name="{$this->getColumnName()}[start]" value="{$value['start']}" autocomplete="off"/>
+        <input type="text" class="block w-full text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 mb-2 {$this->class['end']}" name="{$this->getColumnName()}[end]" value="{$value['end']}" autocomplete="off"/>
+        <hr class="my-2 border-gray-200">
+        <div class="flex justify-between gap-2">
+            <button class="column-filter-submit flex-1 px-2 py-1.5 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700">
+                <i class="icon-search"></i> {$this->trans('search')}
+            </button>
+            <a href="{$this->getFormAction()}" class="column-filter-all px-2 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50">
+                <i class="icon-undo"></i>
+            </a>
+        </div>
+    </div>
     </form>
 </span>
 EOT;

@@ -327,7 +327,7 @@ class Field implements Renderable
             </div>
             <span class="mailbox-attachment-size">
               {$size}&nbsp;
-              <a href="{$url}" class="btn btn-light btn-xs float-end" target="_blank" $download><i class="icon-download"></i></a>
+              <a href="{$url}" class="inline-flex items-center p-1 text-gray-500 hover:text-blue-600 float-end" target="_blank" $download><i class="icon-download"></i></a>
             </span>
       </div>
 </div>
@@ -367,7 +367,7 @@ HTML;
             }
 
             return collect((array) $value)->map(function ($name) use ($style) {
-                return "<span class='badge bg-{$style}'>$name</span>";
+                $cls = \OpenAdmin\Admin\Grid\Displayers\AbstractDisplayer::twBadgeClass($style); return "<span class=\"{$cls} text-xs font-medium px-2.5 py-0.5 rounded\">{$name}</span>";
             })->implode('&nbsp;');
         });
     }
@@ -387,7 +387,7 @@ HTML;
             }
 
             return collect((array) $value)->map(function ($name) use ($style) {
-                return "<span class='badge bg-{$style}'>$name</span>";
+                $cls = \OpenAdmin\Admin\Grid\Displayers\AbstractDisplayer::twBadgeClass($style); return "<span class=\"{$cls} text-xs font-medium px-2.5 py-0.5 rounded\">{$name}</span>";
             })->implode('&nbsp;');
         });
     }

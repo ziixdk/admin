@@ -29,7 +29,7 @@ class Downloadable extends AbstractDisplayer
             $name = basename($value);
 
             return <<<HTML
-<a href='$src' download='{$name}' target='_blank' class='text-muted'>
+<a href='$src' download='{$name}' target='_blank' class='inline-flex items-center gap-1 text-blue-600 hover:underline text-sm'>
     <i class="icon-download"></i> {$name}
 </a>
 HTML;

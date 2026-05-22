@@ -30,7 +30,8 @@ class LogController extends AdminController
         $grid->column('method')->display(function ($method) {
             $color = Arr::get(OperationLog::$methodColors, $method, 'grey');
 
-            return "<span class=\"badge bg-$color\">$method</span>";
+            $cls = \OpenAdmin\Admin\Grid\Displayers\AbstractDisplayer::twBadgeClass($color);
+            return "<span class=\"{$cls} text-xs font-medium px-2.5 py-0.5 rounded\">{$method}</span>";
         });
         $grid->column('path')->label('info');
         $grid->column('ip')->label('primary');
