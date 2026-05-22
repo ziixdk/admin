@@ -1,0 +1,30 @@
+{
+    "name": "ziix-admin",
+    "version": "3.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "dependencies": {
+        "@alpinejs/collapse": "^3.14",
+        "@alpinejs/focus": "^3.14",
+        "@fortawesome/fontawesome-free": "^6.7",
+        "alpinejs": "^3.14",
+        "axios": "^1.7",
+        "flatpickr": "^4.6",
+        "flowbite": "^2.5",
+        "leaflet": "^1.9",
+        "nprogress": "^0.2",
+        "sortablejs": "^1.15",
+        "tom-select": "^2.4"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.1",
+        "autoprefixer": "^10.4",
+        "postcss": "^8.5",
+        "tailwindcss": "^4.1",
+        "vite": "^6.3"
+    }
+}

@@ -61,31 +61,15 @@ trait HasAssets
      * @var array
      */
     public static $baseCss = [
-        // first libraries
-        'vendor/open-admin/nprogress/nprogress.css',
-        'vendor/open-admin/sweetalert2/sweetalert2.min.css',
-        'vendor/open-admin/toastify-js/toastify.css',
-        'vendor/open-admin/flatpickr/flatpicker-custom.css',
-        'vendor/open-admin/choicesjs/styles/choices.min.css',
+        'vendor/open-admin/ziix-admin/dist/css/app.css',
         'vendor/open-admin/sortablejs/nestable.css',
-
-        // custom open admin stuff
-        // generated through sass
-        'vendor/open-admin/open-admin/css/styles.css',
     ];
 
     /**
      * @var array
      */
     public static $baseJs = [
-        'vendor/open-admin/bootstrap5/bootstrap.bundle.min.js',
-        'vendor/open-admin/nprogress/nprogress.js',
-        'vendor/open-admin/axios/axios.min.js',
-        'vendor/open-admin/sweetalert2/sweetalert2.min.js',
-        'vendor/open-admin/toastify-js/toastify.js',
-        'vendor/open-admin/flatpickr/flatpickr.min.js',
-        'vendor/open-admin/choicesjs/scripts/choices.min.js',
-        'vendor/open-admin/sortablejs/Sortable.min.js',
+        'vendor/open-admin/ziix-admin/dist/js/app.js',
 
         'vendor/open-admin/open-admin/js/polyfills.js',
         'vendor/open-admin/open-admin/js/helpers.js',
