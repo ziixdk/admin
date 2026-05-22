@@ -117,30 +117,30 @@ class Select extends Field
 
         $this->additional_script .= <<<JS
 
-            let elm = document.querySelector("{$this->getElementClassSelector()}");
-            var lookupTimeout;
-            elm.addEventListener('change', function(event) {
-                var obj = {$this->choicesObjName()}.getValue();
-                if(obj instanceof Array && obj.length > 0){
-                    var query = {$this->choicesObjName()}.getValue().map((i) => { return i.value; }).join(',');    
-                }else{
-                    var query = {$this->choicesObjName()}.getValue().value;
-                }
-                var current_value = {$this->choicesObjName($field)}.getValue().value;
-                admin.ajax.post("{$url}",{query:query},function(data){
-                    let found = false;
-                    for (i in data.data){
-                        if (data.data[i].id == current_value){
-                            data.data[i].selected = true;
-                            found = true;
+            (function() {
+                var elm = document.querySelector("{$this->getElementClassSelector()}");
+                elm.addEventListener('change', function(event) {
+                    var ts = elm.tomselect;
+                    var query = Array.isArray(ts.getValue()) ? ts.getValue().join(',') : ts.getValue();
+                    var fieldElm = document.querySelector('.{$class}');
+                    var fieldTs = fieldElm ? fieldElm.tomselect : null;
+                    var current_value = fieldTs ? fieldTs.getValue() : '';
+                    admin.ajax.post("{$url}", {query: query}, function(data) {
+                        if (!fieldTs) return;
+                        fieldTs.clearOptions();
+                        var found = false;
+                        for (var i in data.data) {
+                            if (data.data[i]['{$idField}'] == current_value) {
+                                data.data[i].selected = true;
+                                found = true;
+                            }
                         }
-                    }
-                    if (!found){
-                        data.data.push({'{$idField}':'','{$textField}':'','selected':true});
-                    }
-                    {$this->choicesObjName($field)}.setChoices(data.data, '{$idField}', '{$textField}', true);
-                })
-            });
+                        if (!found) data.data.unshift({'{$idField}': '', '{$textField}': ''});
+                        fieldTs.addOptions(data.data);
+                        fieldTs.refreshOptions(false);
+                    });
+                });
+            })();
 JS;
 
         return $this;
@@ -197,17 +197,16 @@ JS;
      */
     protected function loadRemoteOptions($url, $parameters = [], $options = [])
     {
-        $this->config = array_merge([
-            'removeItems'        => true,
-            'removeItemButton'   => true,
-            'allowHTML'          => true,
-        ], $this->config);
-
         $parameters_json = json_encode($parameters);
 
         $this->additional_script .= <<<JS
         admin.ajax.post("{$url}",{$parameters_json},function(data){
-            {$this->choicesObjName()}.setChoices(data.data, 'id', 'text', true);
+            var elm = document.querySelector("{$this->getElementClassSelector()}");
+            if (elm && elm.tomselect) {
+                elm.tomselect.clearOptions();
+                elm.tomselect.addOptions(data.data);
+                elm.tomselect.refreshOptions(false);
+            }
         });
 JS;
 
@@ -226,29 +225,11 @@ JS;
     public function ajax($url, $idField = 'id', $textField = 'text')
     {
         $this->config = array_merge([
-            'removeItems'        => true,
-            'removeItemButton'   => true,
-            'allowHTML'          => true,
-            'placeholder'        => $this->label,
+            'valueField'  => $idField,
+            'labelField'  => $textField,
+            'searchField' => $textField,
+            'load'        => "ajax:{$url}",
         ], $this->config);
-
-        $this->additional_script = <<<JS
-            let elm = document.querySelector("{$this->getElementClassSelector()}");
-            var lookupTimeout;
-            elm.addEventListener('search', function(event) {
-                clearTimeout(lookupTimeout);
-                lookupTimeout = setTimeout(function(){
-                    var query = {$this->choicesObjName()}.input.value;
-                    admin.ajax.post("{$url}",{query:query},function(data){
-                        {$this->choicesObjName()}.setChoices(data.data, '{$idField}', '{$textField}', true);
-                    })
-                }, 250);
-            });
-
-            elm.addEventListener('choice', function(event) {
-                {$this->choicesObjName()}.setChoices([], '{$idField}', '{$textField}', true);
-            });
-        JS;
 
         return $this;
     }
@@ -266,8 +247,6 @@ JS;
     }
 
     /**
-     * Set use browser native selectbox.
-     *
      * @return $this
      */
     public function useChoicesjs()
@@ -278,9 +257,7 @@ JS;
     }
 
     /**
-     * Set config for Choicesjs.
-     *
-     * all configurations see https://github.com/jshjohnson/Choices
+     * Set config for Tom Select.
      *
      * @param string $key
      * @param mixed  $val
@@ -292,6 +269,24 @@ JS;
         $this->config[$key] = $val;
 
         return $this;
+    }
+
+    /**
+     * Returns JS variable name for Tom Select instance.
+     */
+    public function tomSelectObjName($field = false)
+    {
+        if (empty($field)) {
+            $field = str_replace([' ', '-'], ['_', '_'], $this->getElementClassString());
+        }
+
+        return 'ts_'.$field;
+    }
+
+    /** @deprecated Use tomSelectObjName() */
+    public function choicesObjName($field = false)
+    {
+        return $this->tomSelectObjName($field);
     }
 
     /**
@@ -319,7 +314,7 @@ JS;
     }
 
     /**
-     * Check if field should be rendered as Choises JS (not the case if fields are embed in popup).
+     * Check if field should be rendered with Tom Select.
      */
     public function allowedChoicesJs()
     {
@@ -338,22 +333,40 @@ JS;
      */
     public function render()
     {
-        $configs = array_merge([
-            'removeItems'        => true,
-            'removeItemButton'   => true,
-            'allowHTML'          => true,
-            'placeholder'        => [
-                'id'   => '',
-                'text' => $this->label,
-            ],
-            'classNames' => [
-                'containerOuter' => 'choices '.$this->getElementClassString(),
-            ],
-        ], $this->config);
-        $configs = json_encode($configs);
+        $baseConfig = [
+            'allowEmptyOption' => true,
+            'placeholder'      => $this->label,
+        ];
+
+        // Handle ajax load config (stored as "ajax:url" marker)
+        $ajaxUrl = null;
+        if (isset($this->config['load']) && str_starts_with($this->config['load'], 'ajax:')) {
+            $ajaxUrl = substr($this->config['load'], 5);
+            unset($this->config['load']);
+        }
+
+        $configs = array_merge($baseConfig, $this->config);
+        $configs_json = json_encode($configs);
 
         if (!$this->native && $this->allowedChoicesJs()) {
-            $this->script .= 'var '.$this->choicesObjName()." = new Choices('{$this->getElementClassSelector()}',{$configs});";
+            if ($ajaxUrl) {
+                $valueField = $configs['valueField'] ?? 'id';
+                $labelField = $configs['labelField'] ?? 'text';
+                $searchField = $configs['searchField'] ?? 'text';
+                $this->script .= <<<JS
+var {$this->tomSelectObjName()} = new TomSelect('{$this->getElementClassSelector()}', Object.assign({$configs_json}, {
+    valueField: '{$valueField}',
+    labelField: '{$labelField}',
+    searchField: '{$searchField}',
+    load: function(query, callback) {
+        admin.ajax.post('{$ajaxUrl}', {query: query}, function(data) { callback(data.data); });
+    },
+    onItemAdd: function() { this.setTextboxValue(''); this.refreshOptions(); }
+}));
+JS;
+            } else {
+                $this->script .= "var {$this->tomSelectObjName()} = new TomSelect('{$this->getElementClassSelector()}',{$configs_json});";
+            }
             $this->script .= $this->additional_script;
         }
 

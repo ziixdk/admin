@@ -77,7 +77,7 @@ trait HasValuePicker
             ->attribute('id', $this->id)
             ->attribute('name', $this->elementName ?: $this->formatName($this->column))
             ->attribute('value', old($this->elementName ?: $this->column, $this->value()))
-            ->attribute('class', 'form-control '.$this->getElementClassString())
+            ->attribute('class', self::INPUT_CLASS.' '.$this->getElementClassString())
             ->attribute('placeholder', $this->getPlaceholder())
             ->addVariables([
                 'preview' => $this->picker->getPreview(get_called_class()),

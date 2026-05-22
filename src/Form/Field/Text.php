@@ -51,7 +51,7 @@ class Text extends Field
             ->defaultAttribute('id', $this->id)
             ->defaultAttribute('name', $this->elementName ?: $this->formatName($this->column))
             ->defaultAttribute('value', old($this->elementName ?: $this->column, $this->value()))
-            ->defaultAttribute('class', 'form-control '.$this->getElementClassString())
+            ->defaultAttribute('class', self::INPUT_CLASS.' '.$this->getElementClassString())
             ->defaultAttribute('placeholder', $this->getPlaceholder())
             ->mountPicker()
             ->addVariables([

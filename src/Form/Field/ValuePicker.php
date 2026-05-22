@@ -99,9 +99,10 @@ class ValuePicker
         $text = admin_trans('admin.choose');
 
         $btn = <<<HTML
-<a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{$this->modal}">
-    <i class="icon-folder-open"></i>  {$text}
-</a>
+<button type="button" data-modal-target="{$this->modal}" data-modal-toggle="{$this->modal}"
+    class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 focus:outline-none">
+    <i class="icon-folder-open"></i> {$text}
+</button>
 HTML;
 
         if ($callback) {

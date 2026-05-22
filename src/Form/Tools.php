@@ -178,9 +178,9 @@ class Tools implements Renderable
         $text = trans('admin.list');
 
         return <<<HTML
-<div class="btn-group">
-    <a href="{$this->getListPath()}" class="btn btn-sm btn-default btn-light me-2" title="{$text}"><i class="icon-list"></i><span class="hidden-xs">&nbsp;{$text}</span></a>
-</div>
+<a href="{$this->getListPath()}" title="{$text}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-gray-200 me-2">
+    <i class="icon-list"></i> <span>{$text}</span>
+</a>
 HTML;
     }
 
@@ -194,11 +194,9 @@ HTML;
         $view = trans('admin.view');
 
         return <<<HTML
-<div class="btn-group">
-    <a href="{$this->getViewPath()}" class="btn btn-sm btn-primary me-2" title="{$view}">
-        <i class="icon-eye"></i><span class="hidden-xs"> {$view}</span>
-    </a>
-</div>
+<a href="{$this->getViewPath()}" title="{$view}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 me-2">
+    <i class="icon-eye"></i> <span>{$view}</span>
+</a>
 HTML;
     }
 
@@ -214,11 +212,9 @@ HTML;
         ];
 
         return <<<HTML
-<div class="btn-group">
-    <a  onclick="admin.resource.delete(event,this)" data-url="{$this->getDeletePath()}" data-list_url="{$this->getListPath()}" class="btn btn-sm btn-danger delete" title="{$trans['delete']}">
-        <i class="icon-trash"></i><span class="hidden-xs">  {$trans['delete']}</span>
-    </a>
-</div>
+<a onclick="admin.resource.delete(event,this)" data-url="{$this->getDeletePath()}" data-list_url="{$this->getListPath()}" title="{$trans['delete']}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-red-300 cursor-pointer me-2">
+    <i class="icon-trash"></i> <span>{$trans['delete']}</span>
+</a>
 HTML;
     }
 

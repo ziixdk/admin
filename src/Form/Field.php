@@ -94,6 +94,11 @@ class Field implements Renderable
     protected $elementClass = [];
 
     /**
+     * Tailwind base class for text-like inputs.
+     */
+    public const INPUT_CLASS = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5';
+
+    /**
      * Variables of elements.
      *
      * @var array
@@ -1289,8 +1294,8 @@ class Field implements Renderable
     {
         if ($this->horizontal) {
             return [
-                'label'      => "col-sm-{$this->width['label']} {$this->getLabelClass()}",
-                'field'      => "col-sm-{$this->width['field']}",
+                'label'      => "col-span-{$this->width['label']} {$this->getLabelClass()}",
+                'field'      => "col-span-{$this->width['field']}",
                 'form-group' => $this->getGroupClass(true),
             ];
         }
@@ -1439,7 +1444,7 @@ class Field implements Renderable
      */
     protected function getGroupClass($default = false): string
     {
-        return ($default ? 'form-group row ' : '').implode(' ', array_filter($this->groupClass));
+        return ($default ? 'grid grid-cols-12 gap-x-4 mb-4 items-start ' : '').implode(' ', array_filter($this->groupClass));
     }
 
     /**
