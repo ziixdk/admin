@@ -63,9 +63,8 @@ admin.actions = {
         var target   = data[1];
         if (typeof response === 'string') {
             target.innerHTML = response;
-        }else if (typeof response !== 'object') {
-
-            Swal.fire({type: 'error', title: 'Oops!'});
+        } else if (typeof response !== 'object') {
+            admin.toastr.error('Oops! An unexpected error occurred.');
             console.log(response);
         }
 
@@ -95,8 +94,9 @@ admin.actions = {
             target.innerHTML = response.html;
         }
 
-        if (typeof response.swal === 'object') {
-            Swal.fire(response.swal);
+        if (typeof response.swal === 'object' && response.swal.title) {
+            var swalType = response.swal.type || 'info';
+            admin.toastr[swalType] ? admin.toastr[swalType](response.swal.title) : admin.toastr.info(response.swal.title);
         }
 
         if (typeof response.toastr === 'object' && response.toastr.type) {
@@ -110,7 +110,7 @@ admin.actions = {
 
     actionCatcher : function (request) {
         if (request && typeof request.responseJSON === 'object') {
-            admin.toastr.error(request.responseJSON.message, {positionClass:"toast-bottom-center", timeOut: 10000}).css("width","500px")
+            admin.toastr.error(request.responseJSON.message);
         }
     }
 }

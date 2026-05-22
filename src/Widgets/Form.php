@@ -420,30 +420,20 @@ class Form implements Renderable
             'submit' => trans('admin.submit'),
         ];
 
-        $settings = [
-            'type'                => 'question',
-            'showCancelButton'    => true,
-            'confirmButtonText'   => $trans['submit'],
-            'cancelButtonText'    => $trans['cancel'],
-            'title'               => $this->confirm,
-            'text'                => '',
-        ];
-
-        $settings = trim(json_encode($settings, JSON_PRETTY_PRINT));
-
         $script = <<<JS
 
         var confirmSubmit = function(e) {
             e.preventDefault();
 
             var form = e.target.closest('form');
-            Swal.fire($settings).then(function (result) {
-                if (result.value == true) {
-                    if (admin.form.validate(form)){
-                        form.dispatchEvent(new Event('submit', { cancelable: true }));
-                    }
+            admin.confirm("{$this->confirm}", {
+                confirmButtonText: "{$trans['submit']}",
+                cancelButtonText: "{$trans['cancel']}",
+            }).then(function () {
+                if (admin.form.validate(form)){
+                    form.dispatchEvent(new Event('submit', { cancelable: true }));
                 }
-            });
+            }).catch(function(){});
             return false;
 
         };

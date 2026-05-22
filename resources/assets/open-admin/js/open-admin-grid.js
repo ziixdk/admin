@@ -93,10 +93,7 @@
 
             let rows = admin.grid.selected.join();
             if (rows == ""){
-                Swal.fire({
-                    icon: 'info',
-                    text: event.target.dataset.no_rows_selected,
-                });
+                admin.toastr.info(event.target.dataset.no_rows_selected);
             }else{
                 let href = event.target.getAttribute("href");
                 window.location = href.replace('__rows__', rows);

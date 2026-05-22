@@ -146,14 +146,12 @@ class Dialog extends Interactor
         $settings = $this->formatSettings();
 
         return <<<SCRIPT
-        Swal.fire({
-            {$settings},
+        admin.confirm({
+            {$settings}
         }).then(function (result) {
-            if (result.isConfirmed){
-                resolve(result);
-            }else{
-                reject();
-            }
+            resolve(result);
+        }).catch(function(){
+            reject();
         });
         SCRIPT;
     }

@@ -537,21 +537,14 @@ class Builder
 document.querySelector('form.{$this->formClass} button[type=submit]').addEventListener("click",function (e) {
     e.preventDefault();
     var form = e.target.closest('form');
-    Swal.fire({
-        title: "$message",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
+    admin.confirm("$message", {
         confirmButtonText: "{$trans['confirm']}",
         cancelButtonText: "{$trans['cancel']}",
-    }).then(function (result) {
-        if (result.value == true) {
-            if (admin.form.validate(form)){
-                form.dispatchEvent(new Event('submit', { cancelable: true }));
-            }
+    }).then(function () {
+        if (admin.form.validate(form)){
+            form.dispatchEvent(new Event('submit', { cancelable: true }));
         }
-    });
-
+    }).catch(function(){});
 });
 JS;
 
