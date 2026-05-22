@@ -13,11 +13,10 @@ class ProgressBar extends AbstractDisplayer
         $this->value = (int) $this->value;
 
         return <<<EOT
-<div class="row" style="min-width: 100px;">
-    <span class="col-sm-3" style="color:#777;">{$this->value}%</span>
-    <div class="progress progress-$size mt-1 col-sm-9" style="padding-left: 0;width: 100px;">
-        <div class="progress-bar $style" role="progressbar" aria-valuenow="{$this->value}" aria-valuemin="0" aria-valuemax="$max" style="width: {$this->value}%">
-        </div>
+<div class="flex items-center gap-2" style="min-width:120px;">
+    <span class="text-xs text-gray-500 w-8 shrink-0">{$this->value}%</span>
+    <div class="flex-1 bg-gray-200 rounded-full h-2">
+        <div class="bg-blue-600 h-2 rounded-full" role="progressbar" aria-valuenow="{$this->value}" aria-valuemin="0" aria-valuemax="$max" style="width:{$this->value}%"></div>
     </div>
 </div>
 EOT;

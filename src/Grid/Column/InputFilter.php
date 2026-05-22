@@ -109,24 +109,28 @@ SCRIPT;
         }
 
         $value = $this->getFilterValue();
-        $active = empty($value) ? '' : 'text-yellow';
+        $activeClass = empty($value) ? 'text-gray-400 hover:text-gray-600' : 'text-yellow-500 hover:text-yellow-600';
 
         return <<<EOT
-<span class="dropdown">
+<span x-data="{ open: false }" class="relative inline-block">
     <form action="{$this->getFormAction()}" pjax-container="true" method="get" style="display: inline-block;">
-    <a href="javascript:void(0);" class="dropdown-toggle {$active}" data-bs-toggle="dropdown" data-bs-auto-close="outside" >
+    <a href="javascript:void(0);" class="column-filter-toggle {$activeClass}" @click.prevent="open = !open">
         <i class="icon-filter"></i>
     </a>
-    <ul class="dropdown-menu" role="menu" style="padding: 10px;box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);left: -70px;">
-        <li>
-            <input type="text" name="{$this->getColumnName()}" value="{$this->getFilterValue()}" class="form-control input-sm {$this->class} {$this->addition_classes}" autocomplete="off"/>
-        </li>
-        <li class="divider"><hr class="dropdown-divider"></li>
-        <li class="text-right">
-            <button class="btn btn-sm btn-primary column-filter-submit pull-left" data-loading-text="{$this->trans('search')}..."><i class="icon-search"></i>&nbsp;&nbsp;{$this->trans('search')}</button>
-            <span><a href="{$this->getFormAction()}" class="btn btn-sm btn-light column-filter-all"><i class="icon-undo"></i></a></span>
-        </li>
-    </ul>
+    <div x-show="open" @click.outside="open = false" x-transition
+         class="absolute z-20 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-3 min-w-[180px]" style="left:-70px;">
+        <input type="text" name="{$this->getColumnName()}" value="{$this->getFilterValue()}"
+               class="block w-full text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 mb-2 {$this->class} {$this->addition_classes}" autocomplete="off"/>
+        <hr class="my-2 border-gray-200">
+        <div class="flex justify-between gap-2">
+            <button class="column-filter-submit flex-1 px-2 py-1.5 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700">
+                <i class="icon-search"></i> {$this->trans('search')}
+            </button>
+            <a href="{$this->getFormAction()}" class="column-filter-all px-2 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50">
+                <i class="icon-undo"></i>
+            </a>
+        </div>
+    </div>
     </form>
 </span>
 EOT;

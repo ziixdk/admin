@@ -157,7 +157,7 @@ class Form extends Interactor
      */
     protected function addField(Field $field)
     {
-        $elementClass = array_merge(['form-control', 'action', $this->getModalId()], $field->getElementClass());
+        $elementClass = array_merge(['action', $this->getModalId()], $field->getElementClass());
         $field->setForm($this->getForm());
         $field->addElementClass($elementClass);
         $this->checkUploadFiel($field);
@@ -359,8 +359,7 @@ class Form extends Interactor
 
                     var modalId = el.getAttribute("modal");
                     var myModalEl = document.getElementById(modalId);
-                    var modal = bootstrap.Modal.getOrCreateInstance(myModalEl)
-                    modal.show();
+                    if (myModalEl) { myModalEl.classList.remove('hidden'); myModalEl.removeAttribute('aria-hidden'); }
 
                     if (myModalEl.querySelector("[name='_key']").value == ""){
                         myModalEl.querySelector("[name='_key']").value = admin.grid.selected.join();

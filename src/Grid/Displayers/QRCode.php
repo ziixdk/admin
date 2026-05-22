@@ -29,9 +29,14 @@ class QRCode extends AbstractDisplayer
         }
 
         return <<<HTML
-<a href="javascript:void(0);" class="grid-column-qrcode text-muted" data-bs-content="{$img}" data-bs-html="true" data-bs-toggle='popover' data-bs-trigger="focus" tabindex='0'>
-    <i class="icon-qrcode"></i>
-</a>&nbsp;{$value}
+<span x-data="{ open: false }" class="relative inline-block">
+    <a href="javascript:void(0);" class="grid-column-qrcode text-gray-400 hover:text-gray-600" @click="open = !open" @click.outside="open = false">
+        <i class="icon-qrcode"></i>
+    </a>
+    <div x-show="open" x-transition class="absolute z-10 p-2 bg-white border border-gray-200 rounded-lg shadow-lg" style="min-width:160px;">
+        {$img}
+    </div>
+</span>&nbsp;{$value}
 HTML;
     }
 }

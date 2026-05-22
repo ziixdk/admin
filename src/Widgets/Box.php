@@ -137,7 +137,7 @@ class Box extends Widget implements Renderable
     public function collapsable()
     {
         $this->tools[] =
-            '<button class="btn btn-box-tool box-tool-minimize" data-bs-toggle="collapse" data-bs-target="#'.$this->id.'-body"><i class="icon-minus"></i></button>';
+            '<button type="button" class="box-tool-minimize p-1 text-gray-400 hover:text-gray-600 rounded" onclick="var b=document.getElementById(\''.$this->id.'-body\');b.style.display=b.style.display===\'none\'?\'block\':\'none\'"><i class="icon-minus"></i></button>';
 
         return $this;
     }
@@ -150,7 +150,7 @@ class Box extends Widget implements Renderable
     public function removable()
     {
         $this->tools[] =
-            '<button class="btn btn-box-tool box-tool-remove" onclick="document.getElementById(\''.$this->id.'\').remove();"><i class="icon-times"></i></button>';
+            '<button type="button" class="box-tool-remove p-1 text-gray-400 hover:text-red-500 rounded" onclick="document.getElementById(\''.$this->id.'\').remove()"><i class="icon-times"></i></button>';
 
         return $this;
     }

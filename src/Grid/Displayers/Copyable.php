@@ -42,7 +42,7 @@ SCRIPT;
         $content = $this->getColumn()->getOriginal();
 
         return <<<HTML
-<a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="{$content}" title="Copied!" data-placement="bottom">
+<a href="javascript:void(0);" class="grid-column-copyable text-gray-400 hover:text-gray-600" data-content="{$content}" title="Copied!">
     <i class="icon-copy"></i>
 </a>&nbsp;{$this->getValue()}
 HTML;

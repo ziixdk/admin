@@ -22,7 +22,7 @@ class Label extends AbstractDisplayer
                 }
             }
 
-            return "<span class='badge bg-{$style}'>$item</span>";
+            return self::twBadge((string) $item, $style);
         })->implode('&nbsp;');
     }
 }

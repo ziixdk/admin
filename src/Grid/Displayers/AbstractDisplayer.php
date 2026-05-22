@@ -141,6 +141,34 @@ abstract class AbstractDisplayer
     }
 
     /**
+     * Map a Bootstrap color name to Tailwind badge utility classes.
+     */
+    public static function twBadgeClass(string $style): string
+    {
+        return match ($style) {
+            'primary', 'blue'                    => 'bg-blue-100 text-blue-800',
+            'success', 'green'                   => 'bg-green-100 text-green-800',
+            'danger', 'red'                      => 'bg-red-100 text-red-800',
+            'warning', 'yellow', 'orange'        => 'bg-yellow-100 text-yellow-800',
+            'info', 'cyan'                       => 'bg-cyan-100 text-cyan-800',
+            'purple', 'violet'                   => 'bg-purple-100 text-purple-800',
+            'pink'                               => 'bg-pink-100 text-pink-800',
+            'indigo'                             => 'bg-indigo-100 text-indigo-800',
+            default                              => 'bg-gray-100 text-gray-800',
+        };
+    }
+
+    /**
+     * Render a Tailwind badge span.
+     */
+    public static function twBadge(string $text, string $style): string
+    {
+        $cls = self::twBadgeClass($style);
+
+        return "<span class=\"{$cls} text-xs font-medium px-2.5 py-0.5 rounded\">{$text}</span>";
+    }
+
+    /**
      * Display method.
      *
      * @return mixed
