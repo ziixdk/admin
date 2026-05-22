@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+@import 'flowbite';
+
+:root {
+    --sidebar-width: 16rem;
+    --brand: #4f46e5;
+    --brand-dark: #4338ca;
+}
+
+[dir="rtl"] {
+    --sidebar-start: right;
+    --sidebar-end: left;
+}
+
+[dir="ltr"] {
+    --sidebar-start: left;
+    --sidebar-end: right;
+}
+
+/* Tom Select — Tailwind-compatible overrides */
+.ts-wrapper .ts-control {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 w-full px-2.5 py-2 min-h-[42px];
+}
+
+.ts-wrapper.multi .ts-control > .item {
+    @apply bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded me-1;
+}
+
+.ts-wrapper .ts-dropdown {
+    @apply bg-white border border-gray-200 rounded-lg shadow-lg text-sm;
+}
+
+.ts-wrapper .ts-dropdown .option {
+    @apply px-3 py-2 cursor-pointer hover:bg-gray-100;
+}
+
+.ts-wrapper .ts-dropdown .option.active {
+    @apply bg-blue-50 text-blue-700;
+}
+
+/* Flatpickr — Tailwind-compatible theme */
+.flatpickr-input {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
+}
+
+/* NProgress */
+#nprogress .bar {
+    background: var(--brand) !important;
+    height: 3px !important;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px var(--brand), 0 0 5px var(--brand) !important;
+}
