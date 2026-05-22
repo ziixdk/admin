@@ -397,7 +397,6 @@ admin.pages = {
         admin.grid.init();
         admin.grid.inline_edit.init();
         admin.form.init();
-        this.initBootstrap();
     },
 
     setTitle: function () {
@@ -408,24 +407,57 @@ admin.pages = {
             }
         }
     },
-
-    initBootstrap: function () {
-        // popovers
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]:not(.ie)'));
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl);
-        });
-
-        // tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-    },
 };
 
 admin.collectGarbage = function () {
     document.querySelectorAll('.flatpickr-calendar').forEach((cal) => {
         cal.remove();
+    });
+};
+
+/*-------------------------------------------------*/
+/* confirm dialog                                  */
+/*-------------------------------------------------*/
+
+admin.confirm = function (titleOrOptions, options) {
+    return new Promise(function (resolve, reject) {
+        var opts = (typeof titleOrOptions === 'object') ? titleOrOptions : Object.assign({ title: titleOrOptions }, options || {});
+        var title       = opts.title || '';
+        var text        = opts.text || '';
+        var confirmText = opts.confirmButtonText || (typeof __ === 'function' ? __('confirm') : 'OK');
+        var cancelText  = opts.cancelButtonText  || (typeof __ === 'function' ? __('cancel') : 'Cancel');
+
+        var id = 'admin-confirm-modal';
+        var existing = document.getElementById(id);
+        if (existing) existing.remove();
+
+        var el = document.createElement('div');
+        el.id = id;
+        el.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/50';
+        el.innerHTML =
+            '<div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">' +
+                '<h3 class="text-base font-semibold text-gray-900 mb-2">' + title + '</h3>' +
+                (text ? '<p class="text-sm text-gray-600 mb-4">' + text + '</p>' : '') +
+                '<div class="flex justify-end gap-3 mt-4">' +
+                    '<button id="' + id + '-cancel" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">' + cancelText + '</button>' +
+                    '<button id="' + id + '-confirm" class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700">' + confirmText + '</button>' +
+                '</div>' +
+            '</div>';
+
+        document.body.appendChild(el);
+
+        document.getElementById(id + '-confirm').addEventListener('click', function () {
+            el.remove();
+            resolve({ isConfirmed: true, value: true });
+        });
+
+        document.getElementById(id + '-cancel').addEventListener('click', function () {
+            el.remove();
+            reject();
+        });
+
+        el.addEventListener('click', function (e) {
+            if (e.target === el) { el.remove(); reject(); }
+        });
     });
 };

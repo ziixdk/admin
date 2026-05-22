@@ -20,29 +20,27 @@
 
         delete_do : function(resource_url,navigate_url){
 
-            Swal.fire({
-                title: __('delete_confirm'),
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
+            admin.confirm(__('delete_confirm'), {
                 confirmButtonText: __('confirm'),
-                showLoaderOnConfirm: true,
                 cancelButtonText:  __('cancel'),
-                preConfirm: function() {
-                    return new Promise(function(resolve) {
-                        let url = resource_url;
-                        let data = {_method:'delete'};
-                        admin.ajax.post(url,data,function(data){
-                            resolve(data);
-                            if (navigate_url){
-                                admin.ajax.navigate(navigate_url);
-                            }else{
-                                admin.ajax.reload();
-                            }
-                        });
-                    });
-                }
-            }).then(admin.resource.default_swal_response);
+            }).then(function(){
+                let data = {_method:'delete'};
+                admin.ajax.post(resource_url, data, function(response){
+                    let resp = response && response.data;
+                    if (typeof resp === 'object') {
+                        if (resp.status) {
+                            admin.toastr.success(resp.message);
+                        } else {
+                            admin.toastr.error(resp.message);
+                        }
+                    }
+                    if (navigate_url){
+                        admin.ajax.navigate(navigate_url);
+                    } else {
+                        admin.ajax.reload();
+                    }
+                });
+            }).catch(function(){});
         },
 
         batch_edit : function (resource_url){
@@ -55,12 +53,12 @@
         },
 
         default_swal_response : function(result) {
-            let data = result.value;
+            let data = result && result.value;
             if (typeof data === 'object') {
                 if (data.status) {
-                    Swal.fire(data.message, '', 'success');
+                    admin.toastr.success(data.message);
                 } else {
-                    Swal.fire(data.message, '', 'error');
+                    admin.toastr.error(data.message);
                 }
             }
         },
