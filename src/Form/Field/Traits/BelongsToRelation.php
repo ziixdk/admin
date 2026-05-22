@@ -78,26 +78,25 @@ trait BelongsToRelation
         ];
 
         $html = <<<HTML
-<div class="modal fade belongsto" id="{$this->modalID}" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content" style="border-radius: 5px;">
-      <div class="modal-header">
-        <h4 class="modal-title">{$trans['choose']}</h4>
-        <button type="button" class="btn btn-light close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+<div id="{$this->modalID}" tabindex="-1" aria-hidden="true" class="belongsto hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-4xl max-h-full">
+    <div class="relative bg-white rounded-xl shadow">
+      <div class="flex items-center justify-between p-4 border-b rounded-t">
+        <h4 class="text-lg font-semibold text-gray-900">{$trans['choose']}</h4>
+        <button type="button" data-modal-hide="{$this->modalID}" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" aria-label="Close">
+            <i class="icon-x"></i>
         </button>
-
       </div>
-      <div class="modal-body">
-        <div class="loading text-center">
+      <div class="modal-body p-0">
+        <div class="loading text-center py-8">
             <div class="icon-spin">
-                <i class="icon-spinner icon-spin icon-3x icon-fw"></i>
+                <i class="icon-spinner icon-spin text-3xl text-gray-400"></i>
             </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal">{$trans['cancal']}</button>
-        <button type="button" class="btn btn-primary submit">{$trans['submit']}</button>
+      <div class="flex items-center p-4 border-t gap-3">
+        <button type="button" data-modal-hide="{$this->modalID}" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">{$trans['cancal']}</button>
+        <button type="button" class="submit px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">{$trans['submit']}</button>
       </div>
     </div>
   </div>

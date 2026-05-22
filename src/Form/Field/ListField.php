@@ -116,7 +116,7 @@ JS;
 
         $this->setupScript();
 
-        Admin::style('td .form-group {margin-bottom: 0 !important;}');
+        Admin::style('td .grid { margin-bottom: 0 !important; }');
 
         return parent::render();
     }

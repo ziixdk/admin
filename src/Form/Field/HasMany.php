@@ -573,7 +573,7 @@ JS;
             let trigger = document.querySelector('#has-many-{$this->column} .nav-link:first-child');
             console.log(trigger);
             if (trigger){
-                bootstrap.Tab.getOrCreateInstance(trigger).show();
+                trigger.click();
             }
         }
         function addHasManyTab{$this->column}(index){
@@ -582,7 +582,7 @@ JS;
             let clone = htmlToElement(tpl);
             let addTab = document.querySelector('.has-many-{$this->column} .add-tab')
             document.querySelector('.has-many-{$this->column} > .nav').insertBefore(clone,addTab);
-            bootstrap.Tab.getOrCreateInstance(clone.querySelector("a")).show();
+            clone.querySelector("a").click();
         }
 
 EOT;
