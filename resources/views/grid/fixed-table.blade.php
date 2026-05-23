@@ -1,24 +1,23 @@
 @include("admin::grid.table-header")
 
-    <!-- /.box-header -->
-    <div class="card-body table-responsive no-padding">
-        <div class="tables-container">
-            <div class="table-wrap table-main">
-                <table class="table grid-table select-table" id="{{ $grid->tableID }}">
-                    <thead>
+    <div class="overflow-x-auto">
+        <div class="tables-container relative">
+            <div class="table-wrap table-main overflow-x-auto w-full">
+                <table class="w-full text-sm text-left text-gray-700 grid-table select-table" id="{{ $grid->tableID }}">
+                    <thead class="text-xs text-gray-500 uppercase bg-gray-50 border-b border-gray-200">
                         <tr>
                             @foreach($grid->visibleColumns() as $column)
-                            <th {!! $column->formatHtmlAttributes() !!}>{{$column->getLabel()}}{!! $column->renderHeader() !!}</th>
+                            <th class="px-4 py-3 font-medium whitespace-nowrap" {!! $column->formatHtmlAttributes() !!}>{{ $column->getLabel() }}{!! $column->renderHeader() !!}</th>
                             @endforeach
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="divide-y divide-gray-100">
 
                         @foreach($grid->rows() as $row)
-                        <tr {!! $row->getRowAttributes() !!}>
+                        <tr class="hover:bg-gray-50 transition-colors" {!! $row->getRowAttributes() !!}>
                             @foreach($grid->visibleColumnNames() as $name)
-                            <td {!! $row->getColumnAttributes($name) !!} class="column-{!! $name !!}">
+                            <td class="px-4 py-3 whitespace-nowrap column-{{ $name }}" {!! $row->getColumnAttributes($name) !!}>
                                 {!! $row->column($name) !!}
                             </td>
                             @endforeach
@@ -32,24 +31,22 @@
             </div>
 
             @if($grid->leftVisibleColumns()->isNotEmpty())
-            <div class="table-wrap table-fixed table-fixed-left">
-                <table class="table grid-table select-table">
-                    <thead>
+            <div class="table-wrap table-fixed table-fixed-left absolute top-0 start-0 z-10 bg-white shadow-[4px_0_6px_-2px_rgba(0,0,0,0.1)]">
+                <table class="text-sm text-left text-gray-700 grid-table select-table">
+                    <thead class="text-xs text-gray-500 uppercase bg-gray-50 border-b border-gray-200">
                     <tr>
                         @foreach($grid->leftVisibleColumns() as $column)
-                            <th {!! $column->formatHtmlAttributes() !!}>{{$column->getLabel()}}{!! $column->renderHeader() !!}</th>
+                            <th class="px-4 py-3 font-medium whitespace-nowrap" {!! $column->formatHtmlAttributes() !!}>{{ $column->getLabel() }}{!! $column->renderHeader() !!}</th>
                         @endforeach
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="divide-y divide-gray-100">
 
                     @foreach($grid->rows() as $row)
-                        <tr {!! $row->getRowAttributes() !!}>
+                        <tr class="hover:bg-gray-50 transition-colors" {!! $row->getRowAttributes() !!}>
                             @foreach($grid->leftVisibleColumns() as $column)
-                                @php
-                                    $name = $column->getName()
-                                @endphp
-                                <td {!! $row->getColumnAttributes($name) !!} class="column-{!! $name !!}">
+                                @php $name = $column->getName() @endphp
+                                <td class="px-4 py-3 whitespace-nowrap column-{{ $name }}" {!! $row->getColumnAttributes($name) !!}>
                                     {!! $row->column($name) !!}
                                 </td>
                             @endforeach
@@ -64,25 +61,23 @@
             @endif
 
             @if($grid->rightVisibleColumns()->isNotEmpty())
-            <div class="table-wrap table-fixed table-fixed-right">
-                <table class="table grid-table select-table">
-                    <thead>
+            <div class="table-wrap table-fixed table-fixed-right absolute top-0 end-0 z-10 bg-white shadow-[-4px_0_6px_-2px_rgba(0,0,0,0.1)]">
+                <table class="text-sm text-left text-gray-700 grid-table select-table">
+                    <thead class="text-xs text-gray-500 uppercase bg-gray-50 border-b border-gray-200">
                     <tr>
                         @foreach($grid->rightVisibleColumns() as $column)
-                            <th {!! $column->formatHtmlAttributes() !!}>{{$column->getLabel()}}{!! $column->renderHeader() !!}</th>
+                            <th class="px-4 py-3 font-medium whitespace-nowrap" {!! $column->formatHtmlAttributes() !!}>{{ $column->getLabel() }}{!! $column->renderHeader() !!}</th>
                         @endforeach
                     </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="divide-y divide-gray-100">
 
                     @foreach($grid->rows() as $row)
-                        <tr {!! $row->getRowAttributes() !!}>
+                        <tr class="hover:bg-gray-50 transition-colors" {!! $row->getRowAttributes() !!}>
                             @foreach($grid->rightVisibleColumns() as $column)
-                                @php
-                                $name = $column->getName()
-                                @endphp
-                                <td {!! $row->getColumnAttributes($name) !!} class="column-{!! $name !!}">
+                                @php $name = $column->getName() @endphp
+                                <td class="px-4 py-3 whitespace-nowrap column-{{ $name }}" {!! $row->getColumnAttributes($name) !!}>
                                     {!! $row->column($name) !!}
                                 </td>
                             @endforeach
@@ -100,14 +95,12 @@
 
     {!! $grid->renderFooter() !!}
 
-    <div class="card-footer clearfix">
-        {!! $grid->paginator() !!}
-    </div>
+    {!! $grid->paginator() !!}
+
     <!-- /.box-body -->
 </div>
 
 <script>
-    //var theadHeight = getOuterHeigt(document.querySelector('.table-main thead tr'));
     var tableMain = document.querySelector('.table-main');
     var theadHeight = tableMain.querySelector('thead tr').clientHeight;
     document.querySelectorAll('.table-fixed thead tr').forEach(tr=>{
@@ -122,57 +115,15 @@
         })
     }
 
-
     let left_trs = document.querySelectorAll('.table-fixed-left tbody tr');
     let right_trs = document.querySelectorAll('.table-fixed-right tbody tr');
     tableMain.querySelectorAll('tbody tr').forEach((tr,i)=>{
         var height = tr.clientHeight;
-        left_trs[i].style.height = height+"px";
-        right_trs[i].style.height = height+"px";
+        if (left_trs[i]) left_trs[i].style.height = height+"px";
+        if (right_trs[i]) right_trs[i].style.height = height+"px";
     });
 
     if (tableMain.clientWidth >= tableMain.scrollWidth) {
         hide(document.querySelectorAll('.table-fixed'));
     }
-
 </script>
-
-<style>
-    .tables-container {
-        position:relative;
-    }
-
-    .tables-container table {
-        margin-bottom: 0px !important;
-    }
-
-    .tables-container table th, .tables-container table td {
-        white-space:nowrap;
-    }
-
-    .table-wrap table tr .active {
-        background: #f5f5f5;
-    }
-
-    .table-main {
-        overflow-x: auto;
-        width: 100%;
-    }
-
-    .table-fixed {
-        position:absolute;
-        top: 0px;
-        background:#ffffff;
-        z-index:10;
-    }
-
-    .table-fixed-left {
-        left:0;
-        box-shadow: 7px 0 5px -5px rgba(0,0,0,.12);
-    }
-
-    .table-fixed-right {
-        right:0;
-        box-shadow: -5px 0 5px -5px rgba(0,0,0,.12);
-    }
-</style>

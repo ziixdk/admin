@@ -1,21 +1,17 @@
 @if(!$holdAll)
-    <div class="btn-group {{ $all }}-holder show-on-rows-selected d-none me-1">
-    <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="selected hidden-xs" data="{{ trans('admin.grid_items_selected') }}"></span>
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    @if(!$actions->isEmpty())
-    <ul class="dropdown-menu" role="menu">
-        @foreach($actions as $action)
-            <li>{!! $action->render() !!}</li>
-
-            @if($action instanceof \OpenAdmin\Admin\Actions\BatchAction)
-
-            @elseif (1==2)
-                <li><a href="#" class="{{ $action->getElementClass(false) }} dropdown-item"><i class="{{$action->icon}}"></i>{!! $action->render() !!} </a></li>
-            @endif
-        @endforeach
-    </ul>
-    @endif
-  </div>
+    <div x-data="{ open: false }" class="{{ $all }}-holder show-on-rows-selected hidden me-1 relative" style="display: none;">
+        <button type="button" @click="open = !open" @click.outside="open = false"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+            <span class="selected" data="{{ trans('admin.grid_items_selected') }}"></span>
+            <i class="icon-chevron-down text-xs"></i>
+        </button>
+        @if(!$actions->isEmpty())
+        <ul x-show="open" x-transition class="absolute start-0 top-full mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 py-1"
+            style="display: none;" role="menu">
+            @foreach($actions as $action)
+                <li class="px-1">{!! $action->render() !!}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
 @endif

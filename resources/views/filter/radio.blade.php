@@ -1,6 +1,8 @@
 @foreach($options as $option => $label)
-    <div class="form-check">
-        <input type="radio" class="form-check-input" id="{{$id}}-{{$option}}" name="{{$name}}" value="{{$option}}" class="minimal" {{ ((string)$option === request($name, is_null($value) ? '' : $value)) ? 'checked' : '' }} />
-        <label class="form-check-label" for="{{$id}}-{{$option}}">{{$label}}</label>
-    </div>
+    <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer mb-1">
+        <input type="radio" class="w-4 h-4 text-blue-600 border-gray-300"
+            id="{{ $id }}-{{ $option }}" name="{{ $name }}" value="{{ $option }}"
+            {{ ((string)$option === request($name, is_null($value) ? '' : $value)) ? 'checked' : '' }} />
+        {{ $label }}
+    </label>
 @endforeach

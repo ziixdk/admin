@@ -74,6 +74,13 @@ body.side-menu-closed .navbar-brand {
     padding-top: 4rem;
 }
 
+/* Filter box collapse */
+.filter-box { display: none; }
+.filter-box.show { display: block; }
+
+/* Grid table */
+.grid-table th, .grid-table td { vertical-align: middle; }
+
 /* Tabs — show/hide panes */
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
