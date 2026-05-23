@@ -87,38 +87,31 @@ admin.form = {
     tabs: function () {
         var hash = document.location.hash;
         if (hash) {
-            var activeTab = document.querySelector('.nav-tabs a[href="' + hash + '"]');
+            var activeTab = document.querySelector('.nav-tabs a[href="' + hash + '"], .nav-tabs button[data-tab-target="' + hash + '"]');
             if (activeTab) {
-                new bootstrap.Tab(activeTab).show();
+                admin.tabs.show(activeTab);
             }
         }
 
         this.tabs_ref = document.querySelectorAll('.nav-tabs');
-        if (this.tabs_ref.length) {
-            this.tabs_ref.forEach((tab) => {
-                tab.addEventListener('shown.bs.tab', function (event) {
-                    // replaceState insted of pushSt (prevents tab navigation from going into the history)
-                    history.replaceState(null, null, event.target.hash);
-                });
-            });
-        }
         this.check_tab_errors();
     },
 
     check_tab_errors() {
-        let errors = document.querySelectorAll('.tab-pane .has-error, .was-validated .tab-pane .form-control:invalid');
-        if (this.tabs_ref.length && errors) {
+        let errors = document.querySelectorAll('.tab-pane .has-error, .was-validated .tab-pane :invalid');
+        if (this.tabs_ref && this.tabs_ref.length && errors.length) {
             let first_tab = false;
             errors.forEach((error) => {
-                let tabId = '#' + error.closest('.tab-pane').getAttribute('id');
-                document.querySelector('li a[href="' + tabId + '"] i').classList.remove('hide');
-                if (!first_tab) {
-                    first_tab = tabId;
-                }
+                let pane = error.closest('.tab-pane');
+                if (!pane) return;
+                let tabId = '#' + pane.getAttribute('id');
+                let icon = document.querySelector('li a[href="' + tabId + '"] i, li button[data-tab-target="' + tabId + '"] i');
+                if (icon) icon.classList.remove('hide');
+                if (!first_tab) first_tab = tabId;
             });
             if (first_tab) {
-                let errorTab = document.querySelector('.nav-tabs a[href="' + first_tab + '"]');
-                new bootstrap.Tab(errorTab).show();
+                let errorTab = document.querySelector('.nav-tabs a[href="' + first_tab + '"], .nav-tabs button[data-tab-target="' + first_tab + '"]');
+                if (errorTab) admin.tabs.show(errorTab);
             }
         }
     },
