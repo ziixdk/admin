@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Filter\Presenter;
+namespace ZiiX\Admin\Grid\Filter\Presenter;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Select extends Presenter
 {
@@ -94,7 +94,7 @@ class Select extends Presenter
             'removeItemButton'   => true,
             'allowHTML'          => true,
             'classNames'         => [
-                'containerOuter' => 'choices '.$this->getElementClass(),
+                'containerOuter' => ['choices', $this->getElementClass()],
             ],
         ], $this->config);
         $configs = json_encode($configs);

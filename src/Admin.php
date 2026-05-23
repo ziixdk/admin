@@ -1,17 +1,17 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use InvalidArgumentException;
-use OpenAdmin\Admin\Auth\Database\Menu;
-use OpenAdmin\Admin\Controllers\AuthController;
-use OpenAdmin\Admin\Layout\Content;
-use OpenAdmin\Admin\Traits\HasAssets;
-use OpenAdmin\Admin\Widgets\Navbar;
+use ZiiX\Admin\Auth\Database\Menu;
+use ZiiX\Admin\Controllers\AuthController;
+use ZiiX\Admin\Layout\Content;
+use ZiiX\Admin\Traits\HasAssets;
+use ZiiX\Admin\Widgets\Navbar;
 
 /**
  * Class Admin.
@@ -76,7 +76,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \OpenAdmin\Admin\Grid
+     * @return \ZiiX\Admin\Grid
      *
      * @deprecated since v1.6.1
      */
@@ -89,7 +89,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \OpenAdmin\Admin\Form
+     * @return \ZiiX\Admin\Form
      *
      *  @deprecated since v1.6.1
      */
@@ -104,7 +104,7 @@ class Admin
      * @param $model
      * @param Closure|null $callable
      *
-     * @return \OpenAdmin\Admin\Tree
+     * @return \ZiiX\Admin\Tree
      */
     public function tree($model, Closure $callable = null)
     {
@@ -127,7 +127,7 @@ class Admin
     /**
      * @param Closure $callable
      *
-     * @return \OpenAdmin\Admin\Layout\Content
+     * @return \ZiiX\Admin\Layout\Content
      */
     public function content(Closure $callable = null)
     {
@@ -280,7 +280,7 @@ class Admin
     /**
      * Get navbar object.
      *
-     * @return \OpenAdmin\Admin\Widgets\Navbar
+     * @return \ZiiX\Admin\Widgets\Navbar
      */
     public function getNavbar()
     {
@@ -317,7 +317,7 @@ class Admin
 
         app('router')->group($attributes, function ($router) {
             /* @var \Illuminate\Support\Facades\Route $router */
-            $router->namespace('\OpenAdmin\Admin\Controllers')->group(function ($router) {
+            $router->namespace('\ZiiX\Admin\Controllers')->group(function ($router) {
                 /* @var \Illuminate\Routing\Router $router */
                 $router->resource('auth/users', 'UserController')->names('admin.auth.users');
                 $router->resource('auth/roles', 'RoleController')->names('admin.auth.roles');
@@ -418,7 +418,7 @@ class Admin
 
     public static function asset($asset)
     {
-        return url('/vendor/open-admin/'.$asset);
+        return url('/vendor/ziix-admin/'.$asset);
     }
 
     public static function js_trans()
@@ -437,5 +437,6 @@ class Admin
         if (request()->pjax()) {
             request()->headers->set('X-PJAX', false);
         }
+        Admin::script('window.disablePjax = true;');
     }
 }

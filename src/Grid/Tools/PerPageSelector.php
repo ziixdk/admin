@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Tools;
+namespace ZiiX\Admin\Grid\Tools;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Grid;
 
 class PerPageSelector extends AbstractTool
 {

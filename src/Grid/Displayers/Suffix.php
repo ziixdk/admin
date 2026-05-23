@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Displayers;
+namespace ZiiX\Admin\Grid\Displayers;
 
 class Suffix extends AbstractDisplayer
 {

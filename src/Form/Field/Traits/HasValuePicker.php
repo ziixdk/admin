@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Field\ValuePicker;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Field\ValuePicker;
 
 /**
  * @mixin Field

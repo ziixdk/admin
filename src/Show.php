@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
@@ -15,11 +15,11 @@ use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Show\Divider;
-use OpenAdmin\Admin\Show\Field;
-use OpenAdmin\Admin\Show\Panel;
-use OpenAdmin\Admin\Show\Relation;
-use OpenAdmin\Admin\Traits\ShouldSnakeAttributes;
+use ZiiX\Admin\Show\Divider;
+use ZiiX\Admin\Show\Field;
+use ZiiX\Admin\Show\Panel;
+use ZiiX\Admin\Show\Relation;
+use ZiiX\Admin\Traits\ShouldSnakeAttributes;
 
 class Show implements Renderable
 {
@@ -338,7 +338,7 @@ class Show implements Renderable
      *
      * @return $this
      */
-    public function setWidth($fieldWidth = 8, $labelWidth = 2)
+    public function setWidth($fieldWidth = 10, $labelWidth = 2)
     {
         collect($this->fields)->each(function ($field) use ($fieldWidth, $labelWidth) {
             $field->setWidth($fieldWidth, $labelWidth);

@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenAdmin\Admin\Middleware;
+namespace ZiiX\Admin\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\RateLimiter;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Throttle
 {

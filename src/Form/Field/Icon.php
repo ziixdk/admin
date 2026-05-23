@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 class Icon extends Text
 {
     protected $default = '';
 
     protected static $js = [
-        '/vendor/open-admin/fields/icon-picker/icon-picker.js',
+        '/vendor/ziix-admin/fields/icon-picker/icon-picker.js',
     ];
 
     public function render()

@@ -1,14 +1,18 @@
 {
     "name": "ziixdk/admin",
-    "description": "open-admin. Open-source Laravel Admin panel. No pro or paid package, free & open. Based on laravel-admin, with special thanks to z-song",
+    "description": "ziix-admin. Open-source Laravel Admin panel. No pro or paid package, free & open. Based on laravel-admin, with special thanks to z-song and open-admin to Sjors Broersen",
     "type": "library",
-    "keywords": ["laravel", "admin", "grid", "form", "open-admin","open","free"],
-    "homepage": "https://github.com/open-admin-org/open-admin",
+    "keywords": ["laravel", "admin", "grid", "form", "ziix-admin","ziixdk","free"],
+    "homepage": "https://github.com/ziixdk/admin",
     "license": "MIT",
     "authors": [
         {
             "name": "Sjors Broersen | Open-Admin.org",
             "email": "info@open-admin.org"
+        },
+        {
+            "name": "Rasmus Hurup | ziix.dk",
+            "email": "info@ziix.dk"
         }
     ],
     "require": {
@@ -24,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenAdmin\\Admin\\": "src/"
+            "ZiiX\\Admin\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -40,7 +44,7 @@
         ]
     },
     "scripts": {
-        "sass": "sass --watch resources/assets/open-admin/scss/styles.scss:resources/assets/open-admin/css/styles.css resources/assets/open-admin/scss/pages:resources/assets/open-admin/css/pages --style compressed",
+        "sass": "sass --watch resources/assets/ziix-admin/scss/styles.scss:resources/assets/open-admin/css/styles.css resources/assets/open-admin/scss/pages:resources/assets/open-admin/css/pages --style compressed",
         "test": "./vendor/bin/phpunit"
     },
     "suggest": {
@@ -50,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OpenAdmin\\Admin\\AdminServiceProvider"
+                "ZiiX\\Admin\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "OpenAdmin\\Admin\\Facades\\Admin"
+                "Admin": "ZiiX\\Admin\\Facades\\Admin"
             }
         }
     },

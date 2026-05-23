@@ -1,14 +1,14 @@
 <?php
 
-namespace OpenAdmin\Admin\Form;
+namespace ZiiX\Admin\Form;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Form\Field\Hidden;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Form\Field\Hidden;
 
 /**
  * Class Builder.
@@ -200,6 +200,15 @@ class Builder
     }
 
     /**
+     * Get ignored fields.
+     *
+     * @return mixed
+     */
+
+    public function getIgnoredFields(){
+        return $this->form->getIgnored();
+    }
+    /**
      * Set resource Id.
      *
      * @param $id
@@ -244,7 +253,7 @@ class Builder
      *
      * @return $this
      */
-    public function setWidth($field = 8, $label = 2): self
+    public function setWidth($field = 10, $label = 2): self
     {
         $this->width = [
             'label' => $label,

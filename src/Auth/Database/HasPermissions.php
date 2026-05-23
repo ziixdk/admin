@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Auth\Database;
+namespace ZiiX\Admin\Auth\Database;
 
 use Illuminate\Support\Collection;
 

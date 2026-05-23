@@ -41,6 +41,7 @@
         {!! $field->render() !!}
     @endforeach
 
+    <script type="application/javascript"> window.ignoredFields = @json($form->getIgnoredFields())</script>
     {!! $form->close() !!}
 
 </div>

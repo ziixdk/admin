@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Tools;
+namespace ZiiX\Admin\Grid\Tools;
 
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Grid;
 
 class CreateButton extends AbstractTool
 {

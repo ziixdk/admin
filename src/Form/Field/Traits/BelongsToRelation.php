@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Grid\Selectable;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Grid\Selectable;
 
 trait BelongsToRelation
 {
@@ -37,7 +37,7 @@ trait BelongsToRelation
     {
         if (!class_exists($selectable) || !is_subclass_of($selectable, Selectable::class)) {
             throw new \InvalidArgumentException(
-                "[Class [{$selectable}] must be a sub class of OpenAdmin\Admin\Grid\Selectable"
+                "[Class [{$selectable}] must be a sub class of ZiiX\Admin\Grid\Selectable"
             );
         }
 
@@ -263,7 +263,7 @@ JS;
     }
 
     /**
-     * @return \OpenAdmin\Admin\Grid
+     * @return \ZiiX\Admin\Grid
      */
     protected function makeGrid()
     {

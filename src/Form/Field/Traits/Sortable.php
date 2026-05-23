@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
+use ZiiX\Admin\Admin;
 
 trait Sortable
 {

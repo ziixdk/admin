@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Concerns;
+namespace ZiiX\Admin\Grid\Concerns;
 
 use Closure;
-use OpenAdmin\Admin\Grid\Tools;
+use ZiiX\Admin\Grid\Tools;
 
 trait HasTools
 {

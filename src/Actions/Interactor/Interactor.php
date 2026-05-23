@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Actions\Interactor;
+namespace ZiiX\Admin\Actions\Interactor;
 
-use OpenAdmin\Admin\Actions\Action;
+use ZiiX\Admin\Actions\Action;
 
 abstract class Interactor
 {

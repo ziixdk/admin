@@ -2,12 +2,12 @@
     <div class="flex items-center justify-between border-b border-gray-200 mb-4">
         <ul class="flex flex-wrap -mb-px">
             @foreach ($tabs as $i => $tab)
-                @if ($tab['type'] == \OpenAdmin\Admin\Widgets\Tab::TYPE_CONTENT)
+                @if ($tab['type'] == \ZiiX\Admin\Widgets\Tab::TYPE_CONTENT)
                     <li class="nav-item">
                         <a class="nav-link inline-flex items-center px-4 py-2.5 text-sm font-medium border-b-2 -mb-px {{ $active === $i ? 'text-blue-600 border-blue-600 active' : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300' }}"
                            href="#{{ $tab['ref'] }}">{{ $tab['title'] }}</a>
                     </li>
-                @elseif($tab['type'] == \OpenAdmin\Admin\Widgets\Tab::TYPE_LINK)
+                @elseif($tab['type'] == \ZiiX\Admin\Widgets\Tab::TYPE_LINK)
                     <li class="nav-item">
                         <a class="nav-link inline-flex items-center px-4 py-2.5 text-sm font-medium border-b-2 -mb-px {{ $active === $i ? 'text-blue-600 border-blue-600 active' : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300' }}"
                            href="{{ $tab['href'] }}">{{ $tab['title'] }}</a>

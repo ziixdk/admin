@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenAdmin\Admin\Middleware;
+namespace ZiiX\Admin\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use OpenAdmin\Admin\Facades\Admin;
+use ZiiX\Admin\Facades\Admin;
 
 class Bootstrap
 {

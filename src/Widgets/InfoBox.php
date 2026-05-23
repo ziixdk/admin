@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Widgets;
+namespace ZiiX\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 

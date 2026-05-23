@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenAdmin\Admin\Actions;
+namespace ZiiX\Admin\Actions;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form\Field;
 
 /**
  * @method $this                success($title, $text = '', $options = [])

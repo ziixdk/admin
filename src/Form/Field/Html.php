@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 class Html extends Field
 {

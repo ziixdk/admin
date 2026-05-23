@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Form;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait UploadField
@@ -101,6 +101,7 @@ trait UploadField
         'excel'      => 'icon-file-excel',
         'powerpoint' => 'icon-file-powerpoint',
         'text'       => 'icon-file-alt',
+        'other'      => 'icon-file-alt',
         'video'      => 'icon-file-video',
         'audio'      => 'icon-file-audio',
         'pdf'        => 'icon-file-pdf',

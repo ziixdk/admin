@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 class Map extends Field
 {
@@ -40,8 +40,8 @@ class Map extends Field
                 break;
             case 'openstreetmaps':
             default:
-                $css = ['/vendor/open-admin/leaflet/leaflet.css', '/vendor/open-admin/leaflet/leaflet-geosearch.css'];
-                $js = ['/vendor/open-admin/leaflet/leaflet.js', '/vendor/open-admin/leaflet/leaflet-geosearch.js'];
+                $css = ['/vendor/ziix-admin/leaflet/leaflet.css', '/vendor/ziix-admin/leaflet/leaflet-geosearch.css'];
+                $js = ['/vendor/ziix-admin/leaflet/leaflet.js', '/vendor/ziix-admin/leaflet/leaflet-geosearch.js'];
         }
 
         return compact('js', 'css');

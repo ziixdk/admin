@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form;
+use ZiiX\Admin\Form;
 
 class Email extends Text
 {

@@ -1,0 +1,10 @@
+
+.custom-menu ul a:hover{
+    color: #000 !important;
+}
+.custom-menu>ul>li.active{
+    background-color: #FFFFFF !important;
+}
+.custom-menu ul li, .custom-menu ul li a{
+    color: #000 !important;
+}

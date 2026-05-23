@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Actions;
+namespace ZiiX\Admin\Grid\Actions;
 
-use OpenAdmin\Admin\Actions\RowAction;
+use ZiiX\Admin\Actions\RowAction;
 
 class Show extends RowAction
 {

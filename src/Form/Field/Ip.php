@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 class Ip extends Text
 {
     protected $rules = 'nullable|ip';
 
     protected static $js = [
-        '/vendor/open-admin/inputmask/inputmask.min.js',
+        '/vendor/ziix-admin/inputmask/inputmask.min.js',
     ];
 
     /**

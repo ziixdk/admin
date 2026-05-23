@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
@@ -14,18 +14,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
-use OpenAdmin\Admin\Exception\Handler;
-use OpenAdmin\Admin\Form\Builder;
-use OpenAdmin\Admin\Form\Concerns\HandleCascadeFields;
-use OpenAdmin\Admin\Form\Concerns\HasFields;
-use OpenAdmin\Admin\Form\Concerns\HasFormAttributes;
-use OpenAdmin\Admin\Form\Concerns\HasHooks;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Form\Layout\Layout;
-use OpenAdmin\Admin\Form\Row;
-use OpenAdmin\Admin\Form\Tab;
-use OpenAdmin\Admin\Grid\Tools\BatchEdit;
-use OpenAdmin\Admin\Traits\ShouldSnakeAttributes;
+use ZiiX\Admin\Exception\Handler;
+use ZiiX\Admin\Form\Builder;
+use ZiiX\Admin\Form\Concerns\HandleCascadeFields;
+use ZiiX\Admin\Form\Concerns\HasFields;
+use ZiiX\Admin\Form\Concerns\HasFormAttributes;
+use ZiiX\Admin\Form\Concerns\HasHooks;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Form\Layout\Layout;
+use ZiiX\Admin\Form\Row;
+use ZiiX\Admin\Form\Tab;
+use ZiiX\Admin\Grid\Tools\BatchEdit;
+use ZiiX\Admin\Traits\ShouldSnakeAttributes;
 use Spatie\EloquentSortable\Sortable;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -855,6 +855,9 @@ class Form implements Renderable
                 || (in_array($columns, $this->relation_fields) && !$isRelationUpdate)) {
                 continue;
             }
+            if (in_array($field->column(), $this->ignored, true)) {
+                continue;
+            }
 
             $value = $this->getDataByColumn($updates, $columns);
             $value = $field->prepare($value);
@@ -946,6 +949,17 @@ class Form implements Renderable
         return Arr::isAssoc($first);
     }
 
+    /**
+     * get Ignore fields.
+     *
+     * @param array
+     *
+     * @return $this
+     */
+    public function getIgnored(): array
+    {
+        return $this->ignored;
+    }
     /**
      * Ignore fields to save.
      *
@@ -1175,7 +1189,7 @@ class Form implements Renderable
      *
      * @return $this
      */
-    public function setWidth($fieldWidth = 8, $labelWidth = 2): self
+    public function setWidth($fieldWidth = 10, $labelWidth = 2): self
     {
         $this->fields()->each(function ($field) use ($fieldWidth, $labelWidth) {
             /* @var Field $field  */
@@ -1379,7 +1393,7 @@ class Form implements Renderable
      *
      * @param Closure $callback
      *
-     * @return \OpenAdmin\Admin\Form\Footer
+     * @return \ZiiX\Admin\Form\Footer
      */
     public function footer(Closure $callback = null)
     {

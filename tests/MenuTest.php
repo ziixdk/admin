@@ -1,7 +1,7 @@
 <?php
 
-use OpenAdmin\Admin\Auth\Database\Administrator;
-use OpenAdmin\Admin\Auth\Database\Menu;
+use ZiiX\Admin\Auth\Database\Administrator;
+use ZiiX\Admin\Auth\Database\Menu;
 
 class MenuTest extends TestCase
 {

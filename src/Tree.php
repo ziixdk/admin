@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenAdmin\Admin;
+namespace ZiiX\Admin;
 
 use Closure;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
-use OpenAdmin\Admin\Tree\Tools;
+use ZiiX\Admin\Tree\Tools;
 
 class Tree implements Renderable
 {

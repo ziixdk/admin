@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Console;
+namespace ZiiX\Admin\Console;
 
 class ControllerCommand extends MakeCommand
 {

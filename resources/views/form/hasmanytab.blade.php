@@ -44,16 +44,16 @@
     </div>
 
     <template class="{{ $column }}-tab-tpl">
-        <li class="new nav-item" id="tab_{{ $relationName . '_new_' . \OpenAdmin\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}">
+        <li class="new nav-item" id="tab_{{ $relationName . '_new_' . \ZiiX\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}">
             <a class="nav-link inline-block px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                href="#{{ $relationName . '_new_' . \OpenAdmin\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}">
-                &nbsp;New {{ \OpenAdmin\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}
+                href="#{{ $relationName . '_new_' . \ZiiX\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}">
+                &nbsp;New {{ \ZiiX\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}
                 <i class="icon-exclamation-circle text-red-500 hide ms-1"></i>
             </a>
         </li>
     </template>
     <template class="{{ $column }}-tpl">
-        <div class="tab-pane fields-group new" id="{{ $relationName . '_new_' . \OpenAdmin\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}">
+        <div class="tab-pane fields-group new" id="{{ $relationName . '_new_' . \ZiiX\Admin\Form\NestedForm::DEFAULT_KEY_NAME }}">
             {!! $template !!}
             @if($options['allowDelete'])
             <div class="{{ $viewClass['form-group'] }} form-delete-group">

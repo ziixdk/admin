@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenAdmin\Admin\Auth\Database;
+namespace ZiiX\Admin\Auth\Database;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use OpenAdmin\Admin\Traits\DefaultDatetimeFormat;
+use ZiiX\Admin\Traits\DefaultDatetimeFormat;
 
 class OperationLog extends Model
 {

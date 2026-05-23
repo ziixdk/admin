@@ -1,8 +1,8 @@
 <?php
 
-use OpenAdmin\Admin\Auth\Database\Administrator;
-use OpenAdmin\Admin\Auth\Database\Permission;
-use OpenAdmin\Admin\Auth\Database\Role;
+use ZiiX\Admin\Auth\Database\Administrator;
+use ZiiX\Admin\Auth\Database\Permission;
+use ZiiX\Admin\Auth\Database\Role;
 
 class PermissionsTest extends TestCase
 {

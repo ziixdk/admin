@@ -8,10 +8,10 @@
                         $active = in_array($value, \Illuminate\Support\Arr::get($selected, $column, []));
                     @endphp
                     <li class="flex items-center gap-1">
-                        <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column, $value, true) }}"
+                        <a href="{{ \ZiiX\Admin\Grid\Tools\Selector::url($column, $value, true) }}"
                            class="text-sm {{ $active ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-blue-600' }}">{{ $option }}</a>
                         @if(!$active && $selector['type'] == 'many')
-                            <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column, $value) }}"
+                            <a href="{{ \ZiiX\Admin\Grid\Tools\Selector::url($column, $value) }}"
                                class="add text-gray-300 hover:text-blue-500"><i class="icon-plus-square text-xs"></i></a>
                         @else
                             <span class="w-3 inline-block"></span>
@@ -19,7 +19,7 @@
                     </li>
                 @endforeach
                 <li>
-                    <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column) }}"
+                    <a href="{{ \ZiiX\Admin\Grid\Tools\Selector::url($column) }}"
                        class="clear text-gray-300 hover:text-red-500"><i class="icon-trash text-xs"></i></a>
                 </li>
             </ul>

@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field\Traits;
+namespace ZiiX\Admin\Form\Field\Traits;
 
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form\Field;
 
 /**
  * @mixin Field
@@ -56,7 +56,7 @@ HTML;
      */
     protected function renderMediaPicker()
     {
-        if (!class_exists("OpenAdmin\Admin\Media\MediaManager")) {
+        if (!class_exists("ZiiX\Admin\Media\MediaManager")) {
             throw new \Exception(
                 '[Media Manager extention not installed yet.<br> Install using: <b>composer require open-admin-ext/media-manager</b><br><br>'
             );

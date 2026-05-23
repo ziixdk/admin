@@ -51,7 +51,7 @@
 
     var update = function (callback) {
         var url = "{{ $resource }}/" + related.getAttribute('key');
-        @if($relation == \OpenAdmin\Admin\Grid\Displayers\BelongsTo::class)
+        @if($relation == \ZiiX\Admin\Grid\Displayers\BelongsTo::class)
             var value = values.length ? values[0] : '';
         @else
             var value = values.length ? values : ['']
@@ -98,7 +98,7 @@
             }
         })
 
-        @if($relation == \OpenAdmin\Admin\Grid\Displayers\BelongsTo::class)
+        @if($relation == \ZiiX\Admin\Grid\Displayers\BelongsTo::class)
             related.dataset.val = values[0];
         @else
             related.dataset.val = JSON.stringify(values);
@@ -113,7 +113,7 @@
     }
 
     var valueFunction = function(related){
-        @if($relation == \OpenAdmin\Admin\Grid\Displayers\BelongsTo::class)
+        @if($relation == \ZiiX\Admin\Grid\Displayers\BelongsTo::class)
         return related.dataset.val;
         @else
         return JSON.parse(related.dataset.val);
