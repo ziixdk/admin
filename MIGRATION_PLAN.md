@@ -32,7 +32,7 @@ Et moderne ZiiX Admin baseret på Tailwind utility-first CSS, Alpine.js interakt
 | B2 Field renderers | `tw/b2-field-renderers` | ✅ merged til staging |
 | B3 Grid displayers | `tw/b3-grid-displayers` | ✅ merged til staging |
 | B4 Notifications | `tw/b4-notifications` | ✅ merged til staging |
-| F1 Build verify | `tw/f1-build-verify` | ⬜ |
+| F1 Build verify | `tw/f1-build-verify` | ✅ merged til staging |
 | F2 Base layout | `tw/f2-base-layout` | ⬜ |
 | F3 Form core | `tw/f3-form-core` | ⬜ |
 | F4 Form advanced | `tw/f4-form-advanced` | ⬜ |

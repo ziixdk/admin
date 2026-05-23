@@ -9,11 +9,17 @@
         <style type="text/css">{{ $css }}</style>
     @endisset
 
-    <section class="content-header clearfix">
-        <h1>
-            {!! $header ?: trans('admin.title') !!}
-            <small>{!! $description ?: trans('admin.description') !!}</small>
-        </h1>
+    <section class="content-header mb-4">
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-semibold text-gray-800">
+                    {!! $header ?: trans('admin.title') !!}
+                </h1>
+                @if($description ?? null)
+                <p class="text-sm text-gray-500 mt-0.5">{!! $description !!}</p>
+                @endif
+            </div>
+        </div>
 
         @include('admin::partials.breadcrumb')
 

@@ -9,7 +9,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     @if(!is_null($favicon = Admin::favicon()))
-    <link rel="shortcut icon" href="{{$favicon}}">
+    <link rel="shortcut icon" href="{{ $favicon }}">
     @endif
 
     {!! Admin::css() !!}
@@ -19,18 +19,19 @@
 
 </head>
 
-<body class="{{config('admin.skin')}} {{ $body_classes }}">
+<body class="bg-gray-50 {{ $body_classes }}">
 
     @if($alert = config('admin.top_alert'))
-        <div class="alert">
+        <div class="bg-yellow-50 border-b border-yellow-200 text-yellow-800 text-sm px-4 py-2">
             {!! $alert !!}
         </div>
     @endif
-    <div class="wrapper">
 
-        @include('admin::partials.header')
+    @include('admin::partials.header')
+
+    <div class="flex">
         @include('admin::partials.sidebar')
-        <main id="main" class="p-4">
+        <main id="main" class="flex-1 min-w-0 p-4 min-h-screen">
 
             <div id="pjax-container">
             <!--start-pjax-container-->
@@ -46,17 +47,11 @@
         </main>
     </div>
 
-    @if (1==2)
-        @include('admin::partials.footer')
-    @endif
-
-    <button id="totop" title="Go to top" style="display: none;"><i class="icon-chevron-up"></i></button>
-
     <script>
         function LA() {}
         LA.token = "{{ csrf_token() }}";
         LA.user = @json($_user_);
     </script>
 
-    </body>
+</body>
 </html>
