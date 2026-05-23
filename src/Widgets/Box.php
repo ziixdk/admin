@@ -62,7 +62,7 @@ class Box extends Widget implements Renderable
         }
 
         $this->id = uniqid('box-');
-        $this->class('card');
+        $this->class('bg-white rounded-lg shadow-sm border border-gray-200');
     }
 
     /**

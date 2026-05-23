@@ -36,8 +36,7 @@ class InfoBox extends Widget implements Renderable
             'link_text' => trans('admin.more'),
         ];
         $this->id = uniqid('info-box-');
-
-        $this->class("card info-box alert alert-$color");
+        $this->class('info-box');
     }
 
     /**

@@ -1,36 +1,22 @@
 <form {!! $attributes !!}>
-    <div class="card-body fields-group">
-
+    <div class="p-4 fields-group space-y-1">
         @foreach($fields as $field)
             {!! $field->render() !!}
         @endforeach
-
     </div>
 
     @if ($method != 'GET')
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     @endif
 
-    <!-- /.box-body -->
     @if(count($buttons) > 0)
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-md-{{$width['label']}}"></div>
-
-            <div class="col-md-{{$width['field']}}">
-                @if(in_array('reset', $buttons))
-                <div class="btn-group pull-left">
-                    <button type="reset" class="btn btn-warning pull-right">{{ trans('admin.reset') }}</button>
-                </div>
-                @endif
-
-                @if(in_array('submit', $buttons))
-                <div class="btn-group pull-right">
-                    <button type="submit" class="btn btn-info pull-right">{{ trans('admin.submit') }}</button>
-                </div>
-                @endif
-            </div>
-        </div>
+    <div class="px-4 py-3 border-t border-gray-100 flex justify-end gap-2">
+        @if(in_array('reset', $buttons))
+            <button type="reset" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">{{ trans('admin.reset') }}</button>
+        @endif
+        @if(in_array('submit', $buttons))
+            <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">{{ trans('admin.submit') }}</button>
+        @endif
     </div>
     @endif
 </form>

@@ -1,13 +1,13 @@
-<div class="card">
-    <div class="card-header"></div>
+<div class="bg-white rounded-lg shadow-sm border border-gray-200">
+    <div class="px-4 py-3 border-b border-gray-100">
+        {!! $grid->renderFilter() !!}
+    </div>
 
-    {!! $grid->renderFilter() !!}
-
-    <div class="card-body table-responsive no-padding">
-        <ul class="image clearfix">
+    <div class="p-4">
+        <ul class="flex flex-wrap gap-3">
             @foreach($grid->rows() as $row)
-            <li>
-                <label>
+            <li class="relative list-none">
+                <label class="cursor-pointer block">
                     {!! $row->column($key) !!}
                     {!! $row->column('__modal_selector__') !!}
                 </label>
@@ -16,36 +16,7 @@
         </ul>
     </div>
 
-    <div class="card-footer clearfix">
+    <div class="px-4 py-3 border-t border-gray-100">
         {!! $grid->paginator() !!}
     </div>
-    <!-- /.box-body -->
 </div>
-
-<style>
-ul.image {
-    padding: 0px;
-}
-
-.image li {
-    float: left;
-    margin: 10px;
-    list-style-type:none;
-    position: relative;
-}
-
-.image label {
-    cursor: pointer;
-}
-
-.image .img-thumbnail {
-    padding-right: 15px;
-}
-
-.image .iradio_minimal-blue,.image .icheckbox_minimal-blue {
-    position: absolute;
-    bottom: 5px;
-    right: 1px;
-    background-color: #ffffff;
-}
-</style>

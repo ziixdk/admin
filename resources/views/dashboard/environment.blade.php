@@ -1,28 +1,18 @@
-<div class="card box-default">
-    <div class="card-header with-border">
-        <h3 class="card-title">Environment</h3>
-
-        <div class="card-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-bs-toggle="collapse" href="#environment" role="button" aria-expanded="true" aria-controls="environment">
-                <i class="icon-minus"></i>
-            </button>
-        </div>
+<div x-data="{ open: true }" class="bg-white rounded-lg shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+        <h3 class="text-base font-semibold text-gray-800">Environment</h3>
+        <button type="button" @click="open = !open" class="p-1 text-gray-400 hover:text-gray-600 rounded">
+            <i class="text-xs" :class="open ? 'icon-minus' : 'icon-plus'"></i>
+        </button>
     </div>
-
-    <!-- /.box-header -->
-    <div class="card-body collapse show" id="environment">
-        <div class="table-responsive">
-            <table class="table table-striped">
-
-                @foreach($envs as $env)
-                <tr>
-                    <td width="120px">{{ $env['name'] }}</td>
-                    <td>{{ $env['value'] }}</td>
-                </tr>
-                @endforeach
-            </table>
-        </div>
-        <!-- /.table-responsive -->
+    <div x-show="open" x-collapse class="overflow-x-auto">
+        <table class="w-full text-sm">
+            @foreach($envs as $env)
+            <tr class="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+                <td class="px-4 py-2.5 w-36 text-gray-500 font-medium">{{ $env['name'] }}</td>
+                <td class="px-4 py-2.5 text-gray-700">{{ $env['value'] }}</td>
+            </tr>
+            @endforeach
+        </table>
     </div>
-    <!-- /.box-body -->
 </div>

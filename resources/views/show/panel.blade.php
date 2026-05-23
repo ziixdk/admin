@@ -1,25 +1,24 @@
-<div class="card border-{{ $style }}" @if ($style!= 'none')style="border-top:2px solid;" @endif>
-    <div class="card-header with-border">
-        <h3 class="card-title">{{ $title }}</h3>
-
-        <div class="card-tools">
+@php
+$border_map = [
+    'primary' => 'border-t-blue-500',
+    'info'    => 'border-t-cyan-500',
+    'success' => 'border-t-green-500',
+    'warning' => 'border-t-yellow-500',
+    'danger'  => 'border-t-red-500',
+    'default' => 'border-t-gray-300',
+];
+$top_border = ($style !== 'none') ? ($border_map[$style] ?? 'border-t-gray-300') : '';
+@endphp
+<div class="bg-white rounded-lg shadow-sm border border-gray-200 {{ $top_border }} {{ $style !== 'none' ? 'border-t-2' : '' }}">
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+        <h3 class="text-base font-semibold text-gray-800">{{ $title }}</h3>
+        <div class="flex items-center gap-2">
             {!! $tools !!}
         </div>
     </div>
-    <!-- /.box-header -->
-    <!-- form start -->
-    <div class="form-horizontal">
-
-        <div class="card-body">
-
-            <div class="row">
-
-                @foreach($fields as $field)
-                    {!! $field->render() !!}
-                @endforeach
-            </div>
-
-        </div>
-        <!-- /.box-body -->
+    <div class="p-4">
+        @foreach($fields as $field)
+            {!! $field->render() !!}
+        @endforeach
     </div>
 </div>

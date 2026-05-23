@@ -1,23 +1,21 @@
 <div {!! $attributes !!}>
     @if($title || $tools)
-        <div class="card-header with-border">
-            <h3 class="card-title">{{ $title }}</h3>
-            <div class="card-tools pull-right">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+            <h3 class="text-base font-semibold text-gray-800">{{ $title }}</h3>
+            <div class="flex items-center gap-1">
                 @foreach($tools as $tool)
                     {!! $tool !!}
                 @endforeach
-            </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
-    @endif
-    <div id="{{$id}}-body" class="card-body collapse show">
-        {!! $content !!}
-    </div><!-- /.box-body -->
-    @if($footer)
-        <div class="card-footer">
-            <div class="row">
-            {!! $footer !!}
             </div>
-        </div><!-- /.box-footer-->
+        </div>
+    @endif
+    <div id="{{$id}}-body" class="p-4">
+        {!! $content !!}
+    </div>
+    @if($footer)
+        <div class="px-4 py-3 border-t border-gray-100">
+            {!! $footer !!}
+        </div>
     @endif
 </div>
 <script>

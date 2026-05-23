@@ -1,18 +1,11 @@
-<!-- Main Footer -->
-<footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
+<footer class="flex items-center justify-between px-4 py-3 mt-4 border-t border-gray-200 text-sm text-gray-500">
+    <span>Powered by <a href="https://github.com/wishbone-productions/open-admin" target="_blank" class="text-blue-600 hover:text-blue-700">open-admin</a></span>
+    <div class="flex items-center gap-4">
         @if(config('admin.show_environment'))
-            <strong>Env</strong>&nbsp;&nbsp; {!! config('app.env') !!}
+            <span><strong class="font-medium text-gray-700">Env</strong> {!! config('app.env') !!}</span>
         @endif
-
-        &nbsp;&nbsp;&nbsp;&nbsp;
-
         @if(config('admin.show_version'))
-        <strong>Version</strong>&nbsp;&nbsp; {!! \OpenAdmin\Admin\Admin::VERSION !!}
+            <span><strong class="font-medium text-gray-700">Version</strong> {!! \OpenAdmin\Admin\Admin::VERSION !!}</span>
         @endif
-
     </div>
-    <!-- Default to the left -->
-    <strong>Powered by <a href="https://github.com/wishbone-productions/open-admin" target="_blank">open-admin</a></strong>
 </footer>
