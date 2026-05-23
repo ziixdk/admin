@@ -17,6 +17,63 @@
     --sidebar-end: right;
 }
 
+/* -----------------------------------------------
+   Layout — sidebar + main
+   ----------------------------------------------- */
+
+#sidebar {
+    width: var(--sidebar-width);
+    top: 4rem; /* h-16 header */
+}
+
+#main {
+    margin-inline-start: var(--sidebar-width);
+    transition: margin-inline-start 0.3s;
+}
+
+/* Collapsed sidebar (desktop) */
+body.side-menu-closed #sidebar {
+    width: 4rem;
+    overflow: hidden;
+}
+body.side-menu-closed #sidebar .sidebar-long {
+    display: none;
+}
+body.side-menu-closed #sidebar .sidebar-short {
+    display: block !important;
+}
+body.side-menu-closed #main {
+    margin-inline-start: 4rem;
+}
+
+/* Mobile: sidebar off-canvas */
+@media (max-width: 575px) {
+    #sidebar {
+        position: fixed;
+        inset-inline-start: calc(-1 * var(--sidebar-width));
+        transition: inset-inline-start 0.3s;
+    }
+    body.side-menu-open #sidebar {
+        inset-inline-start: 0;
+    }
+    #main {
+        margin-inline-start: 0 !important;
+    }
+}
+
+/* Header brand matches sidebar width */
+.navbar-brand {
+    transition: width 0.3s;
+}
+body.side-menu-closed .navbar-brand {
+    width: 4rem;
+}
+
+/* Push main content below fixed header */
+#main {
+    padding-top: 4rem;
+}
+
 /* Tom Select — Tailwind-compatible overrides */
 .ts-wrapper .ts-control {
     @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 w-full px-2.5 py-2 min-h-[42px];
