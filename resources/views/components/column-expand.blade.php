@@ -1,18 +1,17 @@
 <div>
-    <span class="{{ $elementClass }}" data-inserted="0" data-key="{{ $key }}" data-name="{{ $name }}"
-          data-bs-toggle="collapse" data-bs-target="#grid-collapse-{{ $name }}">
-        <a href="javascript:void(0)"><i class="icon-angle-double-down"></i>&nbsp;&nbsp;{{ $value }}</a>
+    <span class="{{ $elementClass }} cursor-pointer" data-inserted="0" data-key="{{ $key }}" data-name="{{ $name }}">
+        <a href="#"><i class="icon-angle-double-down"></i>&nbsp;&nbsp;{{ $value }}</a>
     </span>
     <template class="grid-expand-{{ $name }}">
-        <tr style='background-color: #ecf0f5;'>
+        <tr style='background-color: #f8fafc;'>
             <td colspan='100%' style='padding:0 !important; border:0;height:auto;'>
-                <div id="grid-collapse-{{ $name }}" class="collapse">
+                <div id="grid-collapse-{{ $name }}">
                     <div style="padding: 10px 10px 0 10px;" class="html">
                         @if($html)
                             {!! $html !!}
                         @else
-                            <div class="loading text-center" style="padding: 20px 0px;">
-                                <i class="icon-spinner fa-pulse fa-3x fa-fw"></i>
+                            <div class="flex items-center justify-center py-5">
+                                <i class="icon-spinner icon-pulse text-3xl text-gray-400"></i>
                             </div>
                         @endif
                     </div>
@@ -34,8 +33,9 @@
                 var key = el.dataset.key;
                 var new_row = document.querySelector('template.grid-expand-'+name).content.cloneNode(true);
                 row.after(new_row);
+                // just show inline — no Bootstrap collapse needed
                 var target = document.querySelector("#grid-collapse-"+name);
-                bootstrap.Collapse.getOrCreateInstance(target).show();
+                if (target) target.style.display = 'block';
 
                 @if($async)
                     let url = '{{ $url }}'+'&key='+key;
@@ -56,13 +56,13 @@
         });
     });
     @if ($expand)
-        expand.click();
+        expand.forEach(el => el.click());
     @endif
 </script>
 
 @if($loadGrid)
 <style>
-    .collapse .grid-box .box-header:first-child {
+    #grid-collapse-{{ $name }} .grid-box .box-header:first-child {
         display: none;
     }
 </style>

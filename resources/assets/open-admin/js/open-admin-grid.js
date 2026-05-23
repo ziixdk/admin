@@ -161,11 +161,8 @@
                     break;
 
                 case 70: // `f` for open filter
-                    var myCollapse = document.getElementById('filter-box')
-                    var bsCollapse = new bootstrap.Collapse(myCollapse, {
-                        toggle: false
-                    })
-                    bsCollapse.toggle();
+                    var myCollapse = document.getElementById('filter-box');
+                    if (myCollapse) myCollapse.classList.toggle('show');
                     break;
 
                 case 67: // `c` go to create page

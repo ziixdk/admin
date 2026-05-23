@@ -36,10 +36,10 @@ Et moderne ZiiX Admin baseret på Tailwind utility-first CSS, Alpine.js interakt
 | F2 Base layout | `tw/f2-base-layout` | ✅ merged til staging |
 | F3 Form core | `tw/f3-form-core` | ✅ merged til staging |
 | F4 Form advanced | `tw/f4-form-advanced` | ✅ merged til staging |
-| F5 Grid views | `tw/f5-grid` | ⬜ |
-| F6 Show & Tree | `tw/f6-show-tree` | ⬜ |
-| F7 Dashboard & Actions | `tw/f7-dashboard-actions` | ⬜ |
-| F8 Auth & Cleanup | `tw/f8-auth-cleanup` | ⬜ |
+| F5 Grid views | `tw/f5-grid` | ✅ merged til staging |
+| F6 Show & Tree | `tw/f6-show-tree` | ✅ merged til staging |
+| F7 Modals & Popover | `tw/f7-modals-popover` | ✅ merged til staging |
+| F8 Final cleanup | `tw/f8-final-cleanup` | ✅ merged til staging |
 
 ---
 
