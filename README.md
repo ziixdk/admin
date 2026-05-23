@@ -22,6 +22,20 @@
 
 ---
 
+## Versions
+
+ZiiX Admin is available in two editions:
+
+| | v3 (stable) | v4 (Tailwind) |
+|---|---|---|
+| **CSS** | Bootstrap 5 | Tailwind CSS v4 |
+| **JS** | Bootstrap JS + Choices.js | Alpine.js + Tom Select |
+| **Build** | Sass | Vite |
+| **Install** | `composer require ziixdk/admin:^3.0` | `composer require ziixdk/admin:^4.0` |
+| **Branch** | `main` | `v4` |
+
+---
+
 ## Requirements
 
 - PHP >= 8.3
@@ -33,7 +47,11 @@
 ## Installation
 
 ```bash
-composer require ziixdk/admin
+# v3 — Bootstrap 5 (stable)
+composer require ziixdk/admin:^3.0
+
+# v4 — Tailwind CSS v4 + Alpine.js
+composer require ziixdk/admin:^4.0
 ```
 
 Publish assets and config:
@@ -104,18 +122,19 @@ All options are in `config/admin.php`.
 ## Extensions
 
 | Extension | Install | Description |
-| --------- | ------- | ----------- |
+|-----------|---------|-------------|
 | [admin-ext-media-manager](https://packagist.org/packages/ziixdk/admin-ext-media-manager) | `composer require ziixdk/admin-ext-media-manager` | Web interface for local file management |
 | [admin-ext-ckeditor](https://packagist.org/packages/ziixdk/admin-ext-ckeditor) | `composer require ziixdk/admin-ext-ckeditor` | CKEditor rich text editor for forms |
 
 ---
 
-## Built with
+## Built with (v4)
 
 | Package | Purpose |
-| ------- | ------- |
-| [Bootstrap 5](https://getbootstrap.com/) | CSS framework & UI components |
+|---------|---------|
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first CSS framework |
 | [Alpine.js](https://alpinejs.dev/) | Lightweight JS reactivity |
+| [Vite](https://vitejs.dev/) | Asset bundler |
 | [Tom Select](https://tom-select.js.org/) | Select / multiselect inputs |
 | [Flatpickr](https://flatpickr.js.org/) | Date & time pickers |
 | [SortableJS](https://sortablejs.github.io/Sortable/) | Drag & drop sorting |
@@ -124,16 +143,29 @@ All options are in `config/admin.php`.
 | [Coloris](https://github.com/mdbassit/Coloris/) | Color picker |
 | [Font Awesome](https://fontawesome.com/) | Icons |
 | [Axios](https://github.com/axios/axios) | HTTP client |
+
+## Built with (v3)
+
+| Package | Purpose |
+|---------|---------|
+| [Bootstrap 5](https://getbootstrap.com/) | CSS framework & UI components |
+| [Choices.js](https://github.com/Choices-js/Choices) | Enhanced select inputs |
 | [SweetAlert2](https://sweetalert2.github.io/) | Confirm dialogs |
 | [Toastify](https://github.com/apvarun/toastify-js) | Toast notifications |
-| [Choices.js](https://github.com/Choices-js/Choices) | Enhanced select inputs |
+| [Flatpickr](https://flatpickr.js.org/) | Date & time pickers |
+| [SortableJS](https://sortablejs.github.io/Sortable/) | Drag & drop sorting |
+| [Leaflet](https://leafletjs.com/) | Interactive maps |
+| [NProgress](https://ricostacruz.com/nprogress/) | Page load progress bar |
+| [Coloris](https://github.com/mdbassit/Coloris/) | Color picker |
+| [Font Awesome](https://fontawesome.com/) | Icons |
+| [Axios](https://github.com/axios/axios) | HTTP client |
 | [Inputmask](https://github.com/RobinHerbots/Inputmask) | Input masking |
 | [Dual Listbox](https://github.com/maykinmedia/dual-listbox/) | Dual listbox widget |
 
 ### PHP dependencies
 
 | Package | Purpose |
-| ------- | ------- |
+|---------|---------|
 | [laravel/framework](https://laravel.com/) >= 11 | Core framework |
 | [intervention/image](https://image.intervention.io/) ^3.8 | Image upload & resize |
 | [doctrine/dbal](https://www.doctrine-project.org/projects/dbal.html) >= 4.0 | Schema introspection |

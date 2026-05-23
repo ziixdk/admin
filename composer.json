@@ -1,8 +1,8 @@
 {
     "name": "ziixdk/admin",
-    "description": "ziix-admin. Open-source Laravel Admin panel. No pro or paid package, free & open. Based on laravel-admin, with special thanks to z-song and open-admin to Sjors Broersen",
+    "description": "ziix-admin v4. Open-source Laravel Admin panel with Tailwind CSS v4 + Alpine.js. Free & open. Based on laravel-admin.",
     "type": "library",
-    "keywords": ["laravel", "admin", "grid", "form", "ziix-admin","ziixdk","free"],
+    "keywords": ["laravel", "admin", "grid", "form", "ziix-admin", "ziixdk", "tailwind", "alpinejs", "free"],
     "homepage": "https://github.com/ziixdk/admin",
     "license": "MIT",
     "authors": [
@@ -44,7 +44,8 @@
         ]
     },
     "scripts": {
-        "sass": "sass --watch resources/assets/ziix-admin/scss/styles.scss:resources/assets/ziix-admin/css/styles.css resources/assets/ziix-admin/scss/pages:resources/assets/ziix-admin/css/pages --style compressed",
+        "build": "vite build",
+        "dev": "vite",
         "test": "./vendor/bin/phpunit"
     },
     "suggest": {
@@ -59,6 +60,9 @@
             "aliases": {
                 "Admin": "ZiiX\\Admin\\Facades\\Admin"
             }
+        },
+        "branch-alias": {
+            "dev-v4": "4.x-dev"
         }
     },
     "config": {
