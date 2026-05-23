@@ -74,6 +74,22 @@ body.side-menu-closed .navbar-brand {
     padding-top: 4rem;
 }
 
+/* Input groups (prepend/append) */
+.admin-input-group { display: flex; align-items: stretch; }
+.admin-input-group > input,
+.admin-input-group > .flatpickr-input { flex: 1 1 auto; min-width: 0; }
+.admin-input-group > :not(:first-child) {
+    border-start-start-radius: 0 !important;
+    border-end-start-radius: 0 !important;
+}
+.admin-input-group > :not(:last-child) {
+    border-start-end-radius: 0 !important;
+    border-end-end-radius: 0 !important;
+}
+
+/* Form field label alignment */
+.has-error label { color: rgb(220 38 38); }
+
 /* Tom Select — Tailwind-compatible overrides */
 .ts-wrapper .ts-control {
     @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 w-full px-2.5 py-2 min-h-[42px];
