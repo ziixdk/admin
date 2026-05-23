@@ -359,7 +359,10 @@ class Form extends Interactor
 
                     var modalId = el.getAttribute("modal");
                     var myModalEl = document.getElementById(modalId);
-                    if (myModalEl) { myModalEl.classList.remove('hidden'); myModalEl.removeAttribute('aria-hidden'); }
+                    if (!myModalEl) return;
+
+                    var modal = admin.modal.create(myModalEl);
+                    modal.show();
 
                     if (myModalEl.querySelector("[name='_key']").value == ""){
                         myModalEl.querySelector("[name='_key']").value = admin.grid.selected.join();
@@ -372,7 +375,7 @@ class Form extends Interactor
                             admin.actions.actionResolver([data,el]);
                         });
                         modal.hide();
-                    });
+                    }, { once: true });
                 });
             });
         SCRIPT;

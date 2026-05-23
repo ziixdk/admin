@@ -1,46 +1,41 @@
-<span class="grid-selector" data-bs-toggle="modal" data-bs-target="#{{ $modal }}" id="{{ $display_field }}-{{$key}}" key="{{ $key }}" data-display_field="{{ $display_field }}" data-val="{{ $original }}">
-   <a href="javascript:void(0)" class="text-muted text-dotted">
+<span class="grid-selector" id="{{ $display_field }}-{{$key}}" key="{{ $key }}" data-display_field="{{ $display_field }}" data-val="{{ $original }}">
+   <a href="#" class="text-gray-500 hover:text-blue-600">
        <i class="icon-check-square"></i>&nbsp;
        <span class="text">{!! $value !!}</span>
    </a>
 </span>
 
 <style>
-    .belongsto.modal tr {
+    .belongsto tr {
         cursor: pointer;
     }
-
-    .belongsto.modal .box {
+    .belongsto .box {
         border-top: none;
         margin-bottom: 0;
         box-shadow: none;
     }
-    .belongsto.modal .loading {
+    .belongsto .loading {
         margin: 50px;
     }
 </style>
 
 <template render="true">
-    <div class="modal fade belongsto" id="{{ $modal }}" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content" style="border-radius: 5px;">
-                <div class="modal-header">
-                    <h4 class="modal-title">{{ admin_trans('admin.choose') }}</h4>
-                    <button type="button" class="btn btn-light close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex items-center justify-center p-4 belongsto" id="{{ $modal }}" tabindex="-1" aria-hidden="true">
+        <div class="relative w-full max-w-3xl bg-white rounded-xl shadow-xl max-h-full flex flex-col">
+            <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+                <h4 class="text-base font-semibold text-gray-900">{{ admin_trans('admin.choose') }}</h4>
+                <button type="button" data-modal-close="{{ $modal }}" class="p-1 text-gray-400 hover:text-gray-600 rounded" aria-label="Close">
+                    <i class="icon-times text-sm"></i>
+                </button>
+            </div>
+            <div class="modal-body overflow-y-auto p-0 flex-1">
+                <div class="loading flex items-center justify-center py-16">
+                    <i class="icon-spinner icon-pulse text-3xl text-gray-400"></i>
                 </div>
-                <div class="modal-body">
-                    <div class="loading text-center">
-                        <div class="icon-spin">
-                            <i class="icon-spinner icon-3x"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">{{ admin_trans('admin.cancel') }}</button>
-                    <button type="button" class="btn btn-primary submit">{{ admin_trans('admin.submit') }}</button>
-                </div>
+            </div>
+            <div class="modal-footer flex items-center justify-end gap-2 px-5 py-4 border-t border-gray-100">
+                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 btn-cancel" data-modal-close="{{ $modal }}">{{ admin_trans('admin.cancel') }}</button>
+                <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 submit">{{ admin_trans('admin.submit') }}</button>
             </div>
         </div>
     </div>
@@ -109,12 +104,11 @@
             related.dataset.val = JSON.stringify(values);
         @endif
 
-        text.classList.add("text-success");
+        text.classList.add("text-green-600");
 
         setTimeout(function () {
             var text = related.querySelector(".text");
-            text.classList.remove("text-success");
-
+            text.classList.remove("text-green-600");
         }, 2000);
     }
 
@@ -126,11 +120,11 @@
         @endif
     }
 
-    //var modalTrigger = '.{$this->relation_prefix}{$column} .select-relation';
     var config = {
         modal_elm : document.querySelector('#{{$modal}}'),
         url : "{!! $url !!}",
-        update : updateFunction, //for setting value
+        trigger: '#{{ $display_field }}-{{$key}}',
+        update : updateFunction,
         value : valueFunction
     }
 

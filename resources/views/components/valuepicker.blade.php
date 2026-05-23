@@ -1,25 +1,21 @@
 
 <template render="true">
-    <div class="modal fade picker" id="{{ $modal }}" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content" style="border-radius: 5px;">
-                <div class="modal-header">
-                    <h4 class="modal-title">{{ admin_trans('admin.choose') }}</h4>
-                    <button type="button" class="btn btn-light close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex items-center justify-center p-4 picker" id="{{ $modal }}" tabindex="-1" aria-hidden="true">
+        <div class="relative w-full max-w-3xl bg-white rounded-xl shadow-xl max-h-full flex flex-col">
+            <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+                <h4 class="text-base font-semibold text-gray-900">{{ admin_trans('admin.choose') }}</h4>
+                <button type="button" data-modal-close="{{ $modal }}" class="p-1 text-gray-400 hover:text-gray-600 rounded" aria-label="Close">
+                    <i class="icon-times text-sm"></i>
+                </button>
+            </div>
+            <div class="modal-body overflow-y-auto p-0 flex-1">
+                <div class="loading flex items-center justify-center py-16">
+                    <i class="icon-spinner icon-pulse text-3xl text-gray-400"></i>
                 </div>
-                <div class="modal-body">
-                    <div class="loading text-center">
-                        <div class="icon-pulse">
-                            <i class="icon-spinner icon-3x icon-fw"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">{{ admin_trans('admin.cancel') }}</button>
-                    <button type="button" class="btn btn-primary submit">{{ admin_trans('admin.submit') }}</button>
-                </div>
+            </div>
+            <div class="modal-footer flex items-center justify-end gap-2 px-5 py-4 border-t border-gray-100">
+                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 btn-cancel" data-modal-close="{{ $modal }}">{{ admin_trans('admin.cancel') }}</button>
+                <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 submit">{{ admin_trans('admin.submit') }}</button>
             </div>
         </div>
     </div>
@@ -68,57 +64,35 @@ admin.selectable.init(config);
 
 getValue();
 
-/*
-$('.picker-file-preview').on('click', 'a.remove', function () {
-    var preview = $(this).parents('.file-preview-frame');
-    var current = preview.data('val');
-
-    preview.addClass('hide');
-
-    var input = pickInput.val().split(separator);
-
-    var index = input.indexOf(current);value
-    if (index !== -1) {
-        input.splice(index, 1);
-    }
-
-    pickInput.val(input.join(separator));
-
-    updateValue();
-
-    if (input.length === 0) {
-        $(this).parents('.picker-file-preview').addClass('hide');
-    }
-});
-*/
-
 @if($is_file)
 refresh = function () {
 
     var values = (typeof value == 'string') ? [value] : value;
-    var preview = pickInput.parent().siblings('.picker-file-preview');
+    var previewEl = pickInput.parentElement.parentElement.querySelector('.picker-file-preview');
     var url_tpl = '{{ $url_tpl }}';
 
     @if($is_image)
-    var template = $('template#image-preview')
+    var templateEl = document.querySelector('template#image-preview');
     @else
-    var template = $('template#file-preview')
+    var templateEl = document.querySelector('template#file-preview');
     @endif
 
-    preview.empty();
-
-    values.forEach(function (item) {
-        var url = url_tpl.replace('__URL__', item);
-        preview.append(
-            template.html()
+    if (previewEl && templateEl) {
+        previewEl.innerHTML = '';
+        values.forEach(function (item) {
+            var url = url_tpl.replace('__URL__', item);
+            var clone = templateEl.cloneNode(true);
+            var html = clone.innerHTML
                 .replace(/_url_/g, url)
                 .replace(/_val_/g, item)
-                .replace(/_name_/g, url.split('/').pop())
-        );
-    });
-
-    if (values.length > 0) {
-        preview.removeClass('hide');
+                .replace(/_name_/g, url.split('/').pop());
+            var div = document.createElement('div');
+            div.innerHTML = html;
+            previewEl.appendChild(div.firstChild);
+        });
+        if (values.length > 0) {
+            previewEl.classList.remove('hidden');
+        }
     }
 };
 @endif
@@ -126,60 +100,13 @@ refresh = function () {
 </script>
 
 <style>
-    .picker.modal tr {
+    .picker tr {
         cursor: pointer;
     }
 
-    .picker.modal .box {
+    .picker .box {
         border-top: none;
         margin-bottom: 0;
         box-shadow: none;
     }
-
-    @if($is_file)
-    .picker-file-preview {
-        overflow: hidden;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        padding: 8px;
-        width: 100%;
-        margin-bottom: 5px;
-    }
-
-    .picker-file-preview .file-preview-frame {
-        margin: 8px;
-        border: 1px solid rgba(0, 0, 0, .2);
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
-        padding: 6px;
-        float: left;
-        text-align: center;
-        width: 213px;
-    }
-
-    .picker-file-preview .file-content {
-        font-size: 6em;
-    }
-
-    .picker-file-preview .file-caption-info {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 160px;
-        height: 20px;
-        margin: auto;
-        font-size: 11px;
-        color: #777;
-    }
-
-    .picker-file-preview .file-actions {
-        text-align: right;
-        margin-top: 20px;
-    }
-
-    .picker-file-preview img {
-        max-width: 160px;
-        max-height: 160px;
-    }
-    @endif
 </style>

@@ -474,6 +474,75 @@ admin.filter = {
 };
 admin.filter.init();
 
+/*-------------------------------------------------*/
+/* modal (lightweight — no Bootstrap dependency)   */
+/*-------------------------------------------------*/
+
+admin.modal = {
+
+    create: function (element) {
+        if (!element) return null;
+
+        var backdrop = null;
+        var self = {
+            element: element,
+
+            show: function (relatedTarget) {
+                backdrop = document.createElement('div');
+                backdrop.className = 'fixed inset-0 bg-black/50 z-40';
+                backdrop.addEventListener('click', self.hide);
+                document.body.appendChild(backdrop);
+
+                element.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                element.setAttribute('aria-hidden', 'false');
+
+                document.addEventListener('keydown', self._escHandler);
+                element.dispatchEvent(new CustomEvent('modal.show', {
+                    bubbles: true,
+                    detail: { relatedTarget: relatedTarget || null }
+                }));
+            },
+
+            hide: function () {
+                if (backdrop) { backdrop.remove(); backdrop = null; }
+                element.classList.add('hidden');
+                document.body.style.overflow = '';
+                element.setAttribute('aria-hidden', 'true');
+                document.removeEventListener('keydown', self._escHandler);
+                element.dispatchEvent(new CustomEvent('modal.hide', { bubbles: true }));
+            },
+
+            _escHandler: function (e) {
+                if (e.key === 'Escape') self.hide();
+            }
+        };
+
+        return self;
+    },
+
+    init: function () {
+        // Global handler for [data-modal-close="modal-id"] buttons
+        document.addEventListener('click', function (e) {
+            var btn = e.target.closest('[data-modal-close]');
+            if (!btn) return;
+            var modalId = btn.getAttribute('data-modal-close');
+            var modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+                modal.setAttribute('aria-hidden', 'true');
+                // Remove backdrop
+                var backdrop = document.querySelector('.admin-modal-backdrop');
+                if (backdrop) backdrop.remove();
+            }
+            e.preventDefault();
+        });
+    }
+};
+
+admin.modal.init();
+
 admin.collectGarbage = function () {
     document.querySelectorAll('.flatpickr-calendar').forEach((cal) => {
         cal.remove();
