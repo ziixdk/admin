@@ -292,7 +292,7 @@ class Admin
     }
 
     /**
-     * Register the open-admin builtin routes.
+     * Register the ziix-admin builtin routes.
      *
      * @return void
      *
@@ -304,7 +304,7 @@ class Admin
     }
 
     /**
-     * Register the open-admin builtin routes.
+     * Register the ziix-admin builtin routes.
      *
      * @return void
      */
