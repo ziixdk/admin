@@ -140,7 +140,7 @@ class Form implements Renderable
      * @param $model
      * @param \Closure $callback
      */
-    public function __construct($model, Closure $callback = null)
+    public function __construct($model, ?Closure $callback = null)
     {
         $this->model = $model;
 
@@ -1285,7 +1285,7 @@ class Form implements Renderable
      *
      * @return Form\Tools
      */
-    public function header(Closure $callback = null)
+    public function header(?Closure $callback = null)
     {
         if (func_num_args() === 0) {
             return $this->builder->getTools();
@@ -1395,7 +1395,7 @@ class Form implements Renderable
      *
      * @return \ZiiX\Admin\Form\Footer
      */
-    public function footer(Closure $callback = null)
+    public function footer(?Closure $callback = null)
     {
         if (func_num_args() === 0) {
             return $this->builder()->getFooter();

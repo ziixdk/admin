@@ -179,7 +179,7 @@ class Grid
      * @param Eloquent $model
      * @param Closure  $builder
      */
-    public function __construct(Eloquent $model, Closure $builder = null)
+    public function __construct(Eloquent $model, ?Closure $builder = null)
     {
         $this->model = new Model($model, $this);
         $this->keyName = $model->getKeyName();
@@ -209,7 +209,7 @@ class Grid
      *
      * @param Closure $callback
      */
-    public static function init(Closure $callback = null)
+    public static function init(?Closure $callback = null)
     {
         static::$initCallbacks[] = $callback;
     }
@@ -622,7 +622,7 @@ class Grid
      *
      * @return Collection|null
      */
-    public function rows(Closure $callable = null)
+    public function rows(?Closure $callable = null)
     {
         if (is_null($callable)) {
             return $this->rows;

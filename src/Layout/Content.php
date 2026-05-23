@@ -66,7 +66,7 @@ class Content implements Renderable
      *
      * @param Closure|null $callback
      */
-    public function __construct(\Closure $callback = null)
+    public function __construct(?\Closure $callback = null)
     {
         if ($callback instanceof Closure) {
             $callback($this);
