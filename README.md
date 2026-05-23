@@ -1,8 +1,24 @@
-# ZiiX Admin
+<p align="center">
+  <a href="https://ziix.eu">
+    <img src="https://ziix.eu/og-image-en.png" alt="ZiiX Admin" style="max-height:200px;">
+  </a>
+</p>
 
-> Administrative interface builder for Laravel. Build CRUD backends with just a few lines of code.
+<p align="center">
+  Administrative interface builder for Laravel — build CRUD backends with just a few lines of code.
+</p>
 
-[![License](https://img.shields.io/github/license/ziixdk/admin.svg?style=flat-square&color=brightgreen)](LICENSE)
+<p align="center">
+  <a href="https://github.com/ziixdk/admin">
+    <img src="https://img.shields.io/badge/Laravel-11%2B-red?style=flat-square" alt="Laravel 11+">
+  </a>
+  <a href="https://github.com/ziixdk/admin">
+    <img src="https://img.shields.io/badge/PHP-8.3%2B-blue?style=flat-square" alt="PHP 8.3+">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/ziixdk/admin.svg?style=flat-square&color=brightgreen" alt="MIT License">
+  </a>
+</p>
 
 ---
 
@@ -16,8 +32,6 @@
 
 ## Installation
 
-Install via Composer:
-
 ```bash
 composer require ziixdk/admin
 ```
@@ -28,42 +42,20 @@ Publish assets and config:
 php artisan vendor:publish --provider="ZiiX\Admin\AdminServiceProvider"
 ```
 
-Configuration is in `config/admin.php` — change install directory, DB connection or table names here.
-
 Run the installer:
 
 ```bash
 php artisan admin:install
 ```
 
-Open `http://localhost/admin/` in your browser. Default credentials: `admin` / `admin`.
+Open `http://localhost/admin/` — default login: `admin` / `admin`.
 
 ---
 
 ## Updating
 
-After upgrading the package, republish assets:
-
 ```bash
 php artisan vendor:publish --tag=ziix-admin-assets --force
-```
-
----
-
-## Configuration
-
-All options are in `config/admin.php`.
-
----
-
-## Artisan Commands
-
-```bash
-php artisan admin:install           # First-time setup
-php artisan admin:make ModelName    # Generate admin resource controller
-php artisan admin:create-user       # Create an admin user
-php artisan admin:reset-password    # Reset a user's password
-php artisan admin:publish           # Re-publish assets and views
 ```
 
 ---
@@ -91,36 +83,61 @@ $show->field('email');
 
 ---
 
+## Artisan Commands
+
+```bash
+php artisan admin:install           # First-time setup
+php artisan admin:make ModelName    # Generate admin resource controller
+php artisan admin:create-user       # Create an admin user
+php artisan admin:reset-password    # Reset a user's password
+php artisan admin:publish           # Re-publish assets and views
+```
+
+---
+
+## Configuration
+
+All options are in `config/admin.php`.
+
+---
+
 ## Extensions
 
-| Extension | Description |
-| --------- | ----------- |
-| [helpers](https://github.com/open-admin-org/helpers) | Development helper tools |
-| [media-manager](https://github.com/open-admin-org/media-manager) | Web interface for local file management |
-| [config](https://github.com/open-admin-org/config) | Config manager |
-| [grid-sortable](https://github.com/open-admin-org/grid-sortable) | Sortable grids |
-| [api-tester](https://github.com/open-admin-org/api-tester) | Test API calls from admin |
-| [scheduling](https://github.com/open-admin-org/scheduling) | View and test cron jobs |
-| [log-viewer](https://github.com/open-admin-org/log-viewer) | Log viewer for Laravel |
-| [reporter](https://github.com/open-admin-org/reporter) | Exception viewer |
-| [redis-manager](https://github.com/open-admin-org/redis-manager) | Redis manager |
+| Extension | Install | Description |
+| --------- | ------- | ----------- |
+| [admin-ext-media-manager](https://packagist.org/packages/ziixdk/admin-ext-media-manager) | `composer require ziixdk/admin-ext-media-manager` | Web interface for local file management |
+| [admin-ext-ckeditor](https://packagist.org/packages/ziixdk/admin-ext-ckeditor) | `composer require ziixdk/admin-ext-ckeditor` | CKEditor rich text editor for forms |
 
 ---
 
 ## Built with
 
-- [Laravel](https://laravel.com/)
-- [Bootstrap 5](https://getbootstrap.com/)
-- [Alpine.js](https://alpinejs.dev/) — Tailwind branch
-- [Tailwind CSS v4](https://tailwindcss.com/) — Tailwind branch
-- [Tom Select](https://tom-select.js.org/)
-- [Flatpickr](https://flatpickr.js.org/)
-- [SortableJS](https://sortablejs.github.io/Sortable/)
-- [Leaflet](https://leafletjs.com/)
-- [NProgress](https://ricostacruz.com/nprogress/)
-- [Coloris](https://github.com/mdbassit/Coloris/)
-- [Font Awesome](https://fontawesome.com/)
-- [Axios](https://github.com/axios/axios)
+| Package | Purpose |
+| ------- | ------- |
+| [Bootstrap 5](https://getbootstrap.com/) | CSS framework & UI components |
+| [Alpine.js](https://alpinejs.dev/) | Lightweight JS reactivity |
+| [Tom Select](https://tom-select.js.org/) | Select / multiselect inputs |
+| [Flatpickr](https://flatpickr.js.org/) | Date & time pickers |
+| [SortableJS](https://sortablejs.github.io/Sortable/) | Drag & drop sorting |
+| [Leaflet](https://leafletjs.com/) | Interactive maps |
+| [NProgress](https://ricostacruz.com/nprogress/) | Page load progress bar |
+| [Coloris](https://github.com/mdbassit/Coloris/) | Color picker |
+| [Font Awesome](https://fontawesome.com/) | Icons |
+| [Axios](https://github.com/axios/axios) | HTTP client |
+| [SweetAlert2](https://sweetalert2.github.io/) | Confirm dialogs |
+| [Toastify](https://github.com/apvarun/toastify-js) | Toast notifications |
+| [Choices.js](https://github.com/Choices-js/Choices) | Enhanced select inputs |
+| [Inputmask](https://github.com/RobinHerbots/Inputmask) | Input masking |
+| [Dual Listbox](https://github.com/maykinmedia/dual-listbox/) | Dual listbox widget |
+
+### PHP dependencies
+
+| Package | Purpose |
+| ------- | ------- |
+| [laravel/framework](https://laravel.com/) >= 11 | Core framework |
+| [intervention/image](https://image.intervention.io/) ^3.8 | Image upload & resize |
+| [doctrine/dbal](https://www.doctrine-project.org/projects/dbal.html) >= 4.0 | Schema introspection |
+| [symfony/dom-crawler](https://symfony.com/doc/current/components/dom_crawler.html) >= 7.0 | DOM parsing |
 
 ---
 
