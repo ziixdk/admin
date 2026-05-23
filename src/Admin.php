@@ -106,7 +106,7 @@ class Admin
      *
      * @return \ZiiX\Admin\Tree
      */
-    public function tree($model, Closure $callable = null)
+    public function tree($model, ?Closure $callable = null)
     {
         return new Tree($this->getModel($model), $callable);
     }
@@ -129,7 +129,7 @@ class Admin
      *
      * @return \ZiiX\Admin\Layout\Content
      */
-    public function content(Closure $callable = null)
+    public function content(?Closure $callable = null)
     {
         return new Content($callable);
     }
@@ -268,7 +268,7 @@ class Admin
      *
      * @return Navbar
      */
-    public function navbar(Closure $builder = null)
+    public function navbar(?Closure $builder = null)
     {
         if (is_null($builder)) {
             return $this->getNavbar();
