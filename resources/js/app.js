@@ -1,4 +1,8 @@
 import '../css/app.css'
+import 'tom-select/dist/css/tom-select.css'
+import 'flatpickr/dist/flatpickr.min.css'
+import 'nprogress/nprogress.css'
+import 'leaflet/dist/leaflet.css'
 
 import Alpine from 'alpinejs'
 import Collapse from '@alpinejs/collapse'
