@@ -1,21 +1,21 @@
 
-<div class="card p-0">
+<div class="bg-white rounded-lg shadow-sm border border-gray-200">
     @if(isset($title))
-        <div class="card-header">
-            <h3 class="card-title"> {{ $title }}</h3>
+        <div class="px-4 py-3 border-b border-gray-200">
+            <h3 class="text-base font-semibold text-gray-800">{{ $title }}</h3>
         </div>
     @endif
 
-	<div class="container-fluid card-header no-border">
-        @if ( $grid->showTools() || $grid->showExportBtn() || $grid->showCreateBtn() )
-        <div class="row">
-            <div class="col-auto me-auto">
+    <div class="px-4 py-3">
+        @if ($grid->showTools() || $grid->showExportBtn() || $grid->showCreateBtn())
+        <div class="flex flex-wrap items-center gap-2 justify-between">
+            <div class="flex flex-wrap items-center gap-2">
                 {!! $grid->renderCreateButton() !!}
-                @if ( $grid->showTools() )
+                @if ($grid->showTools())
                 {!! $grid->renderHeaderTools() !!}
                 @endif
             </div>
-            <div class="col-auto">
+            <div class="flex flex-wrap items-center gap-2">
                 {!! $grid->renderExportButton() !!}
                 {!! $grid->renderColumnSelector() !!}
             </div>

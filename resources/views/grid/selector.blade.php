@@ -1,99 +1,28 @@
-<style>
-
-    .grid-selector .wrap {
-        position: relative;
-        line-height: 34px;
-        border-bottom: 1px dashed #eee;
-        padding: 0 30px;
-        font-size: 13px;
-        overflow:auto;
-    }
-
-    .grid-selector .wrap:last-child {
-        border-bottom: none;
-    }
-
-    .grid-selector .wrap:first-child {
-        border-top: 1px solid #eee;
-    }
-
-    .grid-selector .select-label {
-        float: left;
-        width: 100px;
-        padding-left: 10px;
-        color: #999;
-    }
-
-    .grid-selector .select-options {
-        margin-left: 100px;
-    }
-
-    .grid-selector ul {
-        height: 25px;
-        list-style: none;
-    }
-
-    .grid-selector ul > li {
-        margin-right: 30px;
-        float: left;
-    }
-
-    .grid-selector ul > li a {
-        color: #666;
-        text-decoration: none;
-    }
-
-    .grid-selector .select-options a.active {
-        color: var(--primary-color);
-        font-weight: 600;
-    }
-
-    .grid-selector li .add {
-        visibility: hidden;
-    }
-
-    .grid-selector li:hover .add {
-        visibility: visible;
-    }
-
-    .grid-selector ul .clear {
-        visibility: hidden;
-    }
-
-    .grid-selector ul:hover .clear {
-
-        visibility: visible;
-    }
-</style>
-
-<div class="grid-selector">
+<div class="grid-selector border-b border-gray-100">
     @foreach($selectors as $column => $selector)
-        <div class="wrap">
-            <div class="select-label">{{ $selector['label'] }}</div>
-            <div class="select-options">
-                <ul>
-                    @foreach($selector['options'] as $value => $option)
-                        @php
-                            $active = in_array($value, \Illuminate\Support\Arr::get($selected, $column, []));
-                        @endphp
-                        <li>
-                            <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column, $value, true) }}"
-                               class="{{$active ? 'active' : ''}}">{{ $option }}</a>
-                            @if(!$active && $selector['type'] == 'many')
-                                &nbsp;
-                                <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column, $value) }}" class="add"><i
-                                            class="icon-plus-square"></i></a>
-                            @else
-                                <a style="visibility: hidden;"><i class="icon-plus-square"></i></a>
-                            @endif
-                        </li>
-                    @endforeach
-                    <li>
-                        <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column) }}" class="clear"><i
-                                    class="icon-trash"></i></a>
+        <div class="flex items-center gap-2 px-4 py-2 border-b border-dashed border-gray-100 last:border-0 text-sm">
+            <span class="w-28 shrink-0 text-gray-400 text-xs">{{ $selector['label'] }}</span>
+            <ul class="flex flex-wrap gap-2 m-0 p-0 list-none">
+                @foreach($selector['options'] as $value => $option)
+                    @php
+                        $active = in_array($value, \Illuminate\Support\Arr::get($selected, $column, []));
+                    @endphp
+                    <li class="flex items-center gap-1">
+                        <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column, $value, true) }}"
+                           class="text-sm {{ $active ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-blue-600' }}">{{ $option }}</a>
+                        @if(!$active && $selector['type'] == 'many')
+                            <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column, $value) }}"
+                               class="add text-gray-300 hover:text-blue-500"><i class="icon-plus-square text-xs"></i></a>
+                        @else
+                            <span class="w-3 inline-block"></span>
+                        @endif
                     </li>
-                </ul>
-            </div>
+                @endforeach
+                <li>
+                    <a href="{{ \OpenAdmin\Admin\Grid\Tools\Selector::url($column) }}"
+                       class="clear text-gray-300 hover:text-red-500"><i class="icon-trash text-xs"></i></a>
+                </li>
+            </ul>
         </div>
     @endforeach
 </div>

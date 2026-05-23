@@ -76,9 +76,9 @@
             let elms = document.querySelectorAll(".show-on-rows-selected");
             elms.forEach(el=>{
                 if(num_selected){
-                    el.classList.remove("d-none");
+                    el.classList.remove("hidden");
                 }else{
-                    el.classList.add("d-none");
+                    el.classList.add("hidden");
                 }
                 let el_selected = el.querySelectorAll(".selected");
                 if (el_selected.length){

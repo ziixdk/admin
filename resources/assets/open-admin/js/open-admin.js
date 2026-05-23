@@ -455,6 +455,25 @@ admin.tabs = {
 
 admin.tabs.init();
 
+/*-------------------------------------------------*/
+/* filter toggle                                   */
+/*-------------------------------------------------*/
+
+admin.filter = {
+    init: function () {
+        document.addEventListener('click', function (e) {
+            var btn = e.target.closest('[data-filter-target]');
+            if (!btn) return;
+            e.preventDefault();
+            var box = document.querySelector(btn.getAttribute('data-filter-target'));
+            if (!box) return;
+            box.classList.toggle('show');
+            btn.classList.toggle('active');
+        });
+    },
+};
+admin.filter.init();
+
 admin.collectGarbage = function () {
     document.querySelectorAll('.flatpickr-calendar').forEach((cal) => {
         cal.remove();
