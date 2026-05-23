@@ -80,13 +80,13 @@ class PerPageSelector extends AbstractTool
         ];
 
         return <<<HTML
-<label class="form-group pull-right d-flex align-items-center" style="margin-right: 10px; font-weight: 100;">
-        <small>{$trans['show']}</small>&nbsp;
-        <select class="form-select form-select-sm {$this->grid->getPerPageName()}" name="per-page">
-            $options
-        </select>
-        &nbsp;<small>{$trans['entries']}</small>
-    </label>
+<label class="flex items-center gap-1.5 text-sm text-gray-600 ms-auto">
+    <span>{$trans['show']}</span>
+    <select class="border border-gray-300 rounded-md text-sm py-1 px-2 bg-white text-gray-700 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 {$this->grid->getPerPageName()}" name="per-page">
+        $options
+    </select>
+    <span>{$trans['entries']}</span>
+</label>
 HTML;
     }
 

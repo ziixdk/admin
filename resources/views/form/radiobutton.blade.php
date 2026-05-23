@@ -1,9 +1,11 @@
 @include("admin::form._header")
 
-        <div class="btn-group radio-group-toggle">
+        <div class="flex flex-wrap gap-1 radio-group-toggle">
             @foreach($options as $option => $label)
-                <label class="btn btn-light {{ ($option == old($column, $value)) || ($value === null && in_array($label, $checked)) ?'active':'' }}">
-                    <input type="radio" name="{{$name}}" value="{{$option}}" class="hide minimal {{$class}}" {{ ($option == old($column, $value)) || ($value === null && in_array($label, $checked)) ?'checked':'' }} {!! $attributes !!} />&nbsp;{{$label}}&nbsp;&nbsp;
+            @php $isChecked = ($option == old($column, $value)) || ($value === null && in_array($label, $checked)); @endphp
+                <label class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border cursor-pointer transition-colors {{ $isChecked ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50' }}">
+                    <input type="radio" name="{{$name}}" value="{{$option}}" class="sr-only {{$class}}" {{ $isChecked ? 'checked' : '' }} {!! $attributes !!} />
+                    {{$label}}
                 </label>
             @endforeach
         </div>
