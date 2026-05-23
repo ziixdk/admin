@@ -30,8 +30,8 @@ Et moderne ZiiX Admin baseret på Tailwind utility-first CSS, Alpine.js interakt
 |------|--------|--------|
 | B1 Asset pipeline | `tw/b1-asset-pipeline` | ✅ merged til staging |
 | B2 Field renderers | `tw/b2-field-renderers` | ✅ merged til staging |
-| B3 Grid displayers | `tw/b3-grid-displayers` | ⬜ |
-| B4 Notifications | `tw/b4-notifications` | ⬜ |
+| B3 Grid displayers | `tw/b3-grid-displayers` | ✅ merged til staging |
+| B4 Notifications | `tw/b4-notifications` | ✅ merged til staging |
 | F1 Build verify | `tw/f1-build-verify` | ⬜ |
 | F2 Base layout | `tw/f2-base-layout` | ⬜ |
 | F3 Form core | `tw/f3-form-core` | ⬜ |
