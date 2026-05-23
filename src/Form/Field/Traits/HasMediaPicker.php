@@ -58,7 +58,7 @@ HTML;
     {
         if (!class_exists("ZiiX\Admin\Media\MediaManager")) {
             throw new \Exception(
-                '[Media Manager extention not installed yet.<br> Install using: <b>composer require open-admin-ext/media-manager</b><br><br>'
+                '[Media Manager extension not installed yet.<br> Install using: <b>composer require ziix-admin-ext/media-manager</b><br><br>'
             );
         }
 

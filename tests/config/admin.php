@@ -109,7 +109,7 @@ return [
     ],
 
     /*
-     * By setting this option to open or close operation log in open-admin.
+     * By setting this option to open or close operation log in ziix-admin.
      */
     'operation_log' => [
 

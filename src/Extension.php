@@ -231,7 +231,7 @@ abstract class Extension
     }
 
     /**
-     * Import menu item and permission to open-admin.
+     * Import menu item and permission to ziix-admin.
      */
     public static function import()
     {
@@ -343,7 +343,7 @@ abstract class Extension
     }
 
     /**
-     * Create a item in open-admin left side menu.
+     * Create a item in ziix-admin left side menu.
      *
      * @param string $title
      * @param string $uri
