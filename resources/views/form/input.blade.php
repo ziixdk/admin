@@ -1,21 +1,19 @@
 @include("admin::form._header")
 
-        <div class="input-group">
+        <div class="admin-input-group">
 
             @if ($prepend)
-            <span class="input-group-text with-icon">{!! $prepend !!}</span>
+            <span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-50 border border-gray-300 rounded-s-lg">{!! $prepend !!}</span>
             @endif
 
             <input {!! $attributes !!} />
 
             @if ($append)
-                <span class="input-group-text clearfix">{!! $append !!}</span>
+                <span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-50 border border-gray-300 rounded-e-lg">{!! $append !!}</span>
             @endif
 
             @isset($btn)
-                <span class="input-group-btn">
-                  {!! $btn !!}
-                </span>
+                <div class="shrink-0">{!! $btn !!}</div>
             @endisset
 
         </div>

@@ -3,6 +3,6 @@
     </div>
 @endif
 @if (!empty($show_as_section))
-    <hr class="form-border">
+    <hr class="border-gray-200 my-4">
 @endif
 </div>

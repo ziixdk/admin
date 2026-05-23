@@ -1,6 +1,6 @@
 @include("admin::form._header")
 
-    <div class="form-value">
+    <div class="py-2.5 text-sm text-gray-900">
         {!! $value !!}&nbsp;
     </div>
 

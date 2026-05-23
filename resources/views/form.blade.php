@@ -1,40 +1,39 @@
-<div class="card box-info">
-    <div class="card-header with-border">
-        <h3 class="card-title">{{ $form->title() }}</h3>
-
-        <div class="card-tools">
+<div class="bg-white rounded-lg shadow-sm border border-gray-200">
+    <div class="px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+        <h3 class="text-base font-semibold text-gray-800">{{ $form->title() }}</h3>
+        <div class="flex items-center gap-2">
             {!! $form->renderTools() !!}
         </div>
     </div>
-    <!-- /.box-header -->
-    <!-- form start -->
+
     {!! $form->open() !!}
 
-    <div class="card-body p-0">
+    <div class="p-0">
 
         @if(!$tabObj->isEmpty())
             @include('admin::form.tab', compact('tabObj'))
         @else
-            <div class="row fields-group">
+            <div class="fields-group p-4">
 
                 @if($form->hasRows())
                     @foreach($form->getRows() as $row)
                         {!! $row->render() !!}
                     @endforeach
                 @else
-                    @foreach($layout->columns() as $column)
-                        <div class="col-md-{{ $column->width() }}">
-                            @foreach($column->fields() as $field)
-                                {!! $field->render() !!}
-                            @endforeach
-                        </div>
-                    @endforeach
+                    <div class="grid grid-cols-12 gap-4">
+                        @foreach($layout->columns() as $column)
+                            <div class="col-span-{{ $column->width() }}">
+                                @foreach($column->fields() as $field)
+                                    {!! $field->render() !!}
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
                 @endif
             </div>
         @endif
 
     </div>
-    <!-- /.box-body -->
 
     {!! $form->renderFooter() !!}
 
@@ -42,7 +41,6 @@
         {!! $field->render() !!}
     @endforeach
 
-<!-- /.box-footer -->
     {!! $form->close() !!}
 
 </div>
