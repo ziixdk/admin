@@ -13,51 +13,90 @@
 
             document.addEventListener('click', function (event) {
                 if (admin.grid.inline_edit.popover){
-                    admin.grid.inline_edit.popover.hide();
+                    if (!event.target.closest('.ie-popover')) {
+                        admin.grid.inline_edit.popover.hide();
+                    }
                 }
             });
         },
 
-        hide_ohter_popovers : function(me){
-
+        hide_other_popovers : function(me){
             admin.grid.inline_edit.popovers.forEach(popover =>{
-                if (me != popover._element){
+                if (me !== popover) {
                     popover.hide();
                 }
             })
+        },
+
+        /* Legacy alias */
+        hide_ohter_popovers : function(me){ this.hide_other_popovers(me); },
+
+        create_popover : function(el, getContent) {
+            var popoverEl = null;
+
+            var self = {
+                _element: el,
+                eventsAdded: false,
+                tip: null,
+
+                show: function() {
+                    if (popoverEl) self.hide();
+
+                    popoverEl = document.createElement('div');
+                    popoverEl.className = 'ie-popover absolute z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-3 min-w-48';
+                    popoverEl.appendChild(getContent());
+
+                    document.body.appendChild(popoverEl);
+                    self.tip = popoverEl;
+
+                    // Position near trigger
+                    var rect = el.getBoundingClientRect();
+                    var top = window.scrollY + rect.top - popoverEl.offsetHeight - 8;
+                    if (top < 8) top = window.scrollY + rect.bottom + 8;
+                    popoverEl.style.position = 'absolute';
+                    popoverEl.style.top = top + 'px';
+                    popoverEl.style.left = Math.max(4, window.scrollX + rect.left) + 'px';
+                },
+
+                hide: function() {
+                    if (popoverEl) { popoverEl.remove(); popoverEl = null; self.tip = null; }
+                },
+
+                toggle: function() {
+                    if (popoverEl) { self.hide(); } else { self.show(); }
+                }
+            };
+
+            return self;
         },
 
         init_popover : function(triggerId,target){
 
             var el = document.getElementById(triggerId);
 
-            var popover = new bootstrap.Popover(el, {
-                html: true,
-                container: 'body',
-                trigger: 'manual',
-                placement: 'top',
-                content : function () {
+            var getContent = function() {
+                var tpl = document.querySelector("template#"+target);
+                var content = tpl.cloneNode(true).content;
 
-                    var content = document.querySelector("template#"+target).cloneNode(true);
-
-                    if(typeof(admin.grid.inline_edit.functions[triggerId]) != 'undefined'){
-                        if(typeof(admin.grid.inline_edit.functions[triggerId].content) === "function"){
-                            admin.grid.inline_edit.functions[triggerId].content(el,content.content);
-                        }
+                if(typeof(admin.grid.inline_edit.functions[triggerId]) != 'undefined'){
+                    if(typeof(admin.grid.inline_edit.functions[triggerId].content) === "function"){
+                        admin.grid.inline_edit.functions[triggerId].content(el, content);
                     }
-                    return content.content;
                 }
-            })
+                return content;
+            };
 
-            el.addEventListener('show.bs.popover', function (event) {
-                let popover = bootstrap.Popover.getInstance(this);
+            var popover = admin.grid.inline_edit.create_popover(el, getContent);
+
+            el.addEventListener('click', function (event) {
                 admin.grid.inline_edit.trigger = this;
                 admin.grid.inline_edit.popover = popover;
-                admin.grid.inline_edit.hide_ohter_popovers(popover)
+                admin.grid.inline_edit.hide_other_popovers(popover);
 
-                if (typeof(popover.eventsAdded) == 'undefined'){
-                    popover.tip.addEventListener("click",function(event){
+                popover.toggle();
 
+                if (popover.tip && !popover.eventsAdded) {
+                    popover.tip.addEventListener("click", function(event){
                         if (event.target.classList.contains("ie-cancel")){
                             popover.hide();
                         }
@@ -66,30 +105,21 @@
                         }
                         event.stopPropagation();
                         return false;
-                    })
+                    });
                     popover.eventsAdded = true;
-                }
 
-            })
-            el.addEventListener('shown.bs.popover', function (event) {
-                let popover = bootstrap.Popover.getInstance(this);
-                let content = popover.tip.querySelector(".ie-container");
-                admin.grid.inline_edit.trigger = this;
-                triggerId = this.id;
-                if(typeof(admin.grid.inline_edit.functions[triggerId]) != 'undefined'){
-                    if(typeof(admin.grid.inline_edit.functions[triggerId].shown) === "function"){
-                        admin.grid.inline_edit.functions[triggerId].shown(el,popover.tip);
+                    triggerId = this.id;
+                    if(typeof(admin.grid.inline_edit.functions[triggerId]) != 'undefined'){
+                        if(typeof(admin.grid.inline_edit.functions[triggerId].shown) === "function"){
+                            admin.grid.inline_edit.functions[triggerId].shown(el, popover.tip);
+                        }
                     }
                 }
-            })
 
-            el.addEventListener('click', function (event) {
-                bootstrap.Popover.getInstance(this).toggle();
                 event.stopPropagation();
-            })
+            });
 
             admin.grid.inline_edit.popovers.push(popover);
-
         },
 
         save : function(){
@@ -127,12 +157,6 @@
                     popover.hide();
                 }else{
                     admin.toastr.warning(result.data);
-                    /* // old  jquery code
-                    var errors = xhr.responseJSON.errors;
-                    for (var key in errors) {
-                        $popover.find('.error').append('<div><i class="icon-times-circle-o"></i> '+errors[key]+'</div>')
-                    }
-                    */
                 }
             });
         },
@@ -154,25 +178,6 @@
                 val = {'val':val,'label':val};
             }
 
-            /*
-            let type = trigger.dataset.type || false;
-            console.log(type);
-            let val = false;
-            if (typeof(trigger.dataset.val) != 'undefined'){
-                val = window.call(value_function,content);
-            }else{
-                if (type == "checkbox"){
-                    val = [];
-                    label = [];
-                    content.querySelectorAll('.ie-input:checked').forEach(el => {
-                        val.push(el.value);
-                        label.push(el.dataset.label);
-                    });
-                }else{
-                    val = content.querySelector('.ie-input').value;
-                }
-            }
-            */
             return val;
         }
     }

@@ -17,19 +17,40 @@
         init : function(config){
 
             var modal_elm = config.modal_elm;
-            var modal = new bootstrap.Modal(modal_elm);
+            var modal = admin.modal.create(modal_elm);
             var related;
             var values;
             var rows = {};
 
+            // If trigger selector provided, wire up click → show
             if (typeof(config.trigger) !== 'undefined'){
                 document.querySelectorAll(config.trigger).forEach(elm=>{
                     elm.addEventListener("click",function (e) {
-                        modal.show();
+                        related = elm;
+                        _initShow(elm);
+                        modal.show(elm);
                         e.preventDefault();
                     });
                 })
             }
+
+            var _initShow = function(relatedTarget) {
+                if (typeof(config.value) != 'undefined'){
+                    if (typeof(config.value) === 'function'){
+                        values = config.value(relatedTarget);
+                    }else{
+                        values = config.value;
+                    }
+
+                    if (typeof(values) === "string"){
+                        values = [values];
+                    }
+                }else{
+                    values = [];
+                }
+
+                load(config.url);
+            };
 
             var load = function (url) {
                 admin.ajax.request(url, {}, function (data) {
@@ -60,30 +81,18 @@
 
             modal_elm.ref = this;
             modal_elm.modal = modal;
-            modal_elm.addEventListener('show.bs.modal', function (event) {
 
-                related = event.relatedTarget;
-                this.ref.currentModal = this.modal;
-
-                admin.ajax.currenTarget = modal_elm.querySelector('.modal-body');
-
-                if (typeof(config.value) != 'undefined'){
-                    if (typeof(config.value) === 'function'){
-                        values = config.value(related);
-                    }else{
-                        values = config.value;
-                    }
-
-                    if (typeof(values) === "string"){
-                        values = [values];
-                    }
-                }else{
-                    values = [];
+            // respond to show event (set by data-modal-trigger or trigger config)
+            modal_elm.addEventListener('modal.show', function (event) {
+                var relatedTarget = event.detail.relatedTarget;
+                if (relatedTarget) {
+                    related = relatedTarget;
                 }
-
-                load(config.url);
+                admin.ajax.currenTarget = modal_elm.querySelector('.modal-body');
+                _initShow(related);
             })
-            modal_elm.addEventListener('hide.bs.modal', function (event) {
+
+            modal_elm.addEventListener('modal.hide', function (event) {
                 admin.ajax.currenTarget = false;
             })
 
@@ -111,7 +120,7 @@
                     return false;
                 }
 
-                if (event.target.classList.contains('btn-light')){
+                if (event.target.classList.contains('btn-light') || event.target.classList.contains('btn-cancel')){
                     var form = event.target.closest("form");
                     if (form){
                         load(form.getAttribute('action'));
@@ -120,16 +129,6 @@
                     event.stopPropagation();
                     return false;
                 }
-
-                /*
-                // now handeled through admin.ajax.currentTarget
-                if (event.target.classList.contains('page-link')){
-                    load(event.target.getAttribute("href"));
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return false;
-                }
-                */
 
                 if (event.target.tagName == "TD"){
                     event.target.parentNode.querySelector(".form-check-input").click();

@@ -25,15 +25,10 @@
                 }, false);
             });
 
-          // allow dropdown to extend outside responsive table
+          // allow Alpine dropdowns to extend outside responsive table
             let table = document.querySelector('.table-responsive');
             if (table){
-                table.addEventListener('show.bs.dropdown', function (event) {
-                    document.querySelector('.table-responsive').style.overflow = "inherit";
-                });
-                table.addEventListener('hide.bs.dropdown', function (event) {
-                    document.querySelector('.table-responsive').style.overflow = "auto";
-                });
+                table.style.overflow = 'visible';
             }
         },
 
