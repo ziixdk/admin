@@ -95,7 +95,7 @@ class BatchActions extends AbstractTool
      *
      * @return $this
      */
-    public function add($name, BatchAction $action = null)
+    public function add($name, ?BatchAction $action = null)
     {
         $id = $this->actions->count();
 
