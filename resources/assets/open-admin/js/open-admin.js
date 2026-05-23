@@ -409,6 +409,52 @@ admin.pages = {
     },
 };
 
+/*-------------------------------------------------*/
+/* tabs (replaces bootstrap.Tab)                   */
+/*-------------------------------------------------*/
+
+admin.tabs = {
+    show: function (link) {
+        var href = link.getAttribute('href') || link.getAttribute('data-tab-target');
+        if (!href || href === '#') return;
+
+        var container = link.closest('.nav-tabs-custom') || link.closest('[role="tablist"]')?.closest('div') || document.body;
+
+        // Deactivate all nav-links in this tab list
+        var navList = link.closest('ul, ol, [role="tablist"]');
+        if (navList) {
+            navList.querySelectorAll('.nav-link').forEach(function (l) { l.classList.remove('active'); });
+        }
+        link.classList.add('active');
+
+        // Show target pane, hide others in same container
+        if (container) {
+            container.querySelectorAll('.tab-pane').forEach(function (pane) { pane.classList.remove('active'); });
+        }
+        var target = document.querySelector(href);
+        if (target) target.classList.add('active');
+
+        // Update URL hash
+        history.replaceState(null, null, href);
+
+        // Dispatch custom event for listeners
+        link.dispatchEvent(new CustomEvent('tabShown', { bubbles: true, detail: { href: href } }));
+    },
+
+    init: function () {
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest('.nav-link[href^="#"], .nav-link[data-tab-target^="#"]');
+            if (!link) return;
+            // Skip Alpine-managed tabs (they handle themselves)
+            if (link.hasAttribute('@click') || link.closest('[x-data]')) return;
+            e.preventDefault();
+            admin.tabs.show(link);
+        });
+    },
+};
+
+admin.tabs.init();
+
 admin.collectGarbage = function () {
     document.querySelectorAll('.flatpickr-calendar').forEach((cal) => {
         cal.remove();

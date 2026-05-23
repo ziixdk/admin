@@ -2,61 +2,64 @@
 @php($listErrorKey = "$column")
 @include("admin::form._header")
 
-        <table class="table table-with-fields">
+        <div class="overflow-x-auto border border-gray-200 rounded-lg">
+            <table class="w-full text-sm text-gray-700 table-with-fields">
+                <tbody class="list-{{ $column }}-table divide-y divide-gray-100">
 
-            <tbody class="list-{{$column}}-table">
+                @foreach(old("{$column}", ($value ?: [])) as $k => $v)
 
-            @foreach(old("{$column}", ($value ?: [])) as $k => $v)
+                    @php($itemErrorKey = "{$column}.{$loop->index}")
 
-                @php($itemErrorKey = "{$column}.{$loop->index}")
-
-                <tr>
-                    @if(!empty($options['sortable']))
-                        <td width="20"><span class="icon-arrows-alt-v btn btn-light handle"></span></td>
-                    @endif
-                    <td>
-                        <div class="form-group {{ $errors->has($itemErrorKey) ? 'has-error' : '' }}">
-                            <div class="col-sm-12">
-                                <input name="{{ $column }}[]" value="{{ old("{$column}.{$k}", $v) }}" class="form-control" />
+                    <tr>
+                        @if(!empty($options['sortable']))
+                            <td class="px-2 py-2 w-8">
+                                <span class="icon-arrows-alt-v text-gray-400 cursor-move handle"></span>
+                            </td>
+                        @endif
+                        <td class="px-3 py-2">
+                            <div class="{{ $errors->has($itemErrorKey) ? 'has-error' : '' }}">
+                                <input name="{{ $column }}[]" value="{{ old("{$column}.{$k}", $v) }}"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
                                 @if($errors->has($itemErrorKey))
-                                    @foreach($errors->get($itemErrorKey) as $message)
-                                        <label class="form-label" for="inputError"><i class="icon-times-circle-o"></i> {{$message}}</label><br/>
-                                    @endforeach
+                                    <p class="text-xs text-red-600 mt-1">
+                                        @foreach($errors->get($itemErrorKey) as $message){{ $message }}@endforeach
+                                    </p>
                                 @endif
                             </div>
-                        </div>
-                    </td>
+                        </td>
 
-                    <td style="width: 75px;">
-                        <div class="{{$column}}-remove btn btn-danger btn-sm pull-right">
-                            <i class="icon-trash">&nbsp;</i>{{ __('admin.remove') }}
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <div class="{{ $column }}-add btn btn-success btn-sm pull-right">
-            <i class="icon-plus"></i>&nbsp;{{ __('admin.new') }}
+                        <td class="px-3 py-2 w-20">
+                            <button type="button" class="{{ $column }}-remove inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">
+                                <i class="icon-trash"></i> {{ __('admin.remove') }}
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-2">
+            <button type="button" class="{{ $column }}-add inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">
+                <i class="icon-plus"></i> {{ __('admin.new') }}
+            </button>
         </div>
 
-        <template class="{{$column}}-tpl">
+        <template class="{{ $column }}-tpl">
             <tr>
                 @if(!empty($options['sortable']))
-                    <td width="20"><span class="icon-arrows-alt-v btn btn-light handle"></span></td>
+                    <td class="px-2 py-2 w-8">
+                        <span class="icon-arrows-alt-v text-gray-400 cursor-move handle"></span>
+                    </td>
                 @endif
-                <td>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input name="{{ $column }}[]" class="form-control" />
-                        </div>
-                    </div>
+                <td class="px-3 py-2">
+                    <input name="{{ $column }}[]"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
                 </td>
 
-                <td style="width: 75px;">
-                    <div class="{{$column}}-remove btn btn-danger btn-sm pull-right">
-                        <i class="icon-trash">&nbsp;</i>{{ __('admin.remove') }}
-                    </div>
+                <td class="px-3 py-2 w-20">
+                    <button type="button" class="{{ $column }}-remove inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">
+                        <i class="icon-trash"></i> {{ __('admin.remove') }}
+                    </button>
                 </td>
             </tr>
         </template>

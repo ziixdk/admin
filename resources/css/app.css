@@ -74,6 +74,10 @@ body.side-menu-closed .navbar-brand {
     padding-top: 4rem;
 }
 
+/* Tabs — show/hide panes */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
 /* Input groups (prepend/append) */
 .admin-input-group { display: flex; align-items: stretch; }
 .admin-input-group > input,

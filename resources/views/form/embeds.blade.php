@@ -1,22 +1,16 @@
+<div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wide ps-0 embed-title">{{ $label }}</h4>
+    <hr class="border-gray-200 mt-2">
+</div>
 
-
-
-<h4 class="embed-title ps-3" style="font-size:1.2rem;">{{ $label }}</h4>
-<hr>
-
-<div id="embed-{{$column}}" class="embed-{{$column}}">
-
-
-    <div class="embed-{{$column}}-forms">
-
-        <div class="embed-{{$column}}-form fields-group">
-
+<div id="embed-{{ $column }}" class="embed-{{ $column }}">
+    <div class="embed-{{ $column }}-forms">
+        <div class="embed-{{ $column }}-form fields-group">
             @foreach($form->fields() as $field)
                 {!! $field->render() !!}
             @endforeach
-
         </div>
     </div>
 </div>
 
-<hr>
+<hr class="border-gray-200 my-4">
