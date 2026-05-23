@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Show;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Show;
 
 class PermissionController extends AdminController
 {

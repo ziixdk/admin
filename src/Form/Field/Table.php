@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 use Illuminate\Support\Arr;
-use OpenAdmin\Admin\Form\NestedForm;
-use OpenAdmin\Admin\Widgets\Form as WidgetForm;
+use ZiiX\Admin\Form\NestedForm;
+use ZiiX\Admin\Widgets\Form as WidgetForm;
 
 class Table extends HasMany
 {

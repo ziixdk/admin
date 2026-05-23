@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Filter;
+namespace ZiiX\Admin\Grid\Filter;
 
 class Equal extends AbstractFilter
 {

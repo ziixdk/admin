@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 trait HasResourceActions
 {
     /**
      * Returns the form with possible callback hooks.
      *
-     * @return \OpenAdmin\Admin\Form;
+     * @return \ZiiX\Admin\Form;
      */
     public function getForm()
     {

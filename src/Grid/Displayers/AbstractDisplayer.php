@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid\Displayers;
+namespace ZiiX\Admin\Grid\Displayers;
 
 use Illuminate\Database\Eloquent\Model;
-use OpenAdmin\Admin\Grid;
-use OpenAdmin\Admin\Grid\Column;
+use ZiiX\Admin\Grid;
+use ZiiX\Admin\Grid\Column;
 
 abstract class AbstractDisplayer
 {

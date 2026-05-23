@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenAdmin\Admin\Actions;
+namespace ZiiX\Admin\Actions;
 
 use Illuminate\Http\Request;
-use OpenAdmin\Admin\Grid\Column;
+use ZiiX\Admin\Grid\Column;
 
 abstract class RowAction extends GridAction
 {
@@ -134,11 +134,14 @@ abstract class RowAction extends GridAction
      */
     public function render()
     {
-        $linkClass = ($this->parent->getActionClass() != "OpenAdmin\Admin\Grid\Displayers\Actions\Actions") ? 'dropdown-item' : '';
+        $linkClass = ($this->parent->getActionClass() != "ZiiX\Admin\Grid\Displayers\Actions\Actions") ? 'dropdown-item' : '';
         $icon = $this->getIcon();
 
         if ($href = $this->href()) {
-            return "<a href='{$href}' class='{$linkClass}'>{$icon}<span class='label'>{$this->name()}</span></a>";
+            if($linkClass == 'dropdown-item'){
+                return "<a href='{$href}' target='_blank' class='{$linkClass}' title='{$this->name()}'>{$icon}<span class='label'>{$this->name()}</span></a>";
+            }
+            return "<a href='{$href}' class='{$linkClass}' title='{$this->name()}'>{$icon}<span class='label'>{$this->name()}</span></a>";
         }
 
         $this->addScript();
@@ -146,9 +149,10 @@ abstract class RowAction extends GridAction
         $attributes = $this->formatAttributes();
 
         return sprintf(
-            "<a data-_key='%s' href='javascript:void(0);' class='%s {$linkClass}' {$attributes}>{$icon}<span class='label'>%s</span></a>",
+            "<a data-_key='%s' href='javascript:void(0);' class='%s {$linkClass}' {$attributes} title='%s'>{$icon}<span class='label'>%s</span></a>",
             $this->getKey(),
             $this->getElementClass(),
+            $this->asColumn ? $this->display($this->row($this->column->getName())) : $this->name(),
             $this->asColumn ? $this->display($this->row($this->column->getName())) : $this->name()
         );
     }

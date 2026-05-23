@@ -2,9 +2,9 @@
 
 namespace Tests\Controllers;
 
-use OpenAdmin\Admin\Controllers\AdminController;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Grid;
+use ZiiX\Admin\Controllers\AdminController;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Grid;
 use Tests\Models\Tag;
 use Tests\Models\User;
 

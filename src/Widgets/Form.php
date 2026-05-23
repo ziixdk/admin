@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenAdmin\Admin\Widgets;
+namespace ZiiX\Admin\Widgets;
 
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
 use Illuminate\Validation\Validator;
-use OpenAdmin\Admin\Facades\Admin;
-use OpenAdmin\Admin\Form as BaseForm;
-use OpenAdmin\Admin\Form\Concerns\HasFormAttributes;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Layout\Content;
+use ZiiX\Admin\Facades\Admin;
+use ZiiX\Admin\Form as BaseForm;
+use ZiiX\Admin\Form\Concerns\HasFormAttributes;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Layout\Content;
 
 /**
  * Class Form.
@@ -242,7 +242,7 @@ class Form implements Renderable
      *
      * @return $this
      */
-    public function setWidth($fieldWidth = 8, $labelWidth = 2)
+    public function setWidth($fieldWidth = 10, $labelWidth = 2)
     {
         collect($this->fields)->each(function ($field) use ($fieldWidth, $labelWidth) {
             /* @var Field $field  */

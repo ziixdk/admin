@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenAdmin\Admin\Form;
+namespace ZiiX\Admin\Form;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Admin;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Widgets\Form as WidgetForm;
+use ZiiX\Admin\Admin;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Widgets\Form as WidgetForm;
 
 /**
  * Class NestedForm.
@@ -92,7 +92,7 @@ class NestedForm
     protected $original = [];
 
     /**
-     * @var \OpenAdmin\Admin\Form|\OpenAdmin\Admin\Widgets\Form
+     * @var \ZiiX\Admin\Form|\ZiiX\Admin\Widgets\Form
      */
     protected $form;
 
@@ -253,6 +253,9 @@ class NestedForm
      */
     public function prepare($input)
     {
+        if(!$input){
+            $input = [];
+        }
         if (!empty($input)) {
             foreach ($input as $key => $record) {
                 $this->setFieldOriginalValue($key);
@@ -311,7 +314,7 @@ class NestedForm
                 $value = $field->prepare($value);
             }
 
-            if (($field instanceof \OpenAdmin\Admin\Form\Field\Hidden) || $value != $field->original() || ($this->save_null_values && $value == null)) {
+            if (($field instanceof \ZiiX\Admin\Form\Field\Hidden) || $value != $field->original() || ($this->save_null_values && $value == null)) {
                 if (is_array($columns)) {
                     foreach ($columns as $name => $column) {
                         Arr::set($prepared, $column, $value[$name]);

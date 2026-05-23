@@ -1,12 +1,12 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Form\EmbeddedForm;
-use OpenAdmin\Admin\Form\Field;
-use OpenAdmin\Admin\Widgets\Form as WidgetForm;
+use ZiiX\Admin\Form\EmbeddedForm;
+use ZiiX\Admin\Form\Field;
+use ZiiX\Admin\Widgets\Form as WidgetForm;
 
 class Embeds extends Field
 {

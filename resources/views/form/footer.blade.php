@@ -6,7 +6,7 @@
     <div class="col-md-{{$width['label']}}">
     </div>
 
-    <div class="col-md-{{$width['field']}} d-flex align-items-center ">
+    <div class="col-md-{{$width['field']}} d-flex justify-content-end ">
         @if(in_array('reset', $buttons))
         <div class="flex-grow-1 ">
             <button type="reset" class="btn btn-warning">{{ trans('admin.reset') }}</button>

@@ -3,10 +3,10 @@
  * Copyright (c) 2019. Mallto.Co.Ltd.<mall-to.com> All rights reserved.
  */
 
-namespace OpenAdmin\Admin\Form\Layout;
+namespace ZiiX\Admin\Form\Layout;
 
 use Illuminate\Support\Collection;
-use OpenAdmin\Admin\Form\Field;
+use ZiiX\Admin\Form\Field;
 
 class Column
 {

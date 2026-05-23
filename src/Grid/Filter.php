@@ -1,15 +1,15 @@
 <?php
 
-namespace OpenAdmin\Admin\Grid;
+namespace ZiiX\Admin\Grid;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use OpenAdmin\Admin\Grid\Filter\AbstractFilter;
-use OpenAdmin\Admin\Grid\Filter\Layout\Layout;
-use OpenAdmin\Admin\Grid\Filter\Scope;
+use ZiiX\Admin\Grid\Filter\AbstractFilter;
+use ZiiX\Admin\Grid\Filter\Layout\Layout;
+use ZiiX\Admin\Grid\Filter\Scope;
 
 /**
  * Class Filter.

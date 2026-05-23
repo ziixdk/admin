@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Routing\Controller;
-use OpenAdmin\Admin\Layout\Content;
-use OpenAdmin\Admin\Traits\HasCustomHooks;
+use ZiiX\Admin\Layout\Content;
+use ZiiX\Admin\Traits\HasCustomHooks;
 
 class AdminController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenAdmin\Admin\Form\Field;
+namespace ZiiX\Admin\Form\Field;
 
-use OpenAdmin\Admin\Form\Field\Traits\BelongsToRelation;
+use ZiiX\Admin\Form\Field\Traits\BelongsToRelation;
 
 class BelongsTo extends Select
 {

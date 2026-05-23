@@ -1,14 +1,14 @@
 <?php
 
-namespace OpenAdmin\Admin\Controllers;
+namespace ZiiX\Admin\Controllers;
 
 use Illuminate\Routing\Controller;
-use OpenAdmin\Admin\Form;
-use OpenAdmin\Admin\Layout\Column;
-use OpenAdmin\Admin\Layout\Content;
-use OpenAdmin\Admin\Layout\Row;
-use OpenAdmin\Admin\Tree;
-use OpenAdmin\Admin\Widgets\Box;
+use ZiiX\Admin\Form;
+use ZiiX\Admin\Layout\Column;
+use ZiiX\Admin\Layout\Content;
+use ZiiX\Admin\Layout\Row;
+use ZiiX\Admin\Tree;
+use ZiiX\Admin\Widgets\Box;
 
 class MenuController extends Controller
 {
@@ -30,7 +30,7 @@ class MenuController extends Controller
                 $row->column(6, $this->treeView()->render());
 
                 $row->column(6, function (Column $column) {
-                    $form = new \OpenAdmin\Admin\Widgets\Form();
+                    $form = new \ZiiX\Admin\Widgets\Form();
                     $form->action(admin_url('auth/menu'));
 
                     $menuModel = config('admin.database.menu_model');
@@ -65,7 +65,7 @@ class MenuController extends Controller
     }
 
     /**
-     * @return \OpenAdmin\Admin\Tree
+     * @return \ZiiX\Admin\Tree
      */
     protected function treeView()
     {
