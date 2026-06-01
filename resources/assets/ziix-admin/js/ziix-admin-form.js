@@ -9,8 +9,13 @@ admin.form = {
     ignoredFields: [],
 
     removeIgnoredFields: function (formData) {
-        this.ignoredFields.forEach((name) => formData.delete(name));
-        this.ignoredFields.forEach((name) => formData.delete(name+"[]"));
+        // NOTE: Ignored fields are intentionally NOT stripped client-side.
+        // `Form::ignore()` only means "do not persist this field" — the server
+        // already removes ignored fields before saving (Form::prepare). Stripping
+        // them here also removed companion fields needed for server-side validation
+        // (e.g. `password_confirmation` for the `confirmed` rule), which made every
+        // user create/update fail with `validation.confirmed`. Submit everything;
+        // the server decides what to validate and what to persist.
         return formData;
     },
 
