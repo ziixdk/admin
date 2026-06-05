@@ -94,6 +94,7 @@ HTML;
         return <<<EOT
 <span x-data="{ open: false }" class="relative inline-block">
 <form action="{$this->getFormAction()}" pjax-container method="get" style="display: inline-block;">
+    {$this->getPreservedHiddenInputs()}
     <a href="javascript:void(0);" class="column-filter-toggle {$activeClass}" @click.prevent="open = !open">
         <i class="icon-filter"></i>
     </a>
