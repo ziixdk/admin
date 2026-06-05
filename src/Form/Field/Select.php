@@ -302,18 +302,6 @@ JS;
     }
 
     /**
-     * Returns variable name for ChoicesJS object.
-     */
-    public function choicesObjName($field = false)
-    {
-        if (empty($field)) {
-            $field = str_replace([' ', '-'], ['_', '_'], $this->getElementClassString());
-        }
-
-        return 'choices_'.$field;
-    }
-
-    /**
      * Check if field should be rendered with Tom Select.
      */
     public function allowedChoicesJs()
