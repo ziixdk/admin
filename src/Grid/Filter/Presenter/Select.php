@@ -32,6 +32,11 @@ class Select extends Presenter
     protected $additional_script = '';
 
     /**
+     * @var string|null
+     */
+    protected $ajaxUrl = null;
+
+    /**
      * Select constructor.
      *
      * @param mixed $options
@@ -42,9 +47,9 @@ class Select extends Presenter
     }
 
     /**
-     * Set config for se.
+     * Set config for select.
      *
-     * all configurations see https://github.com/jshjohnson/Choices
+     * all configurations see https://tom-select.js.org/docs/
      *
      * @param string $key
      * @param mixed  $val
@@ -59,15 +64,21 @@ class Select extends Presenter
     }
 
     /**
-     * Returns variable name for ChoicesJS object.
+     * Returns JS variable name for Tom Select instance.
      */
-    public function choicesObjName($field = false)
+    public function tomSelectObjName($field = false)
     {
         if (empty($field)) {
             $field = $this->getElementClass();
         }
 
-        return 'choices_'.$field;
+        return 'ts_'.$field;
+    }
+
+    /** @deprecated Use tomSelectObjName() */
+    public function choicesObjName($field = false)
+    {
+        return $this->tomSelectObjName($field);
     }
 
     /**
@@ -90,16 +101,28 @@ class Select extends Presenter
         }
 
         $configs = array_merge([
-            'removeItems'        => true,
-            'removeItemButton'   => true,
-            'allowHTML'          => true,
-            'classNames'         => [
-                'containerOuter' => ['choices', $this->getElementClass()],
-            ],
+            'allowEmptyOption' => true,
         ], $this->config);
-        $configs = json_encode($configs);
+        $configs_json = json_encode($configs);
 
-        $script = 'var '.$this->choicesObjName()." = new Choices('.{$this->getElementClass()}',{$configs});";
+        if ($this->ajaxUrl) {
+            $valueField = $configs['valueField'] ?? 'id';
+            $labelField = $configs['labelField'] ?? 'text';
+            $searchField = $configs['searchField'] ?? 'text';
+            $script = <<<JS
+var {$this->tomSelectObjName()} = new TomSelect('.{$this->getElementClass()}', Object.assign({$configs_json}, {
+    valueField: '{$valueField}',
+    labelField: '{$labelField}',
+    searchField: '{$searchField}',
+    load: function(query, callback) {
+        admin.ajax.post('{$this->ajaxUrl}', {query: query}, function(data) { callback(data.data); });
+    },
+    onItemAdd: function() { this.setTextboxValue(''); this.refreshOptions(); }
+}));
+JS;
+        } else {
+            $script = "var {$this->tomSelectObjName()} = new TomSelect('.{$this->getElementClass()}',{$configs_json});";
+        }
         Admin::script($script.$this->additional_script);
 
         return is_array($this->options) ? $this->options : [];
@@ -156,16 +179,16 @@ class Select extends Presenter
      */
     protected function loadRemoteOptions($url, $parameters = [], $options = [])
     {
-        $this->config = array_merge([
-            'removeItems'        => true,
-            'removeItemButton'   => true,
-        ], $this->config);
-
         $parameters_json = json_encode($parameters);
 
         $this->additional_script .= <<<JS
         admin.ajax.post("{$url}",{$parameters_json},function(data){
-            {$this->choicesObjName()}.setChoices(data.data, 'id', 'text', true);
+            var elm = document.querySelector(".{$this->getElementClass()}");
+            if (elm && elm.tomselect) {
+                elm.tomselect.clearOptions();
+                elm.tomselect.addOptions(data.data);
+                elm.tomselect.refreshOptions(false);
+            }
         });
 JS;
 
@@ -182,28 +205,12 @@ JS;
     public function ajax($url, $idField = 'id', $textField = 'text')
     {
         $this->config = array_merge([
-            'removeItems'        => true,
-            'removeItemButton'   => true,
-            'placeholder'        => $this->label,
+            'valueField'  => $idField,
+            'labelField'  => $textField,
+            'searchField' => $textField,
         ], $this->config);
 
-        $this->additional_script = <<<JS
-            let elm = document.querySelector(".{$this->getElementClass()}");
-            var lookupTimeout;
-            elm.addEventListener('search', function(event) {
-                clearTimeout(lookupTimeout);
-                lookupTimeout = setTimeout(function(){
-                    var query = {$this->choicesObjName()}.input.value;
-                    admin.ajax.post("{$url}",{query:query},function(data){
-                        {$this->choicesObjName()}.setChoices(data.data, '{$idField}', '{$textField}', true);
-                    })
-                }, 250);
-            });
-
-            elm.addEventListener('choice', function(event) {
-                {$this->choicesObjName()}.setChoices([], '{$idField}', '{$textField}', true);
-            });
-        JS;
+        $this->ajaxUrl = $url;
 
         return $this;
     }
