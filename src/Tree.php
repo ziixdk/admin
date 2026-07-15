@@ -5,6 +5,7 @@ namespace ZiiX\Admin;
 use Closure;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use ZiiX\Admin\Tree\Tools;
 
 class Tree implements Renderable
@@ -239,6 +240,23 @@ SCRIPT;
     }
 
     /**
+     * Query string to carry over to a branch's links.
+     *
+     * The tree's context lives in the query string — which language is being
+     * browsed, for one — and url($path) drops it, so an edit page would open in
+     * whatever context it defaults to rather than the one being looked at.
+     *
+     * @return string
+     */
+    protected function branchQuery()
+    {
+        $query = \request()->query();
+        Arr::forget($query, ['_pjax']);
+
+        return $query ? '?'.http_build_query($query) : '';
+    }
+
+    /**
      * Return all items of the tree.
      *
      * @return array
@@ -288,6 +306,7 @@ SCRIPT;
 
         view()->share([
             'path'           => $this->path,
+            'branchQuery'    => $this->branchQuery(),
             'keyName'        => $this->model->getKeyName(),
             'branchView'     => $this->view['branch'],
             'branchCallback' => $this->branchCallback,
